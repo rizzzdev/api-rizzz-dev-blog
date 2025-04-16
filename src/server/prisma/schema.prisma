@@ -1,0 +1,93 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/server/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id           String     @id @default(uuid())
+  fullName     String
+  registeredAt DateTime
+  comments     Comments[]
+  likes        Likes[]
+  stars        Stars[]
+}
+
+model Authors {
+  id           String   @id @default(uuid())
+  authorId     String   @unique
+  password     String
+  registeredAt DateTime
+  posts        Posts[]
+}
+
+model Posts {
+  id           String             @id @default(uuid())
+  title        String
+  postMarkdown String
+  author       Authors            @relation(references: [id], fields: [authorId])
+  authorId     String
+  likes        Likes[]
+  comments     Comments[]
+  starts       Stars[]
+  categories   PostToCategories[]
+  createdAt    DateTime
+}
+
+model Comments {
+  id           String   @id @default(uuid())
+  user         Users    @relation(references: [id], fields: [userId])
+  userId       String
+  post         Posts    @relation(references: [id], fields: [postId])
+  postId       String
+  commentsText String
+  likes        Likes[]
+  createdAt    DateTime
+}
+
+model Likes {
+  id        String    @id @default(uuid())
+  post      Posts?    @relation(references: [id], fields: [postId])
+  postId    String?
+  user      Users     @relation(references: [id], fields: [userId])
+  userId    String
+  comment   Comments? @relation(references: [id], fields: [commentId])
+  commentId String?
+  createdAt DateTime
+}
+
+model Categories {
+  id               String             @id @default(uuid())
+  postToCategories PostToCategories[]
+  categoryName     String
+  createdAt        DateTime
+}
+
+model PostToCategories {
+  id         String     @id @default(uuid())
+  post       Posts      @relation(references: [id], fields: [postId])
+  postId     String
+  category   Categories @relation(references: [id], fields: [categoryId])
+  categoryId String
+  createdAt  DateTime
+}
+
+model Stars {
+  id        String   @id @default(uuid())
+  post      Posts    @relation(references: [id], fields: [postId])
+  postId    String
+  user      Users    @relation(references: [id], fields: [userId])
+  userId    String
+  star      Int
+  createdAt DateTime
+}
