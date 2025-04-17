@@ -46,14 +46,14 @@ model Posts {
 }
 
 model Comments {
-  id           String   @id @default(uuid())
-  user         Users    @relation(references: [id], fields: [userId])
-  userId       String
-  post         Posts    @relation(references: [id], fields: [postId])
-  postId       String
-  commentsText String
-  likes        Likes[]
-  createdAt    DateTime
+  id          String   @id @default(uuid())
+  user        Users    @relation(references: [id], fields: [userId])
+  userId      String
+  post        Posts    @relation(references: [id], fields: [postId])
+  postId      String
+  commentText String
+  likes       Likes[]
+  createdAt   DateTime
 }
 
 model Likes {
@@ -68,10 +68,10 @@ model Likes {
 }
 
 model Categories {
-  id               String             @id @default(uuid())
-  postToCategories PostToCategories[]
-  categoryName     String
-  createdAt        DateTime
+  id           String             @id @default(uuid())
+  posts        PostToCategories[]
+  categoryName String
+  createdAt    DateTime
 }
 
 model PostToCategories {

@@ -8,3 +8,9 @@ export interface CommentType {
   likes: LikeType[];
   createdAt: Date;
 }
+
+export interface RequestCommentType {
+  userId: string;
+  postId: string;
+  commentText: string;
+}

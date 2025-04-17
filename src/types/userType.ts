@@ -10,3 +10,7 @@ export interface UserType {
   likes: LikeType[];
   stars: StarType[];
 }
+
+export interface RequestUserType {
+  fullName: string;
+}

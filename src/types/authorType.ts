@@ -8,3 +8,9 @@ export interface AuthorType {
   posts: PostType[];
   registeredAt: Date;
 }
+
+export interface RequestAuthorType {
+  authorId: string;
+  password: string;
+  fullName: string;
+}

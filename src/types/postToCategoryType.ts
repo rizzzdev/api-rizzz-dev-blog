@@ -4,3 +4,8 @@ export interface PostToCategoryType {
   categoryId: string;
   createdAt: Date;
 }
+
+export interface RequestPostToCategoryType {
+  postId: string;
+  categoryId: string;
+}

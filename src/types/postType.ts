@@ -14,3 +14,9 @@ export interface PostType {
   categories: PostToCategoryType[];
   createdAt: Date;
 }
+
+export interface RequestPostType {
+  title: string;
+  postMarkdown: string;
+  authorId: string;
+}

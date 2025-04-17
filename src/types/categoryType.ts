@@ -1,8 +1,12 @@
-import { PostToCategory } from "./postToCategoryType";
+import { PostToCategoryType } from "./postToCategoryType";
 
-export interface Category {
+export interface CategoryType {
   readonly id?: string;
-  postToCategories: PostToCategory[];
+  posts: PostToCategoryType[];
   categoryName: string;
   createdAt: Date;
+}
+
+export interface RequestCategoryType {
+  categoryName: string;
 }
