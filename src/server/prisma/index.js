@@ -205,6 +205,10 @@ const config = {
         "fromEnvVar": null,
         "value": "debian-openssl-3.0.x",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "rhel-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -222,16 +226,17 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "PROD_DATABASE_URL",
-        "value": "postgresql://rizzz-dev-blog_owner:npg_SvusAi0yVz6l@ep-shrill-night-a1udr1fk-pooler.ap-southeast-1.aws.neon.tech/rizzz-dev-blog?sslmode=require"
+        "value": null
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/server/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"PROD_DATABASE_URL\")\n}\n\nmodel Users {\n  id           String     @id @default(uuid())\n  fullName     String\n  registeredAt DateTime\n  deletedAt    DateTime?\n  comments     Comments[]\n  likes        Likes[]\n  stars        Stars[]\n}\n\nmodel Authors {\n  id           String    @id @default(uuid())\n  authorId     String    @unique\n  password     String\n  fullName     String\n  registeredAt DateTime\n  deletedAt    DateTime?\n  posts        Posts[]\n}\n\nmodel Posts {\n  id           String             @id @default(uuid())\n  title        String\n  postMarkdown String\n  author       Authors            @relation(references: [id], fields: [authorId])\n  authorId     String\n  likes        Likes[]\n  comments     Comments[]\n  stars        Stars[]\n  categories   PostToCategories[]\n  createdAt    DateTime\n  deletedAt    DateTime?\n}\n\nmodel Comments {\n  id          String    @id @default(uuid())\n  user        Users     @relation(references: [id], fields: [userId])\n  userId      String\n  post        Posts     @relation(references: [id], fields: [postId])\n  postId      String\n  commentText String\n  likes       Likes[]\n  createdAt   DateTime\n  deletedAt   DateTime?\n}\n\nmodel Likes {\n  id        String    @id @default(uuid())\n  post      Posts?    @relation(references: [id], fields: [postId])\n  postId    String?\n  user      Users     @relation(references: [id], fields: [userId])\n  userId    String\n  comment   Comments? @relation(references: [id], fields: [commentId])\n  commentId String?\n  createdAt DateTime\n  deletedAt DateTime?\n}\n\nmodel Categories {\n  id           String             @id @default(uuid())\n  posts        PostToCategories[]\n  categoryName String\n  createdAt    DateTime\n  deletedAt    DateTime?\n}\n\nmodel PostToCategories {\n  id         String     @id @default(uuid())\n  post       Posts      @relation(references: [id], fields: [postId])\n  postId     String\n  category   Categories @relation(references: [id], fields: [categoryId])\n  categoryId String\n  createdAt  DateTime\n  deletedAt  DateTime?\n}\n\nmodel Stars {\n  id        String    @id @default(uuid())\n  post      Posts     @relation(references: [id], fields: [postId])\n  postId    String\n  user      Users     @relation(references: [id], fields: [userId])\n  userId    String\n  star      Int\n  createdAt DateTime\n  deletedAt DateTime?\n}\n",
-  "inlineSchemaHash": "9b4b1a39c4677148c52fb06c16300ede9479aeda63b1e895a355fa6d9d080314",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../src/server/prisma\"\n  binaryTargets = [\"native\", \"rhel-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"PROD_DATABASE_URL\")\n}\n\nmodel Users {\n  id           String     @id @default(uuid())\n  fullName     String\n  registeredAt DateTime\n  deletedAt    DateTime?\n  comments     Comments[]\n  likes        Likes[]\n  stars        Stars[]\n}\n\nmodel Authors {\n  id           String    @id @default(uuid())\n  authorId     String    @unique\n  password     String\n  fullName     String\n  registeredAt DateTime\n  deletedAt    DateTime?\n  posts        Posts[]\n}\n\nmodel Posts {\n  id           String             @id @default(uuid())\n  title        String\n  postMarkdown String\n  author       Authors            @relation(references: [id], fields: [authorId])\n  authorId     String\n  likes        Likes[]\n  comments     Comments[]\n  stars        Stars[]\n  categories   PostToCategories[]\n  createdAt    DateTime\n  deletedAt    DateTime?\n}\n\nmodel Comments {\n  id          String    @id @default(uuid())\n  user        Users     @relation(references: [id], fields: [userId])\n  userId      String\n  post        Posts     @relation(references: [id], fields: [postId])\n  postId      String\n  commentText String\n  likes       Likes[]\n  createdAt   DateTime\n  deletedAt   DateTime?\n}\n\nmodel Likes {\n  id        String    @id @default(uuid())\n  post      Posts?    @relation(references: [id], fields: [postId])\n  postId    String?\n  user      Users     @relation(references: [id], fields: [userId])\n  userId    String\n  comment   Comments? @relation(references: [id], fields: [commentId])\n  commentId String?\n  createdAt DateTime\n  deletedAt DateTime?\n}\n\nmodel Categories {\n  id           String             @id @default(uuid())\n  posts        PostToCategories[]\n  categoryName String\n  createdAt    DateTime\n  deletedAt    DateTime?\n}\n\nmodel PostToCategories {\n  id         String     @id @default(uuid())\n  post       Posts      @relation(references: [id], fields: [postId])\n  postId     String\n  category   Categories @relation(references: [id], fields: [categoryId])\n  categoryId String\n  createdAt  DateTime\n  deletedAt  DateTime?\n}\n\nmodel Stars {\n  id        String    @id @default(uuid())\n  post      Posts     @relation(references: [id], fields: [postId])\n  postId    String\n  user      Users     @relation(references: [id], fields: [userId])\n  userId    String\n  star      Int\n  createdAt DateTime\n  deletedAt DateTime?\n}\n",
+  "inlineSchemaHash": "35463fb1a5224d8982f828178666d660a0e0278c0c5d139f1c0c44d9eeb34a87",
   "copyEngine": true
 }
 
@@ -272,6 +277,10 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "libquery_engine-debian-openssl-3.0.x.so.node");
 path.join(process.cwd(), "src/server/prisma/libquery_engine-debian-openssl-3.0.x.so.node")
+
+// file annotations for bundling tools to include these files
+path.join(__dirname, "libquery_engine-rhel-openssl-3.0.x.so.node");
+path.join(process.cwd(), "src/server/prisma/libquery_engine-rhel-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "src/server/prisma/schema.prisma")
