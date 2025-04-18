@@ -2,15 +2,22 @@ import { datetime } from "../libs/datetime";
 import { prisma } from "../server";
 import { RequestAuthorType } from "../types/authorType";
 
-export const findAuthors = async () => {
+export const getAuthorsRepo = async () => {
   return await prisma.authors.findMany({
     include: {
-      posts: true,
+      posts: {
+        include: {
+          categories: true,
+          comments: true,
+          likes: true,
+          stars: true,
+        },
+      },
     },
   });
 };
 
-export const findAuthorById = async (id: string) => {
+export const getAuthorByIdRepo = async (id: string) => {
   return await prisma.authors.findUnique({
     where: {
       id,
@@ -18,7 +25,7 @@ export const findAuthorById = async (id: string) => {
   });
 };
 
-export const createAuthor = async (data: RequestAuthorType) => {
+export const createAuthorRepo = async (data: RequestAuthorType) => {
   return await prisma.authors.create({
     data: {
       ...data,
@@ -27,14 +34,30 @@ export const createAuthor = async (data: RequestAuthorType) => {
   });
 };
 
-export const updateAuthorById = async (id: string, data: RequestAuthorType) => {
-  const author = await findAuthorById(id);
+export const updateAuthorByIdRepo = async (
+  id: string,
+  data: RequestAuthorType
+) => {
+  const author = await getAuthorByIdRepo(id);
   return await prisma.authors.update({
     data: {
       ...author,
       ...data,
     },
 
+    where: {
+      id,
+    },
+  });
+};
+
+export const deleteAuthorByIdRepo = async (id: string) => {
+  const author = getAuthorByIdRepo(id);
+  return await prisma.authors.update({
+    data: {
+      ...author,
+      deletedAt: datetime(),
+    },
     where: {
       id,
     },

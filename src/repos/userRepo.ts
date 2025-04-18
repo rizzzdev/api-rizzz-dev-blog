@@ -2,7 +2,7 @@ import { datetime } from "../libs/datetime";
 import { prisma } from "../server";
 import { RequestUserType } from "../types/userType";
 
-export const findUsers = async () => {
+export const getUsersRepo = async () => {
   return await prisma.users.findMany({
     include: {
       comments: true,
@@ -12,7 +12,7 @@ export const findUsers = async () => {
   });
 };
 
-export const findUserById = async (id: string) => {
+export const getUserByIdRepo = async (id: string) => {
   return await prisma.users.findUnique({
     where: {
       id,
@@ -20,7 +20,7 @@ export const findUserById = async (id: string) => {
   });
 };
 
-export const createUser = async (data: RequestUserType) => {
+export const createUserRepo = async (data: RequestUserType) => {
   return await prisma.users.create({
     data: {
       ...data,
@@ -29,12 +29,25 @@ export const createUser = async (data: RequestUserType) => {
   });
 };
 
-export const updateUserById = async (id: string, data: RequestUserType) => {
-  const user = await findUserById(id);
+export const updateUserByIdRepo = async (id: string, data: RequestUserType) => {
+  const user = await getUserByIdRepo(id);
   return await prisma.users.update({
     data: {
       ...user,
       ...data,
+    },
+    where: {
+      id,
+    },
+  });
+};
+
+export const deleteUserByIdRepo = async (id: string) => {
+  const user = getUserByIdRepo(id);
+  return await prisma.users.update({
+    data: {
+      ...user,
+      deletedAt: datetime(),
     },
     where: {
       id,

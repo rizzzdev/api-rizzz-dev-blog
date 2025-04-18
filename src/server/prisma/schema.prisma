@@ -18,17 +18,19 @@ model Users {
   id           String     @id @default(uuid())
   fullName     String
   registeredAt DateTime
+  deletedAt    DateTime?
   comments     Comments[]
   likes        Likes[]
   stars        Stars[]
 }
 
 model Authors {
-  id           String   @id @default(uuid())
-  authorId     String   @unique
+  id           String    @id @default(uuid())
+  authorId     String    @unique
   password     String
   fullName     String
   registeredAt DateTime
+  deletedAt    DateTime?
   posts        Posts[]
 }
 
@@ -40,20 +42,22 @@ model Posts {
   authorId     String
   likes        Likes[]
   comments     Comments[]
-  starts       Stars[]
+  stars        Stars[]
   categories   PostToCategories[]
   createdAt    DateTime
+  deletedAt    DateTime?
 }
 
 model Comments {
-  id          String   @id @default(uuid())
-  user        Users    @relation(references: [id], fields: [userId])
+  id          String    @id @default(uuid())
+  user        Users     @relation(references: [id], fields: [userId])
   userId      String
-  post        Posts    @relation(references: [id], fields: [postId])
+  post        Posts     @relation(references: [id], fields: [postId])
   postId      String
   commentText String
   likes       Likes[]
   createdAt   DateTime
+  deletedAt   DateTime?
 }
 
 model Likes {
@@ -65,6 +69,7 @@ model Likes {
   comment   Comments? @relation(references: [id], fields: [commentId])
   commentId String?
   createdAt DateTime
+  deletedAt DateTime?
 }
 
 model Categories {
@@ -72,6 +77,7 @@ model Categories {
   posts        PostToCategories[]
   categoryName String
   createdAt    DateTime
+  deletedAt    DateTime?
 }
 
 model PostToCategories {
@@ -81,14 +87,16 @@ model PostToCategories {
   category   Categories @relation(references: [id], fields: [categoryId])
   categoryId String
   createdAt  DateTime
+  deletedAt  DateTime?
 }
 
 model Stars {
-  id        String   @id @default(uuid())
-  post      Posts    @relation(references: [id], fields: [postId])
+  id        String    @id @default(uuid())
+  post      Posts     @relation(references: [id], fields: [postId])
   postId    String
-  user      Users    @relation(references: [id], fields: [userId])
+  user      Users     @relation(references: [id], fields: [userId])
   userId    String
   star      Int
   createdAt DateTime
+  deletedAt DateTime?
 }

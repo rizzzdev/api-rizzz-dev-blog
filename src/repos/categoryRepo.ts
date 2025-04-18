@@ -2,15 +2,19 @@ import { datetime } from "../libs/datetime";
 import { prisma } from "../server";
 import { RequestCategoryType } from "../types/categoryType";
 
-export const findCategories = async () => {
+export const getCategoriesRepo = async () => {
   return await prisma.categories.findMany({
     include: {
-      posts: true,
+      posts: {
+        include: {
+          post: true,
+        },
+      },
     },
   });
 };
 
-export const findCategoryById = async (id: string) => {
+export const getCategoryByIdRepo = async (id: string) => {
   return await prisma.categories.findUnique({
     where: {
       id,
@@ -18,7 +22,7 @@ export const findCategoryById = async (id: string) => {
   });
 };
 
-export const createCategory = async (data: RequestCategoryType) => {
+export const createCategoryRepo = async (data: RequestCategoryType) => {
   return await prisma.categories.create({
     data: {
       ...data,
@@ -27,17 +31,30 @@ export const createCategory = async (data: RequestCategoryType) => {
   });
 };
 
-export const updateCategoryById = async (
+export const updateCategoryByIdRepo = async (
   id: string,
   data: RequestCategoryType
 ) => {
-  const category = await findCategoryById(id);
+  const category = await getCategoryByIdRepo(id);
   return await prisma.categories.update({
     data: {
       ...category,
       ...data,
     },
 
+    where: {
+      id,
+    },
+  });
+};
+
+export const deleteCategoryByIdRepo = async (id: string) => {
+  const category = getCategoryByIdRepo(id);
+  return await prisma.categories.update({
+    data: {
+      ...category,
+      deletedAt: datetime(),
+    },
     where: {
       id,
     },

@@ -120,7 +120,8 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.UsersScalarFieldEnum = {
   id: 'id',
   fullName: 'fullName',
-  registeredAt: 'registeredAt'
+  registeredAt: 'registeredAt',
+  deletedAt: 'deletedAt'
 };
 
 exports.Prisma.AuthorsScalarFieldEnum = {
@@ -128,7 +129,8 @@ exports.Prisma.AuthorsScalarFieldEnum = {
   authorId: 'authorId',
   password: 'password',
   fullName: 'fullName',
-  registeredAt: 'registeredAt'
+  registeredAt: 'registeredAt',
+  deletedAt: 'deletedAt'
 };
 
 exports.Prisma.PostsScalarFieldEnum = {
@@ -136,7 +138,8 @@ exports.Prisma.PostsScalarFieldEnum = {
   title: 'title',
   postMarkdown: 'postMarkdown',
   authorId: 'authorId',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  deletedAt: 'deletedAt'
 };
 
 exports.Prisma.CommentsScalarFieldEnum = {
@@ -144,7 +147,8 @@ exports.Prisma.CommentsScalarFieldEnum = {
   userId: 'userId',
   postId: 'postId',
   commentText: 'commentText',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  deletedAt: 'deletedAt'
 };
 
 exports.Prisma.LikesScalarFieldEnum = {
@@ -152,20 +156,23 @@ exports.Prisma.LikesScalarFieldEnum = {
   postId: 'postId',
   userId: 'userId',
   commentId: 'commentId',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  deletedAt: 'deletedAt'
 };
 
 exports.Prisma.CategoriesScalarFieldEnum = {
   id: 'id',
   categoryName: 'categoryName',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  deletedAt: 'deletedAt'
 };
 
 exports.Prisma.PostToCategoriesScalarFieldEnum = {
   id: 'id',
   postId: 'postId',
   categoryId: 'categoryId',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  deletedAt: 'deletedAt'
 };
 
 exports.Prisma.StarsScalarFieldEnum = {
@@ -173,7 +180,8 @@ exports.Prisma.StarsScalarFieldEnum = {
   postId: 'postId',
   userId: 'userId',
   star: 'star',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  deletedAt: 'deletedAt'
 };
 
 exports.Prisma.SortOrder = {
