@@ -146,6 +146,7 @@ exports.Prisma.PostsScalarFieldEnum = {
   title: 'title',
   description: 'description',
   postMarkdown: 'postMarkdown',
+  imageUrl: 'imageUrl',
   authorId: 'authorId',
   createdAt: 'createdAt',
   deletedAt: 'deletedAt'

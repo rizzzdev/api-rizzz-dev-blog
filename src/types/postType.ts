@@ -9,6 +9,7 @@ export interface RequestPostType {
   title: string;
   description: string;
   postMarkdown: string;
+  imageUrl?: string;
   authorId: string;
 }
 
