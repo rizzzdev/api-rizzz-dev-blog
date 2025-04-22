@@ -185,15 +185,6 @@ exports.Prisma.PostToCategoriesScalarFieldEnum = {
   deletedAt: 'deletedAt'
 };
 
-exports.Prisma.StarsScalarFieldEnum = {
-  id: 'id',
-  postId: 'postId',
-  userId: 'userId',
-  star: 'star',
-  createdAt: 'createdAt',
-  deletedAt: 'deletedAt'
-};
-
 exports.Prisma.PageviewsScalarFieldEnum = {
   id: 'id',
   postId: 'postId',
@@ -227,7 +218,6 @@ exports.Prisma.ModelName = {
   Likes: 'Likes',
   Categories: 'Categories',
   PostToCategories: 'PostToCategories',
-  Stars: 'Stars',
   Pageviews: 'Pageviews'
 };
 

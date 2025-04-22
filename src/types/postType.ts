@@ -3,7 +3,6 @@ import { CommentTypeExtends } from "./commentType";
 import { LikeTypeExtends } from "./likeType";
 import { PageviewTypeExtends } from "./pageviewType";
 import { PostToCategoryTypeExtends } from "./postToCategoryType";
-import { StarTypeExtends } from "./starType";
 
 export interface RequestPostType {
   title: string;
@@ -22,7 +21,6 @@ export interface PostType extends RequestPostType {
 export interface PostTypeExtends extends PostType {
   likes?: LikeTypeExtends[];
   comments?: CommentTypeExtends[];
-  stars?: StarTypeExtends[];
   categories?: PostToCategoryTypeExtends[];
   pageviews?: PageviewTypeExtends[];
   author?: AuthorTypeExtends;

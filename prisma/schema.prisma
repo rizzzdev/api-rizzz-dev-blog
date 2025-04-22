@@ -22,7 +22,6 @@ model Users {
   deletedAt    DateTime?
   comments     Comments[]
   likes        Likes[]
-  stars        Stars[]
   pageviews    Pageviews[]
 }
 
@@ -56,7 +55,6 @@ model Posts {
   authorId     String
   likes        Likes[]
   comments     Comments[]
-  stars        Stars[]
   categories   PostToCategories[]
   pageviews    Pageviews[]
   createdAt    DateTime
@@ -103,17 +101,6 @@ model PostToCategories {
   categoryId String
   createdAt  DateTime
   deletedAt  DateTime?
-}
-
-model Stars {
-  id        String    @id @default(uuid())
-  post      Posts     @relation(references: [id], fields: [postId])
-  postId    String
-  user      Users     @relation(references: [id], fields: [userId])
-  userId    String
-  star      Int
-  createdAt DateTime
-  deletedAt DateTime?
 }
 
 model Pageviews {
