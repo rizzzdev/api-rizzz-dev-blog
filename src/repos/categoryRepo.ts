@@ -7,7 +7,15 @@ export const getCategoriesRepo = async () => {
     include: {
       posts: {
         include: {
-          post: true,
+          post: {
+            include: {
+              author: true,
+              comments: true,
+              likes: true,
+              pageviews: true,
+              stars: true,
+            },
+          },
         },
       },
     },

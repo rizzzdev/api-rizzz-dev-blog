@@ -16,6 +16,8 @@ const server = () => {
     cors({
       credentials: true,
       origin: [env.clientUrl!],
+      methods: ["GET", "POST", "PATCH", "DELETE"],
+      allowedHeaders: ["Content-Type", "Authorization"],
     })
   );
   routes(app);

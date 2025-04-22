@@ -12,32 +12,44 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("PROD_DATABASE_URL")
+  url      = env("DEV_DATABASE_URL")
 }
 
 model Users {
-  id           String     @id @default(uuid())
+  id           String      @id @default(uuid())
   fullName     String
   registeredAt DateTime
   deletedAt    DateTime?
   comments     Comments[]
   likes        Likes[]
   stars        Stars[]
+  pageviews    Pageviews[]
 }
 
 model Authors {
-  id           String    @id @default(uuid())
-  authorId     String    @unique
+  id           String     @id @default(uuid())
+  authorId     String     @unique
   password     String
   fullName     String
   registeredAt DateTime
   deletedAt    DateTime?
   posts        Posts[]
+  sessions     Sessions[]
+}
+
+model Sessions {
+  id           String    @id @default(uuid())
+  author       Authors   @relation(references: [authorId], fields: [authorId])
+  authorId     String
+  password     String
+  loggedInAt   DateTime
+  loggedOutAdt DateTime?
 }
 
 model Posts {
   id           String             @id @default(uuid())
   title        String
+  description  String
   postMarkdown String
   author       Authors            @relation(references: [id], fields: [authorId])
   authorId     String
@@ -45,6 +57,7 @@ model Posts {
   comments     Comments[]
   stars        Stars[]
   categories   PostToCategories[]
+  pageviews    Pageviews[]
   createdAt    DateTime
   deletedAt    DateTime?
 }
@@ -98,6 +111,16 @@ model Stars {
   user      Users     @relation(references: [id], fields: [userId])
   userId    String
   star      Int
+  createdAt DateTime
+  deletedAt DateTime?
+}
+
+model Pageviews {
+  id        String    @id @default(uuid())
+  post      Posts?    @relation(references: [id], fields: [postId])
+  postId    String?
+  user      Users     @relation(references: [id], fields: [userId])
+  userId    String
   createdAt DateTime
   deletedAt DateTime?
 }

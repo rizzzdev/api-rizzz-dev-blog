@@ -34,7 +34,10 @@ export const createUserController = async (
   const data = request.body as RequestUserType;
   const user = await createUserService(data);
 
-  response.status(user.statusCode).send(user);
+  response
+    .cookie("userId", user.data?.id, { httpOnly: true })
+    .status(user.statusCode)
+    .send(user);
 };
 
 export const updateUserByIdController = async (

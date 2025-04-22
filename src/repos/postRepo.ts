@@ -1,6 +1,7 @@
 import { datetime } from "../libs/datetime";
 import { prisma } from "../server";
-import { RequestPostType } from "../types/postType";
+import { Posts } from "../server/prisma";
+import { PostTypeExtends, RequestPostType } from "../types/postType";
 
 export const getPostsRepo = async () => {
   return await prisma.posts.findMany({
@@ -26,6 +27,11 @@ export const getPostsRepo = async () => {
         },
       },
       author: true,
+      pageviews: {
+        include: {
+          user: true,
+        },
+      },
     },
   });
 };
@@ -34,6 +40,34 @@ export const getPostByIdRepo = async (id: string) => {
   return await prisma.posts.findUnique({
     where: {
       id,
+    },
+    include: {
+      categories: {
+        include: {
+          category: true,
+        },
+      },
+      comments: {
+        include: {
+          user: true,
+        },
+      },
+      likes: {
+        include: {
+          user: true,
+        },
+      },
+      stars: {
+        include: {
+          user: true,
+        },
+      },
+      author: true,
+      pageviews: {
+        include: {
+          user: true,
+        },
+      },
     },
   });
 };
@@ -48,7 +82,7 @@ export const createPostRepo = async (data: RequestPostType) => {
 };
 
 export const updatePostByIdRepo = async (id: string, data: RequestPostType) => {
-  const post = await getPostByIdRepo(id);
+  const post = (await getPostByIdRepo(id)) as Posts;
   return await prisma.posts.update({
     data: {
       ...post,

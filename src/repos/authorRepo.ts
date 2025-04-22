@@ -5,6 +5,7 @@ import { RequestAuthorType } from "../types/authorType";
 export const getAuthorsRepo = async () => {
   return await prisma.authors.findMany({
     include: {
+      sessions: true,
       posts: {
         include: {
           categories: true,
@@ -21,6 +22,14 @@ export const getAuthorByIdRepo = async (id: string) => {
   return await prisma.authors.findUnique({
     where: {
       id,
+    },
+  });
+};
+
+export const getAuthorByAuthorIdRepo = async (authorId: string) => {
+  return await prisma.authors.findUnique({
+    where: {
+      authorId,
     },
   });
 };

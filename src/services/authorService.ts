@@ -2,6 +2,7 @@ import { apiResponse } from "../libs/apiResponse";
 import {
   createAuthorRepo,
   deleteAuthorByIdRepo,
+  getAuthorByAuthorIdRepo,
   getAuthorByIdRepo,
   getAuthorsRepo,
   updateAuthorByIdRepo,
@@ -46,12 +47,17 @@ export const createAuthorService = async (data: RequestAuthorType) => {
     return apiResponse(true, StatusCode.BAD_REQUEST, error.message, null);
   }
 
-  const author = await createAuthorRepo(data);
+  const author = await getAuthorByAuthorIdRepo(data.authorId);
+  if (author) {
+    return apiResponse(true, StatusCode.BAD_REQUEST, "Author is Exist!", null);
+  }
+
+  const newAuthor = await createAuthorRepo(data);
   return apiResponse(
     false,
     StatusCode.CREATED,
     "Create author successfully",
-    author
+    newAuthor
   );
 };
 

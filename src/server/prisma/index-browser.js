@@ -133,9 +133,18 @@ exports.Prisma.AuthorsScalarFieldEnum = {
   deletedAt: 'deletedAt'
 };
 
+exports.Prisma.SessionsScalarFieldEnum = {
+  id: 'id',
+  authorId: 'authorId',
+  password: 'password',
+  loggedInAt: 'loggedInAt',
+  loggedOutAdt: 'loggedOutAdt'
+};
+
 exports.Prisma.PostsScalarFieldEnum = {
   id: 'id',
   title: 'title',
+  description: 'description',
   postMarkdown: 'postMarkdown',
   authorId: 'authorId',
   createdAt: 'createdAt',
@@ -184,6 +193,14 @@ exports.Prisma.StarsScalarFieldEnum = {
   deletedAt: 'deletedAt'
 };
 
+exports.Prisma.PageviewsScalarFieldEnum = {
+  id: 'id',
+  postId: 'postId',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  deletedAt: 'deletedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -203,12 +220,14 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   Users: 'Users',
   Authors: 'Authors',
+  Sessions: 'Sessions',
   Posts: 'Posts',
   Comments: 'Comments',
   Likes: 'Likes',
   Categories: 'Categories',
   PostToCategories: 'PostToCategories',
-  Stars: 'Stars'
+  Stars: 'Stars',
+  Pageviews: 'Pageviews'
 };
 
 /**

@@ -6,6 +6,7 @@ export const requestPostValidation = (data: RequestPostType) => {
     authorId: Joi.string().required(),
     title: Joi.string().required(),
     postMarkdown: Joi.string().required(),
+    description: Joi.string().required(),
   });
 
   return schema.validate(data);

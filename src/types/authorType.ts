@@ -1,4 +1,5 @@
 import { PostTypeExtends } from "./postType";
+import { SessionTypeExtend } from "./sessionType";
 
 export interface RequestAuthorType {
   authorId: string;
@@ -13,4 +14,5 @@ export interface AuthorType extends RequestAuthorType {
 }
 export interface AuthorTypeExtends extends AuthorType {
   posts?: PostTypeExtends[];
+  sessions?: SessionTypeExtend[];
 }

@@ -12,12 +12,25 @@ import { requestPostValidation } from "../validations/postValidation";
 
 export const getPostsService = async () => {
   const posts = await getPostsRepo();
+  const sortedPosts = posts.sort(
+    (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
+  );
 
-  if (!posts[0]) {
-    return apiResponse(true, StatusCode.NOT_FOUND, "Posts Not Found!", posts);
+  if (!sortedPosts[0]) {
+    return apiResponse(
+      true,
+      StatusCode.NOT_FOUND,
+      "Posts Not Found!",
+      sortedPosts
+    );
   }
 
-  return apiResponse(false, StatusCode.OK, "Get Posts Successfully !", posts);
+  return apiResponse(
+    false,
+    StatusCode.OK,
+    "Get Posts Successfully !",
+    sortedPosts
+  );
 };
 
 export const getPostByIdService = async (id: string) => {

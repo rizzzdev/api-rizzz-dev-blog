@@ -11,5 +11,5 @@ export interface CategoryType extends RequestCategoryType {
 }
 
 export interface CategoryTypeExtends extends CategoryType {
-  posts: PostToCategoryTypeExtends[];
+  posts?: PostToCategoryTypeExtends[];
 }

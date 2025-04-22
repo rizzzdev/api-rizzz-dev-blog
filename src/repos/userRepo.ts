@@ -8,6 +8,11 @@ export const getUsersRepo = async () => {
       comments: true,
       likes: true,
       stars: true,
+      pageviews: {
+        include: {
+          post: true,
+        },
+      },
     },
   });
 };

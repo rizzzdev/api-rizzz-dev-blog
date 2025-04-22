@@ -1,5 +1,6 @@
 import { CommentTypeExtends } from "./commentType";
 import { LikeTypeExtends } from "./likeType";
+import { PageviewTypeExtends } from "./pageviewType";
 import { StarTypeExtends } from "./starType";
 
 export interface RequestUserType {
@@ -15,5 +16,6 @@ export interface UserType extends RequestUserType {
 export interface UserTypeExtend extends UserType {
   comments?: CommentTypeExtends[];
   likes?: LikeTypeExtends[];
-  stars: StarTypeExtends[];
+  stars?: StarTypeExtends[];
+  pageviews?: PageviewTypeExtends[];
 }

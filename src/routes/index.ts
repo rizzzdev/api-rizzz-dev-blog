@@ -8,10 +8,12 @@ import likeRouter from "./likeRoute";
 import postToCategoryRouter from "./postToCategoryRoute";
 import starRouter from "./starRoute";
 import userRouter from "./userRoute";
+import pageviewRouter from "./pageviewRoute";
+import sessionRouter from "./sessionRoute";
 
 const _routes: { endpoint: string; router: Router }[] = [
   {
-    endpoint: "/cookie",
+    endpoint: "/cookies",
     router: cookieRouter,
   },
   {
@@ -45,6 +47,14 @@ const _routes: { endpoint: string; router: Router }[] = [
   {
     endpoint: "/users",
     router: userRouter,
+  },
+  {
+    endpoint: "/pageviews",
+    router: pageviewRouter,
+  },
+  {
+    endpoint: "/sessions",
+    router: sessionRouter,
   },
 ];
 
