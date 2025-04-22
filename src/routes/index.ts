@@ -1,11 +1,11 @@
 import { Application, Router } from "express";
 import cookieRouter from "./cookieRoute";
 import authorRouter from "./authorRoute";
-import postRouter from "./postRoute";
-import categoryRouter from "./categoryRoute";
-import commentRouter from "./commentRoute";
+import articleRouter from "./articleRoute";
+import topicRouter from "./topicRoute";
+import reactionRouter from "./reactionRoute";
 import starRouter from "./starRoute";
-import postToCategoryRouter from "./postToCategoryRoute";
+import articleToTopicRouter from "./articleToTopicRoute";
 import userRouter from "./userRoute";
 import pageviewRouter from "./pageviewRoute";
 import sessionRouter from "./sessionRoute";
@@ -20,24 +20,24 @@ const _routes: { endpoint: string; router: Router }[] = [
     router: authorRouter,
   },
   {
-    endpoint: "/posts",
-    router: postRouter,
+    endpoint: "/articles",
+    router: articleRouter,
   },
   {
-    endpoint: "/categories",
-    router: categoryRouter,
+    endpoint: "/topics",
+    router: topicRouter,
   },
   {
-    endpoint: "/comments",
-    router: commentRouter,
+    endpoint: "/reactions",
+    router: reactionRouter,
   },
   {
     endpoint: "/stars",
     router: starRouter,
   },
   {
-    endpoint: "/post-to-categories",
-    router: postToCategoryRouter,
+    endpoint: "/article-to-topics",
+    router: articleToTopicRouter,
   },
   {
     endpoint: "/users",

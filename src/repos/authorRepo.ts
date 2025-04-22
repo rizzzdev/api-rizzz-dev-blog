@@ -6,10 +6,10 @@ export const getAuthorsRepo = async () => {
   return await prisma.authors.findMany({
     include: {
       sessions: true,
-      posts: {
+      articles: {
         include: {
-          categories: true,
-          comments: true,
+          topics: true,
+          reaction: true,
           stars: true,
           pageviews: true,
         },

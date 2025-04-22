@@ -8,7 +8,7 @@ import {
 } from "../repos/starRepo";
 import { StatusCode } from "../types/apiResponseType";
 import { RequestStarType } from "../types/starType";
-import { requestStarValidation } from "../validations/likeValidation";
+import { requestStarValidation } from "../validations/starValidation";
 
 export const getStarsService = async () => {
   const stars = await getStarsRepo();

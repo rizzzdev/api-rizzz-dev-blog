@@ -5,8 +5,7 @@ import { RequestStarType } from "../types/starType";
 export const getStarsRepo = async () => {
   return await prisma.stars.findMany({
     include: {
-      comment: true,
-      post: true,
+      article: true,
       user: true,
     },
   });

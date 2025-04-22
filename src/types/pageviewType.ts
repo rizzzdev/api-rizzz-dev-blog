@@ -1,9 +1,9 @@
-import { PostTypeExtends } from "./postType";
+import { ArticleTypeExtends } from "./articleType";
 import { UserTypeExtend } from "./userType";
 
 export interface RequestPageviewType {
   userId: string;
-  postId?: string;
+  articleId?: string;
 }
 
 export interface PageviewType extends RequestPageviewType {
@@ -14,5 +14,5 @@ export interface PageviewType extends RequestPageviewType {
 
 export interface PageviewTypeExtends extends PageviewType {
   user?: UserTypeExtend;
-  post?: PostTypeExtends;
+  article?: ArticleTypeExtends;
 }

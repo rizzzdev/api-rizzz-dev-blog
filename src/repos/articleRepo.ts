@@ -1,17 +1,17 @@
 import { datetime } from "../libs/datetime";
 import { prisma } from "../server";
-import { Posts } from "../server/prisma";
-import { PostTypeExtends, RequestPostType } from "../types/postType";
+import { Articles } from "../server/prisma";
+import { RequestArticleType } from "../types/articleType";
 
-export const getPostsRepo = async () => {
-  return await prisma.posts.findMany({
+export const getArticlesRepo = async () => {
+  return await prisma.articles.findMany({
     include: {
-      categories: {
+      topics: {
         include: {
-          category: true,
+          topic: true,
         },
       },
-      comments: {
+      reaction: {
         include: {
           user: true,
         },
@@ -31,18 +31,18 @@ export const getPostsRepo = async () => {
   });
 };
 
-export const getPostByIdRepo = async (id: string) => {
-  return await prisma.posts.findUnique({
+export const getArticleByIdRepo = async (id: string) => {
+  return await prisma.articles.findUnique({
     where: {
       id,
     },
     include: {
-      categories: {
+      topics: {
         include: {
-          category: true,
+          topic: true,
         },
       },
-      comments: {
+      reaction: {
         include: {
           user: true,
         },
@@ -62,8 +62,8 @@ export const getPostByIdRepo = async (id: string) => {
   });
 };
 
-export const createPostRepo = async (data: RequestPostType) => {
-  return await prisma.posts.create({
+export const createArticleRepo = async (data: RequestArticleType) => {
+  return await prisma.articles.create({
     data: {
       ...data,
       createdAt: datetime(),
@@ -71,11 +71,14 @@ export const createPostRepo = async (data: RequestPostType) => {
   });
 };
 
-export const updatePostByIdRepo = async (id: string, data: RequestPostType) => {
-  const post = (await getPostByIdRepo(id)) as Posts;
-  return await prisma.posts.update({
+export const updateArticleByIdRepo = async (
+  id: string,
+  data: RequestArticleType
+) => {
+  const article = (await getArticleByIdRepo(id)) as Articles;
+  return await prisma.articles.update({
     data: {
-      ...post,
+      ...article,
       ...data,
     },
     where: {
@@ -84,11 +87,11 @@ export const updatePostByIdRepo = async (id: string, data: RequestPostType) => {
   });
 };
 
-export const deletePostByIdRepo = async (id: string) => {
-  const post = getPostByIdRepo(id);
-  return await prisma.posts.update({
+export const deleteArticleByIdRepo = async (id: string) => {
+  const article = getArticleByIdRepo(id);
+  return await prisma.articles.update({
     data: {
-      ...post,
+      ...article,
       deletedAt: datetime(),
     },
     where: {

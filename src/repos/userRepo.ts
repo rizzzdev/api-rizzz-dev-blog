@@ -5,11 +5,11 @@ import { RequestUserType } from "../types/userType";
 export const getUsersRepo = async () => {
   return await prisma.users.findMany({
     include: {
-      comments: true,
+      reaction: true,
       stars: true,
       pageviews: {
         include: {
-          post: true,
+          article: true,
         },
       },
     },

@@ -1,18 +1,19 @@
 import { ArticleTypeExtends } from "./articleType";
 import { UserTypeExtend } from "./userType";
 
-export interface RequestStarType {
+export interface RequestReactionType {
   userId: string;
   articleId: string;
+  reactionText: string;
 }
 
-export interface StarType extends RequestStarType {
+export interface ReactionType extends RequestReactionType {
   readonly id?: string;
   createdAt: Date;
   deletedAt?: Date;
 }
 
-export interface StarTypeExtends extends StarType {
-  article?: ArticleTypeExtends;
+export interface ReactionTypeExtends extends ReactionType {
   user?: UserTypeExtend;
+  article?: ArticleTypeExtends;
 }

@@ -1,11 +1,11 @@
 import Joi from "joi";
-import { RequestCommentType } from "../types/commentType";
+import { RequestReactionType } from "../types/reactionType";
 
-export const requestCommentValidation = (data: RequestCommentType) => {
-  const schema = Joi.object<RequestCommentType>({
-    postId: Joi.string().optional(),
+export const requestReactionValidation = (data: RequestReactionType) => {
+  const schema = Joi.object<RequestReactionType>({
+    articleId: Joi.string().optional(),
     userId: Joi.string().optional(),
-    commentText: Joi.string().required(),
+    reactionText: Joi.string().required(),
   });
 
   return schema.validate(data);

@@ -141,53 +141,52 @@ exports.Prisma.SessionsScalarFieldEnum = {
   loggedOutAdt: 'loggedOutAdt'
 };
 
-exports.Prisma.PostsScalarFieldEnum = {
+exports.Prisma.ArticlesScalarFieldEnum = {
   id: 'id',
   title: 'title',
   description: 'description',
-  postMarkdown: 'postMarkdown',
+  articleMarkdown: 'articleMarkdown',
   imageUrl: 'imageUrl',
   authorId: 'authorId',
   createdAt: 'createdAt',
   deletedAt: 'deletedAt'
 };
 
-exports.Prisma.CommentsScalarFieldEnum = {
+exports.Prisma.ReactionsScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  postId: 'postId',
-  commentText: 'commentText',
+  articleId: 'articleId',
+  reactionText: 'reactionText',
   createdAt: 'createdAt',
   deletedAt: 'deletedAt'
 };
 
 exports.Prisma.StarsScalarFieldEnum = {
   id: 'id',
-  postId: 'postId',
+  articleId: 'articleId',
   userId: 'userId',
-  commentId: 'commentId',
   createdAt: 'createdAt',
   deletedAt: 'deletedAt'
 };
 
-exports.Prisma.CategoriesScalarFieldEnum = {
+exports.Prisma.TopicsScalarFieldEnum = {
   id: 'id',
-  categoryName: 'categoryName',
+  topicName: 'topicName',
   createdAt: 'createdAt',
   deletedAt: 'deletedAt'
 };
 
-exports.Prisma.PostToCategoriesScalarFieldEnum = {
+exports.Prisma.ArticleToTopicsScalarFieldEnum = {
   id: 'id',
-  postId: 'postId',
-  categoryId: 'categoryId',
+  articleId: 'articleId',
+  topicId: 'topicId',
   createdAt: 'createdAt',
   deletedAt: 'deletedAt'
 };
 
 exports.Prisma.PageviewsScalarFieldEnum = {
   id: 'id',
-  postId: 'postId',
+  articleId: 'articleId',
   userId: 'userId',
   createdAt: 'createdAt',
   deletedAt: 'deletedAt'
@@ -213,11 +212,11 @@ exports.Prisma.ModelName = {
   Users: 'Users',
   Authors: 'Authors',
   Sessions: 'Sessions',
-  Posts: 'Posts',
-  Comments: 'Comments',
+  Articles: 'Articles',
+  Reactions: 'Reactions',
   Stars: 'Stars',
-  Categories: 'Categories',
-  PostToCategories: 'PostToCategories',
+  Topics: 'Topics',
+  ArticleToTopics: 'ArticleToTopics',
   Pageviews: 'Pageviews'
 };
 

@@ -4,7 +4,7 @@ import { RequestPageviewType } from "../types/pageviewType";
 export const requestPageviewValidation = (data: RequestPageviewType) => {
   const schema = Joi.object<RequestPageviewType>({
     userId: Joi.string().required(),
-    postId: Joi.string().optional(),
+    articleId: Joi.string().optional(),
   });
 
   return schema.validate(data);

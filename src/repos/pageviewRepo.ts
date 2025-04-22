@@ -5,7 +5,7 @@ import { RequestPageviewType } from "../types/pageviewType";
 export const getPageviewsRepo = async () => {
   return await prisma.pageviews.findMany({
     include: {
-      post: true,
+      article: true,
       user: true,
     },
   });

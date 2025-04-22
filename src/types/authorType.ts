@@ -1,4 +1,4 @@
-import { PostTypeExtends } from "./postType";
+import { ArticleTypeExtends } from "./articleType";
 import { SessionTypeExtend } from "./sessionType";
 
 export interface RequestAuthorType {
@@ -13,6 +13,6 @@ export interface AuthorType extends RequestAuthorType {
   deletedAt?: Date;
 }
 export interface AuthorTypeExtends extends AuthorType {
-  posts?: PostTypeExtends[];
+  articles?: ArticleTypeExtends[];
   sessions?: SessionTypeExtend[];
 }

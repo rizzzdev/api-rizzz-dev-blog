@@ -20,7 +20,7 @@ model Users {
   fullName     String
   registeredAt DateTime
   deletedAt    DateTime?
-  comments     Comments[]
+  reaction     Reactions[]
   stars        Stars[]
   pageviews    Pageviews[]
 }
@@ -32,7 +32,7 @@ model Authors {
   fullName     String
   registeredAt DateTime
   deletedAt    DateTime?
-  posts        Posts[]
+  articles     Articles[]
   sessions     Sessions[]
 }
 
@@ -45,68 +45,65 @@ model Sessions {
   loggedOutAdt DateTime?
 }
 
-model Posts {
-  id           String             @id @default(uuid())
-  title        String
-  description  String
-  postMarkdown String
-  imageUrl     String?
-  author       Authors            @relation(references: [id], fields: [authorId])
-  authorId     String
-  stars        Stars[]
-  comments     Comments[]
-  categories   PostToCategories[]
-  pageviews    Pageviews[]
-  createdAt    DateTime
-  deletedAt    DateTime?
+model Articles {
+  id              String            @id @default(uuid())
+  title           String
+  description     String
+  articleMarkdown String
+  imageUrl        String?
+  author          Authors           @relation(references: [id], fields: [authorId])
+  authorId        String
+  stars           Stars[]
+  reaction        Reactions[]
+  topics          ArticleToTopics[]
+  pageviews       Pageviews[]
+  createdAt       DateTime
+  deletedAt       DateTime?
 }
 
-model Comments {
-  id          String    @id @default(uuid())
-  user        Users     @relation(references: [id], fields: [userId])
-  userId      String
-  post        Posts     @relation(references: [id], fields: [postId])
-  postId      String
-  commentText String
-  stars       Stars[]
-  createdAt   DateTime
-  deletedAt   DateTime?
+model Reactions {
+  id           String    @id @default(uuid())
+  user         Users     @relation(references: [id], fields: [userId])
+  userId       String
+  article      Articles  @relation(references: [id], fields: [articleId])
+  articleId    String
+  reactionText String
+  createdAt    DateTime
+  deletedAt    DateTime?
 }
 
 model Stars {
   id        String    @id @default(uuid())
-  post      Posts?    @relation(references: [id], fields: [postId])
-  postId    String?
+  article   Articles? @relation(references: [id], fields: [articleId])
+  articleId String?
   user      Users     @relation(references: [id], fields: [userId])
   userId    String
-  comment   Comments? @relation(references: [id], fields: [commentId])
-  commentId String?
   createdAt DateTime
   deletedAt DateTime?
 }
 
-model Categories {
-  id           String             @id @default(uuid())
-  posts        PostToCategories[]
-  categoryName String
-  createdAt    DateTime
-  deletedAt    DateTime?
+model Topics {
+  id        String            @id @default(uuid())
+  articles  ArticleToTopics[]
+  topicName String
+  createdAt DateTime
+  deletedAt DateTime?
 }
 
-model PostToCategories {
-  id         String     @id @default(uuid())
-  post       Posts      @relation(references: [id], fields: [postId])
-  postId     String
-  category   Categories @relation(references: [id], fields: [categoryId])
-  categoryId String
-  createdAt  DateTime
-  deletedAt  DateTime?
+model ArticleToTopics {
+  id        String    @id @default(uuid())
+  article   Articles  @relation(references: [id], fields: [articleId])
+  articleId String
+  topic     Topics    @relation(references: [id], fields: [topicId])
+  topicId   String
+  createdAt DateTime
+  deletedAt DateTime?
 }
 
 model Pageviews {
   id        String    @id @default(uuid())
-  post      Posts?    @relation(references: [id], fields: [postId])
-  postId    String?
+  article   Articles? @relation(references: [id], fields: [articleId])
+  articleId String?
   user      Users     @relation(references: [id], fields: [userId])
   userId    String
   createdAt DateTime
