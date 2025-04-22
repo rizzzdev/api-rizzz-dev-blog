@@ -37,7 +37,7 @@ export const createSessionController = async (
   const author = await getAuthorByAuthorIdRepo(session!.data!.authorId);
 
   response
-    .cookie("authorId", author?.id)
+    .cookie("authorId", author?.id, { httpOnly: true })
     .status(session.statusCode)
     .send(session);
 };
