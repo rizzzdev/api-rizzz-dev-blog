@@ -161,7 +161,7 @@ exports.Prisma.CommentsScalarFieldEnum = {
   deletedAt: 'deletedAt'
 };
 
-exports.Prisma.LikesScalarFieldEnum = {
+exports.Prisma.StarsScalarFieldEnum = {
   id: 'id',
   postId: 'postId',
   userId: 'userId',
@@ -215,7 +215,7 @@ exports.Prisma.ModelName = {
   Sessions: 'Sessions',
   Posts: 'Posts',
   Comments: 'Comments',
-  Likes: 'Likes',
+  Stars: 'Stars',
   Categories: 'Categories',
   PostToCategories: 'PostToCategories',
   Pageviews: 'Pageviews'

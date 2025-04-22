@@ -1,4 +1,4 @@
-import { LikeTypeExtends } from "./likeType";
+import { LikeTypeExtends } from "./starType";
 import { PostTypeExtends } from "./postType";
 import { UserTypeExtend } from "./userType";
 

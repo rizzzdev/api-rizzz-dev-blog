@@ -10,8 +10,8 @@ export const getAuthorsRepo = async () => {
         include: {
           categories: true,
           comments: true,
-          likes: true,
           stars: true,
+          pageviews: true,
         },
       },
     },

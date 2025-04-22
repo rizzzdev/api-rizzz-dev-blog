@@ -1,6 +1,6 @@
 import { AuthorTypeExtends } from "./authorType";
 import { CommentTypeExtends } from "./commentType";
-import { LikeTypeExtends } from "./likeType";
+import { LikeTypeExtends } from "./starType";
 import { PageviewTypeExtends } from "./pageviewType";
 import { PostToCategoryTypeExtends } from "./postToCategoryType";
 

@@ -1,8 +1,8 @@
 import Joi from "joi";
-import { RequestLikeType } from "../types/likeType";
+import { RequestStarType } from "../types/starType";
 
-export const requestLikeValidation = (data: RequestLikeType) => {
-  const schema = Joi.object<RequestLikeType>({
+export const requestStarValidation = (data: RequestStarType) => {
+  const schema = Joi.object<RequestStarType>({
     userId: Joi.string().required(),
     commentId: Joi.string().optional(),
     postId: Joi.string().optional(),

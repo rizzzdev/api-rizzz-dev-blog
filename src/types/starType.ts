@@ -2,19 +2,19 @@ import { CommentTypeExtends } from "./commentType";
 import { PostTypeExtends } from "./postType";
 import { UserTypeExtend } from "./userType";
 
-export interface RequestLikeType {
+export interface RequestStarType {
   userId: string;
   postId?: string;
   commentId?: string;
 }
 
-export interface LikeType extends RequestLikeType {
+export interface StarType extends RequestStarType {
   readonly id?: string;
   createdAt: Date;
   deletedAt?: Date;
 }
 
-export interface LikeTypeExtends extends LikeType {
+export interface StarTypeExtends extends StarType {
   post?: PostTypeExtends;
   user?: UserTypeExtend;
   comment?: CommentTypeExtends;

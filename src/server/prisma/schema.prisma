@@ -21,7 +21,7 @@ model Users {
   registeredAt DateTime
   deletedAt    DateTime?
   comments     Comments[]
-  likes        Likes[]
+  stars        Stars[]
   pageviews    Pageviews[]
 }
 
@@ -53,7 +53,7 @@ model Posts {
   imageUrl     String?
   author       Authors            @relation(references: [id], fields: [authorId])
   authorId     String
-  likes        Likes[]
+  stars        Stars[]
   comments     Comments[]
   categories   PostToCategories[]
   pageviews    Pageviews[]
@@ -68,12 +68,12 @@ model Comments {
   post        Posts     @relation(references: [id], fields: [postId])
   postId      String
   commentText String
-  likes       Likes[]
+  stars       Stars[]
   createdAt   DateTime
   deletedAt   DateTime?
 }
 
-model Likes {
+model Stars {
   id        String    @id @default(uuid())
   post      Posts?    @relation(references: [id], fields: [postId])
   postId    String?

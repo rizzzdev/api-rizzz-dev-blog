@@ -5,7 +5,7 @@ import { RequestCommentType } from "../types/commentType";
 export const getCommentsRepo = async () => {
   return await prisma.comments.findMany({
     include: {
-      likes: {
+      stars: {
         include: {
           user: true,
         },

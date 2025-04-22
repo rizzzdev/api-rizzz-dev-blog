@@ -4,7 +4,7 @@ import authorRouter from "./authorRoute";
 import postRouter from "./postRoute";
 import categoryRouter from "./categoryRoute";
 import commentRouter from "./commentRoute";
-import likeRouter from "./likeRoute";
+import starRouter from "./starRoute";
 import postToCategoryRouter from "./postToCategoryRoute";
 import userRouter from "./userRoute";
 import pageviewRouter from "./pageviewRoute";
@@ -32,8 +32,8 @@ const _routes: { endpoint: string; router: Router }[] = [
     router: commentRouter,
   },
   {
-    endpoint: "/likes",
-    router: likeRouter,
+    endpoint: "/stars",
+    router: starRouter,
   },
   {
     endpoint: "/post-to-categories",

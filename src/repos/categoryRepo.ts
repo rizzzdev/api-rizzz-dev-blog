@@ -11,7 +11,6 @@ export const getCategoriesRepo = async () => {
             include: {
               author: true,
               comments: true,
-              likes: true,
               pageviews: true,
               stars: true,
             },

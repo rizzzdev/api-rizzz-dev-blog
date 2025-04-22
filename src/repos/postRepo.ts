@@ -16,11 +16,6 @@ export const getPostsRepo = async () => {
           user: true,
         },
       },
-      likes: {
-        include: {
-          user: true,
-        },
-      },
       stars: {
         include: {
           user: true,
@@ -48,11 +43,6 @@ export const getPostByIdRepo = async (id: string) => {
         },
       },
       comments: {
-        include: {
-          user: true,
-        },
-      },
-      likes: {
         include: {
           user: true,
         },

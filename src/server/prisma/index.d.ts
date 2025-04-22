@@ -39,10 +39,10 @@ export type Posts = $Result.DefaultSelection<Prisma.$PostsPayload>
  */
 export type Comments = $Result.DefaultSelection<Prisma.$CommentsPayload>
 /**
- * Model Likes
+ * Model Stars
  * 
  */
-export type Likes = $Result.DefaultSelection<Prisma.$LikesPayload>
+export type Stars = $Result.DefaultSelection<Prisma.$StarsPayload>
 /**
  * Model Categories
  * 
@@ -235,14 +235,14 @@ export class PrismaClient<
   get comments(): Prisma.CommentsDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.likes`: Exposes CRUD operations for the **Likes** model.
+   * `prisma.stars`: Exposes CRUD operations for the **Stars** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Likes
-    * const likes = await prisma.likes.findMany()
+    * // Fetch zero or more Stars
+    * const stars = await prisma.stars.findMany()
     * ```
     */
-  get likes(): Prisma.LikesDelegate<ExtArgs, ClientOptions>;
+  get stars(): Prisma.StarsDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.categories`: Exposes CRUD operations for the **Categories** model.
@@ -718,7 +718,7 @@ export namespace Prisma {
     Sessions: 'Sessions',
     Posts: 'Posts',
     Comments: 'Comments',
-    Likes: 'Likes',
+    Stars: 'Stars',
     Categories: 'Categories',
     PostToCategories: 'PostToCategories',
     Pageviews: 'Pageviews'
@@ -740,7 +740,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "users" | "authors" | "sessions" | "posts" | "comments" | "likes" | "categories" | "postToCategories" | "pageviews"
+      modelProps: "users" | "authors" | "sessions" | "posts" | "comments" | "stars" | "categories" | "postToCategories" | "pageviews"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1114,77 +1114,77 @@ export namespace Prisma {
           }
         }
       }
-      Likes: {
-        payload: Prisma.$LikesPayload<ExtArgs>
-        fields: Prisma.LikesFieldRefs
+      Stars: {
+        payload: Prisma.$StarsPayload<ExtArgs>
+        fields: Prisma.StarsFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.LikesFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LikesPayload> | null
+            args: Prisma.StarsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StarsPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.LikesFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LikesPayload>
+            args: Prisma.StarsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StarsPayload>
           }
           findFirst: {
-            args: Prisma.LikesFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LikesPayload> | null
+            args: Prisma.StarsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StarsPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.LikesFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LikesPayload>
+            args: Prisma.StarsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StarsPayload>
           }
           findMany: {
-            args: Prisma.LikesFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LikesPayload>[]
+            args: Prisma.StarsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StarsPayload>[]
           }
           create: {
-            args: Prisma.LikesCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LikesPayload>
+            args: Prisma.StarsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StarsPayload>
           }
           createMany: {
-            args: Prisma.LikesCreateManyArgs<ExtArgs>
+            args: Prisma.StarsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.LikesCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LikesPayload>[]
+            args: Prisma.StarsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StarsPayload>[]
           }
           delete: {
-            args: Prisma.LikesDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LikesPayload>
+            args: Prisma.StarsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StarsPayload>
           }
           update: {
-            args: Prisma.LikesUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LikesPayload>
+            args: Prisma.StarsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StarsPayload>
           }
           deleteMany: {
-            args: Prisma.LikesDeleteManyArgs<ExtArgs>
+            args: Prisma.StarsDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.LikesUpdateManyArgs<ExtArgs>
+            args: Prisma.StarsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.LikesUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LikesPayload>[]
+            args: Prisma.StarsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StarsPayload>[]
           }
           upsert: {
-            args: Prisma.LikesUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LikesPayload>
+            args: Prisma.StarsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StarsPayload>
           }
           aggregate: {
-            args: Prisma.LikesAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateLikes>
+            args: Prisma.StarsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateStars>
           }
           groupBy: {
-            args: Prisma.LikesGroupByArgs<ExtArgs>
-            result: $Utils.Optional<LikesGroupByOutputType>[]
+            args: Prisma.StarsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<StarsGroupByOutputType>[]
           }
           count: {
-            args: Prisma.LikesCountArgs<ExtArgs>
-            result: $Utils.Optional<LikesCountAggregateOutputType> | number
+            args: Prisma.StarsCountArgs<ExtArgs>
+            result: $Utils.Optional<StarsCountAggregateOutputType> | number
           }
         }
       }
@@ -1499,7 +1499,7 @@ export namespace Prisma {
     sessions?: SessionsOmit
     posts?: PostsOmit
     comments?: CommentsOmit
-    likes?: LikesOmit
+    stars?: StarsOmit
     categories?: CategoriesOmit
     postToCategories?: PostToCategoriesOmit
     pageviews?: PageviewsOmit
@@ -1598,13 +1598,13 @@ export namespace Prisma {
 
   export type UsersCountOutputType = {
     comments: number
-    likes: number
+    stars: number
     pageviews: number
   }
 
   export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     comments?: boolean | UsersCountOutputTypeCountCommentsArgs
-    likes?: boolean | UsersCountOutputTypeCountLikesArgs
+    stars?: boolean | UsersCountOutputTypeCountStarsArgs
     pageviews?: boolean | UsersCountOutputTypeCountPageviewsArgs
   }
 
@@ -1629,8 +1629,8 @@ export namespace Prisma {
   /**
    * UsersCountOutputType without action
    */
-  export type UsersCountOutputTypeCountLikesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LikesWhereInput
+  export type UsersCountOutputTypeCountStarsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StarsWhereInput
   }
 
   /**
@@ -1686,14 +1686,14 @@ export namespace Prisma {
    */
 
   export type PostsCountOutputType = {
-    likes: number
+    stars: number
     comments: number
     categories: number
     pageviews: number
   }
 
   export type PostsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    likes?: boolean | PostsCountOutputTypeCountLikesArgs
+    stars?: boolean | PostsCountOutputTypeCountStarsArgs
     comments?: boolean | PostsCountOutputTypeCountCommentsArgs
     categories?: boolean | PostsCountOutputTypeCountCategoriesArgs
     pageviews?: boolean | PostsCountOutputTypeCountPageviewsArgs
@@ -1713,8 +1713,8 @@ export namespace Prisma {
   /**
    * PostsCountOutputType without action
    */
-  export type PostsCountOutputTypeCountLikesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LikesWhereInput
+  export type PostsCountOutputTypeCountStarsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StarsWhereInput
   }
 
   /**
@@ -1744,11 +1744,11 @@ export namespace Prisma {
    */
 
   export type CommentsCountOutputType = {
-    likes: number
+    stars: number
   }
 
   export type CommentsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    likes?: boolean | CommentsCountOutputTypeCountLikesArgs
+    stars?: boolean | CommentsCountOutputTypeCountStarsArgs
   }
 
   // Custom InputTypes
@@ -1765,8 +1765,8 @@ export namespace Prisma {
   /**
    * CommentsCountOutputType without action
    */
-  export type CommentsCountOutputTypeCountLikesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LikesWhereInput
+  export type CommentsCountOutputTypeCountStarsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StarsWhereInput
   }
 
 
@@ -1962,7 +1962,7 @@ export namespace Prisma {
     registeredAt?: boolean
     deletedAt?: boolean
     comments?: boolean | Users$commentsArgs<ExtArgs>
-    likes?: boolean | Users$likesArgs<ExtArgs>
+    stars?: boolean | Users$starsArgs<ExtArgs>
     pageviews?: boolean | Users$pageviewsArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
@@ -1991,7 +1991,7 @@ export namespace Prisma {
   export type UsersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullName" | "registeredAt" | "deletedAt", ExtArgs["result"]["users"]>
   export type UsersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     comments?: boolean | Users$commentsArgs<ExtArgs>
-    likes?: boolean | Users$likesArgs<ExtArgs>
+    stars?: boolean | Users$starsArgs<ExtArgs>
     pageviews?: boolean | Users$pageviewsArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -2002,7 +2002,7 @@ export namespace Prisma {
     name: "Users"
     objects: {
       comments: Prisma.$CommentsPayload<ExtArgs>[]
-      likes: Prisma.$LikesPayload<ExtArgs>[]
+      stars: Prisma.$StarsPayload<ExtArgs>[]
       pageviews: Prisma.$PageviewsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -2405,7 +2405,7 @@ export namespace Prisma {
   export interface Prisma__UsersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     comments<T extends Users$commentsArgs<ExtArgs> = {}>(args?: Subset<T, Users$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    likes<T extends Users$likesArgs<ExtArgs> = {}>(args?: Subset<T, Users$likesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    stars<T extends Users$starsArgs<ExtArgs> = {}>(args?: Subset<T, Users$starsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     pageviews<T extends Users$pageviewsArgs<ExtArgs> = {}>(args?: Subset<T, Users$pageviewsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PageviewsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2852,27 +2852,27 @@ export namespace Prisma {
   }
 
   /**
-   * Users.likes
+   * Users.stars
    */
-  export type Users$likesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Users$starsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelect<ExtArgs> | null
+    select?: StarsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesInclude<ExtArgs> | null
-    where?: LikesWhereInput
-    orderBy?: LikesOrderByWithRelationInput | LikesOrderByWithRelationInput[]
-    cursor?: LikesWhereUniqueInput
+    include?: StarsInclude<ExtArgs> | null
+    where?: StarsWhereInput
+    orderBy?: StarsOrderByWithRelationInput | StarsOrderByWithRelationInput[]
+    cursor?: StarsWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: LikesScalarFieldEnum | LikesScalarFieldEnum[]
+    distinct?: StarsScalarFieldEnum | StarsScalarFieldEnum[]
   }
 
   /**
@@ -5276,7 +5276,7 @@ export namespace Prisma {
     createdAt?: boolean
     deletedAt?: boolean
     author?: boolean | AuthorsDefaultArgs<ExtArgs>
-    likes?: boolean | Posts$likesArgs<ExtArgs>
+    stars?: boolean | Posts$starsArgs<ExtArgs>
     comments?: boolean | Posts$commentsArgs<ExtArgs>
     categories?: boolean | Posts$categoriesArgs<ExtArgs>
     pageviews?: boolean | Posts$pageviewsArgs<ExtArgs>
@@ -5321,7 +5321,7 @@ export namespace Prisma {
   export type PostsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "postMarkdown" | "imageUrl" | "authorId" | "createdAt" | "deletedAt", ExtArgs["result"]["posts"]>
   export type PostsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     author?: boolean | AuthorsDefaultArgs<ExtArgs>
-    likes?: boolean | Posts$likesArgs<ExtArgs>
+    stars?: boolean | Posts$starsArgs<ExtArgs>
     comments?: boolean | Posts$commentsArgs<ExtArgs>
     categories?: boolean | Posts$categoriesArgs<ExtArgs>
     pageviews?: boolean | Posts$pageviewsArgs<ExtArgs>
@@ -5338,7 +5338,7 @@ export namespace Prisma {
     name: "Posts"
     objects: {
       author: Prisma.$AuthorsPayload<ExtArgs>
-      likes: Prisma.$LikesPayload<ExtArgs>[]
+      stars: Prisma.$StarsPayload<ExtArgs>[]
       comments: Prisma.$CommentsPayload<ExtArgs>[]
       categories: Prisma.$PostToCategoriesPayload<ExtArgs>[]
       pageviews: Prisma.$PageviewsPayload<ExtArgs>[]
@@ -5747,7 +5747,7 @@ export namespace Prisma {
   export interface Prisma__PostsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     author<T extends AuthorsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AuthorsDefaultArgs<ExtArgs>>): Prisma__AuthorsClient<$Result.GetResult<Prisma.$AuthorsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    likes<T extends Posts$likesArgs<ExtArgs> = {}>(args?: Subset<T, Posts$likesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    stars<T extends Posts$starsArgs<ExtArgs> = {}>(args?: Subset<T, Posts$starsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     comments<T extends Posts$commentsArgs<ExtArgs> = {}>(args?: Subset<T, Posts$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     categories<T extends Posts$categoriesArgs<ExtArgs> = {}>(args?: Subset<T, Posts$categoriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostToCategoriesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     pageviews<T extends Posts$pageviewsArgs<ExtArgs> = {}>(args?: Subset<T, Posts$pageviewsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PageviewsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -6184,27 +6184,27 @@ export namespace Prisma {
   }
 
   /**
-   * Posts.likes
+   * Posts.stars
    */
-  export type Posts$likesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Posts$starsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelect<ExtArgs> | null
+    select?: StarsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesInclude<ExtArgs> | null
-    where?: LikesWhereInput
-    orderBy?: LikesOrderByWithRelationInput | LikesOrderByWithRelationInput[]
-    cursor?: LikesWhereUniqueInput
+    include?: StarsInclude<ExtArgs> | null
+    where?: StarsWhereInput
+    orderBy?: StarsOrderByWithRelationInput | StarsOrderByWithRelationInput[]
+    cursor?: StarsWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: LikesScalarFieldEnum | LikesScalarFieldEnum[]
+    distinct?: StarsScalarFieldEnum | StarsScalarFieldEnum[]
   }
 
   /**
@@ -6472,7 +6472,7 @@ export namespace Prisma {
     deletedAt?: boolean
     user?: boolean | UsersDefaultArgs<ExtArgs>
     post?: boolean | PostsDefaultArgs<ExtArgs>
-    likes?: boolean | Comments$likesArgs<ExtArgs>
+    stars?: boolean | Comments$starsArgs<ExtArgs>
     _count?: boolean | CommentsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comments"]>
 
@@ -6511,7 +6511,7 @@ export namespace Prisma {
   export type CommentsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UsersDefaultArgs<ExtArgs>
     post?: boolean | PostsDefaultArgs<ExtArgs>
-    likes?: boolean | Comments$likesArgs<ExtArgs>
+    stars?: boolean | Comments$starsArgs<ExtArgs>
     _count?: boolean | CommentsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type CommentsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6528,7 +6528,7 @@ export namespace Prisma {
     objects: {
       user: Prisma.$UsersPayload<ExtArgs>
       post: Prisma.$PostsPayload<ExtArgs>
-      likes: Prisma.$LikesPayload<ExtArgs>[]
+      stars: Prisma.$StarsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -6933,7 +6933,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UsersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsersDefaultArgs<ExtArgs>>): Prisma__UsersClient<$Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     post<T extends PostsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PostsDefaultArgs<ExtArgs>>): Prisma__PostsClient<$Result.GetResult<Prisma.$PostsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    likes<T extends Comments$likesArgs<ExtArgs> = {}>(args?: Subset<T, Comments$likesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    stars<T extends Comments$starsArgs<ExtArgs> = {}>(args?: Subset<T, Comments$starsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7365,27 +7365,27 @@ export namespace Prisma {
   }
 
   /**
-   * Comments.likes
+   * Comments.stars
    */
-  export type Comments$likesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Comments$starsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelect<ExtArgs> | null
+    select?: StarsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesInclude<ExtArgs> | null
-    where?: LikesWhereInput
-    orderBy?: LikesOrderByWithRelationInput | LikesOrderByWithRelationInput[]
-    cursor?: LikesWhereUniqueInput
+    include?: StarsInclude<ExtArgs> | null
+    where?: StarsWhereInput
+    orderBy?: StarsOrderByWithRelationInput | StarsOrderByWithRelationInput[]
+    cursor?: StarsWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: LikesScalarFieldEnum | LikesScalarFieldEnum[]
+    distinct?: StarsScalarFieldEnum | StarsScalarFieldEnum[]
   }
 
   /**
@@ -7408,16 +7408,16 @@ export namespace Prisma {
 
 
   /**
-   * Model Likes
+   * Model Stars
    */
 
-  export type AggregateLikes = {
-    _count: LikesCountAggregateOutputType | null
-    _min: LikesMinAggregateOutputType | null
-    _max: LikesMaxAggregateOutputType | null
+  export type AggregateStars = {
+    _count: StarsCountAggregateOutputType | null
+    _min: StarsMinAggregateOutputType | null
+    _max: StarsMaxAggregateOutputType | null
   }
 
-  export type LikesMinAggregateOutputType = {
+  export type StarsMinAggregateOutputType = {
     id: string | null
     postId: string | null
     userId: string | null
@@ -7426,7 +7426,7 @@ export namespace Prisma {
     deletedAt: Date | null
   }
 
-  export type LikesMaxAggregateOutputType = {
+  export type StarsMaxAggregateOutputType = {
     id: string | null
     postId: string | null
     userId: string | null
@@ -7435,7 +7435,7 @@ export namespace Prisma {
     deletedAt: Date | null
   }
 
-  export type LikesCountAggregateOutputType = {
+  export type StarsCountAggregateOutputType = {
     id: number
     postId: number
     userId: number
@@ -7446,7 +7446,7 @@ export namespace Prisma {
   }
 
 
-  export type LikesMinAggregateInputType = {
+  export type StarsMinAggregateInputType = {
     id?: true
     postId?: true
     userId?: true
@@ -7455,7 +7455,7 @@ export namespace Prisma {
     deletedAt?: true
   }
 
-  export type LikesMaxAggregateInputType = {
+  export type StarsMaxAggregateInputType = {
     id?: true
     postId?: true
     userId?: true
@@ -7464,7 +7464,7 @@ export namespace Prisma {
     deletedAt?: true
   }
 
-  export type LikesCountAggregateInputType = {
+  export type StarsCountAggregateInputType = {
     id?: true
     postId?: true
     userId?: true
@@ -7474,141 +7474,141 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type LikesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Likes to aggregate.
+     * Filter which Stars to aggregate.
      */
-    where?: LikesWhereInput
+    where?: StarsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Likes to fetch.
+     * Determine the order of Stars to fetch.
      */
-    orderBy?: LikesOrderByWithRelationInput | LikesOrderByWithRelationInput[]
+    orderBy?: StarsOrderByWithRelationInput | StarsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: LikesWhereUniqueInput
+    cursor?: StarsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Likes from the position of the cursor.
+     * Take `±n` Stars from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Likes.
+     * Skip the first `n` Stars.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Likes
+     * Count returned Stars
     **/
-    _count?: true | LikesCountAggregateInputType
+    _count?: true | StarsCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: LikesMinAggregateInputType
+    _min?: StarsMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: LikesMaxAggregateInputType
+    _max?: StarsMaxAggregateInputType
   }
 
-  export type GetLikesAggregateType<T extends LikesAggregateArgs> = {
-        [P in keyof T & keyof AggregateLikes]: P extends '_count' | 'count'
+  export type GetStarsAggregateType<T extends StarsAggregateArgs> = {
+        [P in keyof T & keyof AggregateStars]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateLikes[P]>
-      : GetScalarType<T[P], AggregateLikes[P]>
+        : GetScalarType<T[P], AggregateStars[P]>
+      : GetScalarType<T[P], AggregateStars[P]>
   }
 
 
 
 
-  export type LikesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LikesWhereInput
-    orderBy?: LikesOrderByWithAggregationInput | LikesOrderByWithAggregationInput[]
-    by: LikesScalarFieldEnum[] | LikesScalarFieldEnum
-    having?: LikesScalarWhereWithAggregatesInput
+  export type StarsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StarsWhereInput
+    orderBy?: StarsOrderByWithAggregationInput | StarsOrderByWithAggregationInput[]
+    by: StarsScalarFieldEnum[] | StarsScalarFieldEnum
+    having?: StarsScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: LikesCountAggregateInputType | true
-    _min?: LikesMinAggregateInputType
-    _max?: LikesMaxAggregateInputType
+    _count?: StarsCountAggregateInputType | true
+    _min?: StarsMinAggregateInputType
+    _max?: StarsMaxAggregateInputType
   }
 
-  export type LikesGroupByOutputType = {
+  export type StarsGroupByOutputType = {
     id: string
     postId: string | null
     userId: string
     commentId: string | null
     createdAt: Date
     deletedAt: Date | null
-    _count: LikesCountAggregateOutputType | null
-    _min: LikesMinAggregateOutputType | null
-    _max: LikesMaxAggregateOutputType | null
+    _count: StarsCountAggregateOutputType | null
+    _min: StarsMinAggregateOutputType | null
+    _max: StarsMaxAggregateOutputType | null
   }
 
-  type GetLikesGroupByPayload<T extends LikesGroupByArgs> = Prisma.PrismaPromise<
+  type GetStarsGroupByPayload<T extends StarsGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<LikesGroupByOutputType, T['by']> &
+      PickEnumerable<StarsGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof LikesGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof StarsGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], LikesGroupByOutputType[P]>
-            : GetScalarType<T[P], LikesGroupByOutputType[P]>
+              : GetScalarType<T[P], StarsGroupByOutputType[P]>
+            : GetScalarType<T[P], StarsGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type LikesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type StarsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     postId?: boolean
     userId?: boolean
     commentId?: boolean
     createdAt?: boolean
     deletedAt?: boolean
-    post?: boolean | Likes$postArgs<ExtArgs>
+    post?: boolean | Stars$postArgs<ExtArgs>
     user?: boolean | UsersDefaultArgs<ExtArgs>
-    comment?: boolean | Likes$commentArgs<ExtArgs>
-  }, ExtArgs["result"]["likes"]>
+    comment?: boolean | Stars$commentArgs<ExtArgs>
+  }, ExtArgs["result"]["stars"]>
 
-  export type LikesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type StarsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     postId?: boolean
     userId?: boolean
     commentId?: boolean
     createdAt?: boolean
     deletedAt?: boolean
-    post?: boolean | Likes$postArgs<ExtArgs>
+    post?: boolean | Stars$postArgs<ExtArgs>
     user?: boolean | UsersDefaultArgs<ExtArgs>
-    comment?: boolean | Likes$commentArgs<ExtArgs>
-  }, ExtArgs["result"]["likes"]>
+    comment?: boolean | Stars$commentArgs<ExtArgs>
+  }, ExtArgs["result"]["stars"]>
 
-  export type LikesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type StarsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     postId?: boolean
     userId?: boolean
     commentId?: boolean
     createdAt?: boolean
     deletedAt?: boolean
-    post?: boolean | Likes$postArgs<ExtArgs>
+    post?: boolean | Stars$postArgs<ExtArgs>
     user?: boolean | UsersDefaultArgs<ExtArgs>
-    comment?: boolean | Likes$commentArgs<ExtArgs>
-  }, ExtArgs["result"]["likes"]>
+    comment?: boolean | Stars$commentArgs<ExtArgs>
+  }, ExtArgs["result"]["stars"]>
 
-  export type LikesSelectScalar = {
+  export type StarsSelectScalar = {
     id?: boolean
     postId?: boolean
     userId?: boolean
@@ -7617,25 +7617,25 @@ export namespace Prisma {
     deletedAt?: boolean
   }
 
-  export type LikesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "postId" | "userId" | "commentId" | "createdAt" | "deletedAt", ExtArgs["result"]["likes"]>
-  export type LikesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    post?: boolean | Likes$postArgs<ExtArgs>
+  export type StarsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "postId" | "userId" | "commentId" | "createdAt" | "deletedAt", ExtArgs["result"]["stars"]>
+  export type StarsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    post?: boolean | Stars$postArgs<ExtArgs>
     user?: boolean | UsersDefaultArgs<ExtArgs>
-    comment?: boolean | Likes$commentArgs<ExtArgs>
+    comment?: boolean | Stars$commentArgs<ExtArgs>
   }
-  export type LikesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    post?: boolean | Likes$postArgs<ExtArgs>
+  export type StarsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    post?: boolean | Stars$postArgs<ExtArgs>
     user?: boolean | UsersDefaultArgs<ExtArgs>
-    comment?: boolean | Likes$commentArgs<ExtArgs>
+    comment?: boolean | Stars$commentArgs<ExtArgs>
   }
-  export type LikesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    post?: boolean | Likes$postArgs<ExtArgs>
+  export type StarsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    post?: boolean | Stars$postArgs<ExtArgs>
     user?: boolean | UsersDefaultArgs<ExtArgs>
-    comment?: boolean | Likes$commentArgs<ExtArgs>
+    comment?: boolean | Stars$commentArgs<ExtArgs>
   }
 
-  export type $LikesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Likes"
+  export type $StarsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Stars"
     objects: {
       post: Prisma.$PostsPayload<ExtArgs> | null
       user: Prisma.$UsersPayload<ExtArgs>
@@ -7648,136 +7648,136 @@ export namespace Prisma {
       commentId: string | null
       createdAt: Date
       deletedAt: Date | null
-    }, ExtArgs["result"]["likes"]>
+    }, ExtArgs["result"]["stars"]>
     composites: {}
   }
 
-  type LikesGetPayload<S extends boolean | null | undefined | LikesDefaultArgs> = $Result.GetResult<Prisma.$LikesPayload, S>
+  type StarsGetPayload<S extends boolean | null | undefined | StarsDefaultArgs> = $Result.GetResult<Prisma.$StarsPayload, S>
 
-  type LikesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<LikesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: LikesCountAggregateInputType | true
+  type StarsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<StarsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: StarsCountAggregateInputType | true
     }
 
-  export interface LikesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Likes'], meta: { name: 'Likes' } }
+  export interface StarsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Stars'], meta: { name: 'Stars' } }
     /**
-     * Find zero or one Likes that matches the filter.
-     * @param {LikesFindUniqueArgs} args - Arguments to find a Likes
+     * Find zero or one Stars that matches the filter.
+     * @param {StarsFindUniqueArgs} args - Arguments to find a Stars
      * @example
-     * // Get one Likes
-     * const likes = await prisma.likes.findUnique({
+     * // Get one Stars
+     * const stars = await prisma.stars.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends LikesFindUniqueArgs>(args: SelectSubset<T, LikesFindUniqueArgs<ExtArgs>>): Prisma__LikesClient<$Result.GetResult<Prisma.$LikesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends StarsFindUniqueArgs>(args: SelectSubset<T, StarsFindUniqueArgs<ExtArgs>>): Prisma__StarsClient<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Likes that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Stars that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {LikesFindUniqueOrThrowArgs} args - Arguments to find a Likes
+     * @param {StarsFindUniqueOrThrowArgs} args - Arguments to find a Stars
      * @example
-     * // Get one Likes
-     * const likes = await prisma.likes.findUniqueOrThrow({
+     * // Get one Stars
+     * const stars = await prisma.stars.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends LikesFindUniqueOrThrowArgs>(args: SelectSubset<T, LikesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LikesClient<$Result.GetResult<Prisma.$LikesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends StarsFindUniqueOrThrowArgs>(args: SelectSubset<T, StarsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__StarsClient<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Likes that matches the filter.
+     * Find the first Stars that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LikesFindFirstArgs} args - Arguments to find a Likes
+     * @param {StarsFindFirstArgs} args - Arguments to find a Stars
      * @example
-     * // Get one Likes
-     * const likes = await prisma.likes.findFirst({
+     * // Get one Stars
+     * const stars = await prisma.stars.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends LikesFindFirstArgs>(args?: SelectSubset<T, LikesFindFirstArgs<ExtArgs>>): Prisma__LikesClient<$Result.GetResult<Prisma.$LikesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends StarsFindFirstArgs>(args?: SelectSubset<T, StarsFindFirstArgs<ExtArgs>>): Prisma__StarsClient<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Likes that matches the filter or
+     * Find the first Stars that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LikesFindFirstOrThrowArgs} args - Arguments to find a Likes
+     * @param {StarsFindFirstOrThrowArgs} args - Arguments to find a Stars
      * @example
-     * // Get one Likes
-     * const likes = await prisma.likes.findFirstOrThrow({
+     * // Get one Stars
+     * const stars = await prisma.stars.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends LikesFindFirstOrThrowArgs>(args?: SelectSubset<T, LikesFindFirstOrThrowArgs<ExtArgs>>): Prisma__LikesClient<$Result.GetResult<Prisma.$LikesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends StarsFindFirstOrThrowArgs>(args?: SelectSubset<T, StarsFindFirstOrThrowArgs<ExtArgs>>): Prisma__StarsClient<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Likes that matches the filter.
+     * Find zero or more Stars that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LikesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {StarsFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Likes
-     * const likes = await prisma.likes.findMany()
+     * // Get all Stars
+     * const stars = await prisma.stars.findMany()
      * 
-     * // Get first 10 Likes
-     * const likes = await prisma.likes.findMany({ take: 10 })
+     * // Get first 10 Stars
+     * const stars = await prisma.stars.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const likesWithIdOnly = await prisma.likes.findMany({ select: { id: true } })
+     * const starsWithIdOnly = await prisma.stars.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends LikesFindManyArgs>(args?: SelectSubset<T, LikesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends StarsFindManyArgs>(args?: SelectSubset<T, StarsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Likes.
-     * @param {LikesCreateArgs} args - Arguments to create a Likes.
+     * Create a Stars.
+     * @param {StarsCreateArgs} args - Arguments to create a Stars.
      * @example
-     * // Create one Likes
-     * const Likes = await prisma.likes.create({
+     * // Create one Stars
+     * const Stars = await prisma.stars.create({
      *   data: {
-     *     // ... data to create a Likes
+     *     // ... data to create a Stars
      *   }
      * })
      * 
      */
-    create<T extends LikesCreateArgs>(args: SelectSubset<T, LikesCreateArgs<ExtArgs>>): Prisma__LikesClient<$Result.GetResult<Prisma.$LikesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends StarsCreateArgs>(args: SelectSubset<T, StarsCreateArgs<ExtArgs>>): Prisma__StarsClient<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Likes.
-     * @param {LikesCreateManyArgs} args - Arguments to create many Likes.
+     * Create many Stars.
+     * @param {StarsCreateManyArgs} args - Arguments to create many Stars.
      * @example
-     * // Create many Likes
-     * const likes = await prisma.likes.createMany({
+     * // Create many Stars
+     * const stars = await prisma.stars.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends LikesCreateManyArgs>(args?: SelectSubset<T, LikesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends StarsCreateManyArgs>(args?: SelectSubset<T, StarsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Likes and returns the data saved in the database.
-     * @param {LikesCreateManyAndReturnArgs} args - Arguments to create many Likes.
+     * Create many Stars and returns the data saved in the database.
+     * @param {StarsCreateManyAndReturnArgs} args - Arguments to create many Stars.
      * @example
-     * // Create many Likes
-     * const likes = await prisma.likes.createManyAndReturn({
+     * // Create many Stars
+     * const stars = await prisma.stars.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Likes and only return the `id`
-     * const likesWithIdOnly = await prisma.likes.createManyAndReturn({
+     * // Create many Stars and only return the `id`
+     * const starsWithIdOnly = await prisma.stars.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -7787,28 +7787,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends LikesCreateManyAndReturnArgs>(args?: SelectSubset<T, LikesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends StarsCreateManyAndReturnArgs>(args?: SelectSubset<T, StarsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Likes.
-     * @param {LikesDeleteArgs} args - Arguments to delete one Likes.
+     * Delete a Stars.
+     * @param {StarsDeleteArgs} args - Arguments to delete one Stars.
      * @example
-     * // Delete one Likes
-     * const Likes = await prisma.likes.delete({
+     * // Delete one Stars
+     * const Stars = await prisma.stars.delete({
      *   where: {
-     *     // ... filter to delete one Likes
+     *     // ... filter to delete one Stars
      *   }
      * })
      * 
      */
-    delete<T extends LikesDeleteArgs>(args: SelectSubset<T, LikesDeleteArgs<ExtArgs>>): Prisma__LikesClient<$Result.GetResult<Prisma.$LikesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends StarsDeleteArgs>(args: SelectSubset<T, StarsDeleteArgs<ExtArgs>>): Prisma__StarsClient<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Likes.
-     * @param {LikesUpdateArgs} args - Arguments to update one Likes.
+     * Update one Stars.
+     * @param {StarsUpdateArgs} args - Arguments to update one Stars.
      * @example
-     * // Update one Likes
-     * const likes = await prisma.likes.update({
+     * // Update one Stars
+     * const stars = await prisma.stars.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -7818,30 +7818,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends LikesUpdateArgs>(args: SelectSubset<T, LikesUpdateArgs<ExtArgs>>): Prisma__LikesClient<$Result.GetResult<Prisma.$LikesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends StarsUpdateArgs>(args: SelectSubset<T, StarsUpdateArgs<ExtArgs>>): Prisma__StarsClient<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Likes.
-     * @param {LikesDeleteManyArgs} args - Arguments to filter Likes to delete.
+     * Delete zero or more Stars.
+     * @param {StarsDeleteManyArgs} args - Arguments to filter Stars to delete.
      * @example
-     * // Delete a few Likes
-     * const { count } = await prisma.likes.deleteMany({
+     * // Delete a few Stars
+     * const { count } = await prisma.stars.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends LikesDeleteManyArgs>(args?: SelectSubset<T, LikesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends StarsDeleteManyArgs>(args?: SelectSubset<T, StarsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Likes.
+     * Update zero or more Stars.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LikesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {StarsUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Likes
-     * const likes = await prisma.likes.updateMany({
+     * // Update many Stars
+     * const stars = await prisma.stars.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -7851,14 +7851,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends LikesUpdateManyArgs>(args: SelectSubset<T, LikesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends StarsUpdateManyArgs>(args: SelectSubset<T, StarsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Likes and returns the data updated in the database.
-     * @param {LikesUpdateManyAndReturnArgs} args - Arguments to update many Likes.
+     * Update zero or more Stars and returns the data updated in the database.
+     * @param {StarsUpdateManyAndReturnArgs} args - Arguments to update many Stars.
      * @example
-     * // Update many Likes
-     * const likes = await prisma.likes.updateManyAndReturn({
+     * // Update many Stars
+     * const stars = await prisma.stars.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -7867,8 +7867,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Likes and only return the `id`
-     * const likesWithIdOnly = await prisma.likes.updateManyAndReturn({
+     * // Update zero or more Stars and only return the `id`
+     * const starsWithIdOnly = await prisma.stars.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -7881,56 +7881,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends LikesUpdateManyAndReturnArgs>(args: SelectSubset<T, LikesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends StarsUpdateManyAndReturnArgs>(args: SelectSubset<T, StarsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Likes.
-     * @param {LikesUpsertArgs} args - Arguments to update or create a Likes.
+     * Create or update one Stars.
+     * @param {StarsUpsertArgs} args - Arguments to update or create a Stars.
      * @example
-     * // Update or create a Likes
-     * const likes = await prisma.likes.upsert({
+     * // Update or create a Stars
+     * const stars = await prisma.stars.upsert({
      *   create: {
-     *     // ... data to create a Likes
+     *     // ... data to create a Stars
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Likes we want to update
+     *     // ... the filter for the Stars we want to update
      *   }
      * })
      */
-    upsert<T extends LikesUpsertArgs>(args: SelectSubset<T, LikesUpsertArgs<ExtArgs>>): Prisma__LikesClient<$Result.GetResult<Prisma.$LikesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends StarsUpsertArgs>(args: SelectSubset<T, StarsUpsertArgs<ExtArgs>>): Prisma__StarsClient<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Likes.
+     * Count the number of Stars.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LikesCountArgs} args - Arguments to filter Likes to count.
+     * @param {StarsCountArgs} args - Arguments to filter Stars to count.
      * @example
-     * // Count the number of Likes
-     * const count = await prisma.likes.count({
+     * // Count the number of Stars
+     * const count = await prisma.stars.count({
      *   where: {
-     *     // ... the filter for the Likes we want to count
+     *     // ... the filter for the Stars we want to count
      *   }
      * })
     **/
-    count<T extends LikesCountArgs>(
-      args?: Subset<T, LikesCountArgs>,
+    count<T extends StarsCountArgs>(
+      args?: Subset<T, StarsCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], LikesCountAggregateOutputType>
+          : GetScalarType<T['select'], StarsCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Likes.
+     * Allows you to perform aggregations operations on a Stars.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LikesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {StarsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -7950,13 +7950,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends LikesAggregateArgs>(args: Subset<T, LikesAggregateArgs>): Prisma.PrismaPromise<GetLikesAggregateType<T>>
+    aggregate<T extends StarsAggregateArgs>(args: Subset<T, StarsAggregateArgs>): Prisma.PrismaPromise<GetStarsAggregateType<T>>
 
     /**
-     * Group by Likes.
+     * Group by Stars.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LikesGroupByArgs} args - Group by arguments.
+     * @param {StarsGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -7971,14 +7971,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends LikesGroupByArgs,
+      T extends StarsGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: LikesGroupByArgs['orderBy'] }
-        : { orderBy?: LikesGroupByArgs['orderBy'] },
+        ? { orderBy: StarsGroupByArgs['orderBy'] }
+        : { orderBy?: StarsGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -8027,24 +8027,24 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, LikesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLikesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, StarsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStarsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Likes model
+   * Fields of the Stars model
    */
-  readonly fields: LikesFieldRefs;
+  readonly fields: StarsFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Likes.
+   * The delegate class that acts as a "Promise-like" for Stars.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__LikesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__StarsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    post<T extends Likes$postArgs<ExtArgs> = {}>(args?: Subset<T, Likes$postArgs<ExtArgs>>): Prisma__PostsClient<$Result.GetResult<Prisma.$PostsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    post<T extends Stars$postArgs<ExtArgs> = {}>(args?: Subset<T, Stars$postArgs<ExtArgs>>): Prisma__PostsClient<$Result.GetResult<Prisma.$PostsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     user<T extends UsersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsersDefaultArgs<ExtArgs>>): Prisma__UsersClient<$Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    comment<T extends Likes$commentArgs<ExtArgs> = {}>(args?: Subset<T, Likes$commentArgs<ExtArgs>>): Prisma__CommentsClient<$Result.GetResult<Prisma.$CommentsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    comment<T extends Stars$commentArgs<ExtArgs> = {}>(args?: Subset<T, Stars$commentArgs<ExtArgs>>): Prisma__CommentsClient<$Result.GetResult<Prisma.$CommentsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8071,414 +8071,414 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Likes model
+   * Fields of the Stars model
    */
-  interface LikesFieldRefs {
-    readonly id: FieldRef<"Likes", 'String'>
-    readonly postId: FieldRef<"Likes", 'String'>
-    readonly userId: FieldRef<"Likes", 'String'>
-    readonly commentId: FieldRef<"Likes", 'String'>
-    readonly createdAt: FieldRef<"Likes", 'DateTime'>
-    readonly deletedAt: FieldRef<"Likes", 'DateTime'>
+  interface StarsFieldRefs {
+    readonly id: FieldRef<"Stars", 'String'>
+    readonly postId: FieldRef<"Stars", 'String'>
+    readonly userId: FieldRef<"Stars", 'String'>
+    readonly commentId: FieldRef<"Stars", 'String'>
+    readonly createdAt: FieldRef<"Stars", 'DateTime'>
+    readonly deletedAt: FieldRef<"Stars", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Likes findUnique
+   * Stars findUnique
    */
-  export type LikesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelect<ExtArgs> | null
+    select?: StarsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesInclude<ExtArgs> | null
+    include?: StarsInclude<ExtArgs> | null
     /**
-     * Filter, which Likes to fetch.
+     * Filter, which Stars to fetch.
      */
-    where: LikesWhereUniqueInput
+    where: StarsWhereUniqueInput
   }
 
   /**
-   * Likes findUniqueOrThrow
+   * Stars findUniqueOrThrow
    */
-  export type LikesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelect<ExtArgs> | null
+    select?: StarsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesInclude<ExtArgs> | null
+    include?: StarsInclude<ExtArgs> | null
     /**
-     * Filter, which Likes to fetch.
+     * Filter, which Stars to fetch.
      */
-    where: LikesWhereUniqueInput
+    where: StarsWhereUniqueInput
   }
 
   /**
-   * Likes findFirst
+   * Stars findFirst
    */
-  export type LikesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelect<ExtArgs> | null
+    select?: StarsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesInclude<ExtArgs> | null
+    include?: StarsInclude<ExtArgs> | null
     /**
-     * Filter, which Likes to fetch.
+     * Filter, which Stars to fetch.
      */
-    where?: LikesWhereInput
+    where?: StarsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Likes to fetch.
+     * Determine the order of Stars to fetch.
      */
-    orderBy?: LikesOrderByWithRelationInput | LikesOrderByWithRelationInput[]
+    orderBy?: StarsOrderByWithRelationInput | StarsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Likes.
+     * Sets the position for searching for Stars.
      */
-    cursor?: LikesWhereUniqueInput
+    cursor?: StarsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Likes from the position of the cursor.
+     * Take `±n` Stars from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Likes.
+     * Skip the first `n` Stars.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Likes.
+     * Filter by unique combinations of Stars.
      */
-    distinct?: LikesScalarFieldEnum | LikesScalarFieldEnum[]
+    distinct?: StarsScalarFieldEnum | StarsScalarFieldEnum[]
   }
 
   /**
-   * Likes findFirstOrThrow
+   * Stars findFirstOrThrow
    */
-  export type LikesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelect<ExtArgs> | null
+    select?: StarsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesInclude<ExtArgs> | null
+    include?: StarsInclude<ExtArgs> | null
     /**
-     * Filter, which Likes to fetch.
+     * Filter, which Stars to fetch.
      */
-    where?: LikesWhereInput
+    where?: StarsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Likes to fetch.
+     * Determine the order of Stars to fetch.
      */
-    orderBy?: LikesOrderByWithRelationInput | LikesOrderByWithRelationInput[]
+    orderBy?: StarsOrderByWithRelationInput | StarsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Likes.
+     * Sets the position for searching for Stars.
      */
-    cursor?: LikesWhereUniqueInput
+    cursor?: StarsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Likes from the position of the cursor.
+     * Take `±n` Stars from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Likes.
+     * Skip the first `n` Stars.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Likes.
+     * Filter by unique combinations of Stars.
      */
-    distinct?: LikesScalarFieldEnum | LikesScalarFieldEnum[]
+    distinct?: StarsScalarFieldEnum | StarsScalarFieldEnum[]
   }
 
   /**
-   * Likes findMany
+   * Stars findMany
    */
-  export type LikesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelect<ExtArgs> | null
+    select?: StarsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesInclude<ExtArgs> | null
+    include?: StarsInclude<ExtArgs> | null
     /**
-     * Filter, which Likes to fetch.
+     * Filter, which Stars to fetch.
      */
-    where?: LikesWhereInput
+    where?: StarsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Likes to fetch.
+     * Determine the order of Stars to fetch.
      */
-    orderBy?: LikesOrderByWithRelationInput | LikesOrderByWithRelationInput[]
+    orderBy?: StarsOrderByWithRelationInput | StarsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Likes.
+     * Sets the position for listing Stars.
      */
-    cursor?: LikesWhereUniqueInput
+    cursor?: StarsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Likes from the position of the cursor.
+     * Take `±n` Stars from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Likes.
+     * Skip the first `n` Stars.
      */
     skip?: number
-    distinct?: LikesScalarFieldEnum | LikesScalarFieldEnum[]
+    distinct?: StarsScalarFieldEnum | StarsScalarFieldEnum[]
   }
 
   /**
-   * Likes create
+   * Stars create
    */
-  export type LikesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelect<ExtArgs> | null
+    select?: StarsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesInclude<ExtArgs> | null
+    include?: StarsInclude<ExtArgs> | null
     /**
-     * The data needed to create a Likes.
+     * The data needed to create a Stars.
      */
-    data: XOR<LikesCreateInput, LikesUncheckedCreateInput>
+    data: XOR<StarsCreateInput, StarsUncheckedCreateInput>
   }
 
   /**
-   * Likes createMany
+   * Stars createMany
    */
-  export type LikesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Likes.
+     * The data used to create many Stars.
      */
-    data: LikesCreateManyInput | LikesCreateManyInput[]
+    data: StarsCreateManyInput | StarsCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Likes createManyAndReturn
+   * Stars createManyAndReturn
    */
-  export type LikesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelectCreateManyAndReturn<ExtArgs> | null
+    select?: StarsSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
-     * The data used to create many Likes.
+     * The data used to create many Stars.
      */
-    data: LikesCreateManyInput | LikesCreateManyInput[]
+    data: StarsCreateManyInput | StarsCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: StarsIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Likes update
+   * Stars update
    */
-  export type LikesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelect<ExtArgs> | null
+    select?: StarsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesInclude<ExtArgs> | null
+    include?: StarsInclude<ExtArgs> | null
     /**
-     * The data needed to update a Likes.
+     * The data needed to update a Stars.
      */
-    data: XOR<LikesUpdateInput, LikesUncheckedUpdateInput>
+    data: XOR<StarsUpdateInput, StarsUncheckedUpdateInput>
     /**
-     * Choose, which Likes to update.
+     * Choose, which Stars to update.
      */
-    where: LikesWhereUniqueInput
+    where: StarsWhereUniqueInput
   }
 
   /**
-   * Likes updateMany
+   * Stars updateMany
    */
-  export type LikesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Likes.
+     * The data used to update Stars.
      */
-    data: XOR<LikesUpdateManyMutationInput, LikesUncheckedUpdateManyInput>
+    data: XOR<StarsUpdateManyMutationInput, StarsUncheckedUpdateManyInput>
     /**
-     * Filter which Likes to update
+     * Filter which Stars to update
      */
-    where?: LikesWhereInput
+    where?: StarsWhereInput
     /**
-     * Limit how many Likes to update.
+     * Limit how many Stars to update.
      */
     limit?: number
   }
 
   /**
-   * Likes updateManyAndReturn
+   * Stars updateManyAndReturn
    */
-  export type LikesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: StarsSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
-     * The data used to update Likes.
+     * The data used to update Stars.
      */
-    data: XOR<LikesUpdateManyMutationInput, LikesUncheckedUpdateManyInput>
+    data: XOR<StarsUpdateManyMutationInput, StarsUncheckedUpdateManyInput>
     /**
-     * Filter which Likes to update
+     * Filter which Stars to update
      */
-    where?: LikesWhereInput
+    where?: StarsWhereInput
     /**
-     * Limit how many Likes to update.
+     * Limit how many Stars to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: StarsIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Likes upsert
+   * Stars upsert
    */
-  export type LikesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelect<ExtArgs> | null
+    select?: StarsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesInclude<ExtArgs> | null
+    include?: StarsInclude<ExtArgs> | null
     /**
-     * The filter to search for the Likes to update in case it exists.
+     * The filter to search for the Stars to update in case it exists.
      */
-    where: LikesWhereUniqueInput
+    where: StarsWhereUniqueInput
     /**
-     * In case the Likes found by the `where` argument doesn't exist, create a new Likes with this data.
+     * In case the Stars found by the `where` argument doesn't exist, create a new Stars with this data.
      */
-    create: XOR<LikesCreateInput, LikesUncheckedCreateInput>
+    create: XOR<StarsCreateInput, StarsUncheckedCreateInput>
     /**
-     * In case the Likes was found with the provided `where` argument, update it with this data.
+     * In case the Stars was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<LikesUpdateInput, LikesUncheckedUpdateInput>
+    update: XOR<StarsUpdateInput, StarsUncheckedUpdateInput>
   }
 
   /**
-   * Likes delete
+   * Stars delete
    */
-  export type LikesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelect<ExtArgs> | null
+    select?: StarsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesInclude<ExtArgs> | null
+    include?: StarsInclude<ExtArgs> | null
     /**
-     * Filter which Likes to delete.
+     * Filter which Stars to delete.
      */
-    where: LikesWhereUniqueInput
+    where: StarsWhereUniqueInput
   }
 
   /**
-   * Likes deleteMany
+   * Stars deleteMany
    */
-  export type LikesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Likes to delete
+     * Filter which Stars to delete
      */
-    where?: LikesWhereInput
+    where?: StarsWhereInput
     /**
-     * Limit how many Likes to delete.
+     * Limit how many Stars to delete.
      */
     limit?: number
   }
 
   /**
-   * Likes.post
+   * Stars.post
    */
-  export type Likes$postArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Stars$postArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Posts
      */
@@ -8495,9 +8495,9 @@ export namespace Prisma {
   }
 
   /**
-   * Likes.comment
+   * Stars.comment
    */
-  export type Likes$commentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Stars$commentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Comments
      */
@@ -8514,21 +8514,21 @@ export namespace Prisma {
   }
 
   /**
-   * Likes without action
+   * Stars without action
    */
-  export type LikesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StarsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Likes
+     * Select specific fields to fetch from the Stars
      */
-    select?: LikesSelect<ExtArgs> | null
+    select?: StarsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Likes
+     * Omit specific fields from the Stars
      */
-    omit?: LikesOmit<ExtArgs> | null
+    omit?: StarsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: LikesInclude<ExtArgs> | null
+    include?: StarsInclude<ExtArgs> | null
   }
 
 
@@ -11813,7 +11813,7 @@ export namespace Prisma {
   export type CommentsScalarFieldEnum = (typeof CommentsScalarFieldEnum)[keyof typeof CommentsScalarFieldEnum]
 
 
-  export const LikesScalarFieldEnum: {
+  export const StarsScalarFieldEnum: {
     id: 'id',
     postId: 'postId',
     userId: 'userId',
@@ -11822,7 +11822,7 @@ export namespace Prisma {
     deletedAt: 'deletedAt'
   };
 
-  export type LikesScalarFieldEnum = (typeof LikesScalarFieldEnum)[keyof typeof LikesScalarFieldEnum]
+  export type StarsScalarFieldEnum = (typeof StarsScalarFieldEnum)[keyof typeof StarsScalarFieldEnum]
 
 
   export const CategoriesScalarFieldEnum: {
@@ -11940,7 +11940,7 @@ export namespace Prisma {
     registeredAt?: DateTimeFilter<"Users"> | Date | string
     deletedAt?: DateTimeNullableFilter<"Users"> | Date | string | null
     comments?: CommentsListRelationFilter
-    likes?: LikesListRelationFilter
+    stars?: StarsListRelationFilter
     pageviews?: PageviewsListRelationFilter
   }
 
@@ -11950,7 +11950,7 @@ export namespace Prisma {
     registeredAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
     comments?: CommentsOrderByRelationAggregateInput
-    likes?: LikesOrderByRelationAggregateInput
+    stars?: StarsOrderByRelationAggregateInput
     pageviews?: PageviewsOrderByRelationAggregateInput
   }
 
@@ -11963,7 +11963,7 @@ export namespace Prisma {
     registeredAt?: DateTimeFilter<"Users"> | Date | string
     deletedAt?: DateTimeNullableFilter<"Users"> | Date | string | null
     comments?: CommentsListRelationFilter
-    likes?: LikesListRelationFilter
+    stars?: StarsListRelationFilter
     pageviews?: PageviewsListRelationFilter
   }, "id">
 
@@ -12118,7 +12118,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Posts"> | Date | string
     deletedAt?: DateTimeNullableFilter<"Posts"> | Date | string | null
     author?: XOR<AuthorsScalarRelationFilter, AuthorsWhereInput>
-    likes?: LikesListRelationFilter
+    stars?: StarsListRelationFilter
     comments?: CommentsListRelationFilter
     categories?: PostToCategoriesListRelationFilter
     pageviews?: PageviewsListRelationFilter
@@ -12134,7 +12134,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
     author?: AuthorsOrderByWithRelationInput
-    likes?: LikesOrderByRelationAggregateInput
+    stars?: StarsOrderByRelationAggregateInput
     comments?: CommentsOrderByRelationAggregateInput
     categories?: PostToCategoriesOrderByRelationAggregateInput
     pageviews?: PageviewsOrderByRelationAggregateInput
@@ -12153,7 +12153,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Posts"> | Date | string
     deletedAt?: DateTimeNullableFilter<"Posts"> | Date | string | null
     author?: XOR<AuthorsScalarRelationFilter, AuthorsWhereInput>
-    likes?: LikesListRelationFilter
+    stars?: StarsListRelationFilter
     comments?: CommentsListRelationFilter
     categories?: PostToCategoriesListRelationFilter
     pageviews?: PageviewsListRelationFilter
@@ -12199,7 +12199,7 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableFilter<"Comments"> | Date | string | null
     user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
     post?: XOR<PostsScalarRelationFilter, PostsWhereInput>
-    likes?: LikesListRelationFilter
+    stars?: StarsListRelationFilter
   }
 
   export type CommentsOrderByWithRelationInput = {
@@ -12211,7 +12211,7 @@ export namespace Prisma {
     deletedAt?: SortOrderInput | SortOrder
     user?: UsersOrderByWithRelationInput
     post?: PostsOrderByWithRelationInput
-    likes?: LikesOrderByRelationAggregateInput
+    stars?: StarsOrderByRelationAggregateInput
   }
 
   export type CommentsWhereUniqueInput = Prisma.AtLeast<{
@@ -12226,7 +12226,7 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableFilter<"Comments"> | Date | string | null
     user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
     post?: XOR<PostsScalarRelationFilter, PostsWhereInput>
-    likes?: LikesListRelationFilter
+    stars?: StarsListRelationFilter
   }, "id">
 
   export type CommentsOrderByWithAggregationInput = {
@@ -12253,22 +12253,22 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableWithAggregatesFilter<"Comments"> | Date | string | null
   }
 
-  export type LikesWhereInput = {
-    AND?: LikesWhereInput | LikesWhereInput[]
-    OR?: LikesWhereInput[]
-    NOT?: LikesWhereInput | LikesWhereInput[]
-    id?: StringFilter<"Likes"> | string
-    postId?: StringNullableFilter<"Likes"> | string | null
-    userId?: StringFilter<"Likes"> | string
-    commentId?: StringNullableFilter<"Likes"> | string | null
-    createdAt?: DateTimeFilter<"Likes"> | Date | string
-    deletedAt?: DateTimeNullableFilter<"Likes"> | Date | string | null
+  export type StarsWhereInput = {
+    AND?: StarsWhereInput | StarsWhereInput[]
+    OR?: StarsWhereInput[]
+    NOT?: StarsWhereInput | StarsWhereInput[]
+    id?: StringFilter<"Stars"> | string
+    postId?: StringNullableFilter<"Stars"> | string | null
+    userId?: StringFilter<"Stars"> | string
+    commentId?: StringNullableFilter<"Stars"> | string | null
+    createdAt?: DateTimeFilter<"Stars"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"Stars"> | Date | string | null
     post?: XOR<PostsNullableScalarRelationFilter, PostsWhereInput> | null
     user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
     comment?: XOR<CommentsNullableScalarRelationFilter, CommentsWhereInput> | null
   }
 
-  export type LikesOrderByWithRelationInput = {
+  export type StarsOrderByWithRelationInput = {
     id?: SortOrder
     postId?: SortOrderInput | SortOrder
     userId?: SortOrder
@@ -12280,43 +12280,43 @@ export namespace Prisma {
     comment?: CommentsOrderByWithRelationInput
   }
 
-  export type LikesWhereUniqueInput = Prisma.AtLeast<{
+  export type StarsWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: LikesWhereInput | LikesWhereInput[]
-    OR?: LikesWhereInput[]
-    NOT?: LikesWhereInput | LikesWhereInput[]
-    postId?: StringNullableFilter<"Likes"> | string | null
-    userId?: StringFilter<"Likes"> | string
-    commentId?: StringNullableFilter<"Likes"> | string | null
-    createdAt?: DateTimeFilter<"Likes"> | Date | string
-    deletedAt?: DateTimeNullableFilter<"Likes"> | Date | string | null
+    AND?: StarsWhereInput | StarsWhereInput[]
+    OR?: StarsWhereInput[]
+    NOT?: StarsWhereInput | StarsWhereInput[]
+    postId?: StringNullableFilter<"Stars"> | string | null
+    userId?: StringFilter<"Stars"> | string
+    commentId?: StringNullableFilter<"Stars"> | string | null
+    createdAt?: DateTimeFilter<"Stars"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"Stars"> | Date | string | null
     post?: XOR<PostsNullableScalarRelationFilter, PostsWhereInput> | null
     user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
     comment?: XOR<CommentsNullableScalarRelationFilter, CommentsWhereInput> | null
   }, "id">
 
-  export type LikesOrderByWithAggregationInput = {
+  export type StarsOrderByWithAggregationInput = {
     id?: SortOrder
     postId?: SortOrderInput | SortOrder
     userId?: SortOrder
     commentId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
-    _count?: LikesCountOrderByAggregateInput
-    _max?: LikesMaxOrderByAggregateInput
-    _min?: LikesMinOrderByAggregateInput
+    _count?: StarsCountOrderByAggregateInput
+    _max?: StarsMaxOrderByAggregateInput
+    _min?: StarsMinOrderByAggregateInput
   }
 
-  export type LikesScalarWhereWithAggregatesInput = {
-    AND?: LikesScalarWhereWithAggregatesInput | LikesScalarWhereWithAggregatesInput[]
-    OR?: LikesScalarWhereWithAggregatesInput[]
-    NOT?: LikesScalarWhereWithAggregatesInput | LikesScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Likes"> | string
-    postId?: StringNullableWithAggregatesFilter<"Likes"> | string | null
-    userId?: StringWithAggregatesFilter<"Likes"> | string
-    commentId?: StringNullableWithAggregatesFilter<"Likes"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"Likes"> | Date | string
-    deletedAt?: DateTimeNullableWithAggregatesFilter<"Likes"> | Date | string | null
+  export type StarsScalarWhereWithAggregatesInput = {
+    AND?: StarsScalarWhereWithAggregatesInput | StarsScalarWhereWithAggregatesInput[]
+    OR?: StarsScalarWhereWithAggregatesInput[]
+    NOT?: StarsScalarWhereWithAggregatesInput | StarsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Stars"> | string
+    postId?: StringNullableWithAggregatesFilter<"Stars"> | string | null
+    userId?: StringWithAggregatesFilter<"Stars"> | string
+    commentId?: StringNullableWithAggregatesFilter<"Stars"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Stars"> | Date | string
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"Stars"> | Date | string | null
   }
 
   export type CategoriesWhereInput = {
@@ -12491,7 +12491,7 @@ export namespace Prisma {
     registeredAt: Date | string
     deletedAt?: Date | string | null
     comments?: CommentsCreateNestedManyWithoutUserInput
-    likes?: LikesCreateNestedManyWithoutUserInput
+    stars?: StarsCreateNestedManyWithoutUserInput
     pageviews?: PageviewsCreateNestedManyWithoutUserInput
   }
 
@@ -12501,7 +12501,7 @@ export namespace Prisma {
     registeredAt: Date | string
     deletedAt?: Date | string | null
     comments?: CommentsUncheckedCreateNestedManyWithoutUserInput
-    likes?: LikesUncheckedCreateNestedManyWithoutUserInput
+    stars?: StarsUncheckedCreateNestedManyWithoutUserInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -12511,7 +12511,7 @@ export namespace Prisma {
     registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     comments?: CommentsUpdateManyWithoutUserNestedInput
-    likes?: LikesUpdateManyWithoutUserNestedInput
+    stars?: StarsUpdateManyWithoutUserNestedInput
     pageviews?: PageviewsUpdateManyWithoutUserNestedInput
   }
 
@@ -12521,7 +12521,7 @@ export namespace Prisma {
     registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     comments?: CommentsUncheckedUpdateManyWithoutUserNestedInput
-    likes?: LikesUncheckedUpdateManyWithoutUserNestedInput
+    stars?: StarsUncheckedUpdateManyWithoutUserNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -12681,7 +12681,7 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     author: AuthorsCreateNestedOneWithoutPostsInput
-    likes?: LikesCreateNestedManyWithoutPostInput
+    stars?: StarsCreateNestedManyWithoutPostInput
     comments?: CommentsCreateNestedManyWithoutPostInput
     categories?: PostToCategoriesCreateNestedManyWithoutPostInput
     pageviews?: PageviewsCreateNestedManyWithoutPostInput
@@ -12696,7 +12696,7 @@ export namespace Prisma {
     authorId: string
     createdAt: Date | string
     deletedAt?: Date | string | null
-    likes?: LikesUncheckedCreateNestedManyWithoutPostInput
+    stars?: StarsUncheckedCreateNestedManyWithoutPostInput
     comments?: CommentsUncheckedCreateNestedManyWithoutPostInput
     categories?: PostToCategoriesUncheckedCreateNestedManyWithoutPostInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutPostInput
@@ -12711,7 +12711,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     author?: AuthorsUpdateOneRequiredWithoutPostsNestedInput
-    likes?: LikesUpdateManyWithoutPostNestedInput
+    stars?: StarsUpdateManyWithoutPostNestedInput
     comments?: CommentsUpdateManyWithoutPostNestedInput
     categories?: PostToCategoriesUpdateManyWithoutPostNestedInput
     pageviews?: PageviewsUpdateManyWithoutPostNestedInput
@@ -12726,7 +12726,7 @@ export namespace Prisma {
     authorId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    likes?: LikesUncheckedUpdateManyWithoutPostNestedInput
+    stars?: StarsUncheckedUpdateManyWithoutPostNestedInput
     comments?: CommentsUncheckedUpdateManyWithoutPostNestedInput
     categories?: PostToCategoriesUncheckedUpdateManyWithoutPostNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutPostNestedInput
@@ -12771,7 +12771,7 @@ export namespace Prisma {
     deletedAt?: Date | string | null
     user: UsersCreateNestedOneWithoutCommentsInput
     post: PostsCreateNestedOneWithoutCommentsInput
-    likes?: LikesCreateNestedManyWithoutCommentInput
+    stars?: StarsCreateNestedManyWithoutCommentInput
   }
 
   export type CommentsUncheckedCreateInput = {
@@ -12781,7 +12781,7 @@ export namespace Prisma {
     commentText: string
     createdAt: Date | string
     deletedAt?: Date | string | null
-    likes?: LikesUncheckedCreateNestedManyWithoutCommentInput
+    stars?: StarsUncheckedCreateNestedManyWithoutCommentInput
   }
 
   export type CommentsUpdateInput = {
@@ -12791,7 +12791,7 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UsersUpdateOneRequiredWithoutCommentsNestedInput
     post?: PostsUpdateOneRequiredWithoutCommentsNestedInput
-    likes?: LikesUpdateManyWithoutCommentNestedInput
+    stars?: StarsUpdateManyWithoutCommentNestedInput
   }
 
   export type CommentsUncheckedUpdateInput = {
@@ -12801,7 +12801,7 @@ export namespace Prisma {
     commentText?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    likes?: LikesUncheckedUpdateManyWithoutCommentNestedInput
+    stars?: StarsUncheckedUpdateManyWithoutCommentNestedInput
   }
 
   export type CommentsCreateManyInput = {
@@ -12829,16 +12829,16 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type LikesCreateInput = {
+  export type StarsCreateInput = {
     id?: string
     createdAt: Date | string
     deletedAt?: Date | string | null
-    post?: PostsCreateNestedOneWithoutLikesInput
-    user: UsersCreateNestedOneWithoutLikesInput
-    comment?: CommentsCreateNestedOneWithoutLikesInput
+    post?: PostsCreateNestedOneWithoutStarsInput
+    user: UsersCreateNestedOneWithoutStarsInput
+    comment?: CommentsCreateNestedOneWithoutStarsInput
   }
 
-  export type LikesUncheckedCreateInput = {
+  export type StarsUncheckedCreateInput = {
     id?: string
     postId?: string | null
     userId: string
@@ -12847,16 +12847,16 @@ export namespace Prisma {
     deletedAt?: Date | string | null
   }
 
-  export type LikesUpdateInput = {
+  export type StarsUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    post?: PostsUpdateOneWithoutLikesNestedInput
-    user?: UsersUpdateOneRequiredWithoutLikesNestedInput
-    comment?: CommentsUpdateOneWithoutLikesNestedInput
+    post?: PostsUpdateOneWithoutStarsNestedInput
+    user?: UsersUpdateOneRequiredWithoutStarsNestedInput
+    comment?: CommentsUpdateOneWithoutStarsNestedInput
   }
 
-  export type LikesUncheckedUpdateInput = {
+  export type StarsUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     postId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
@@ -12865,7 +12865,7 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type LikesCreateManyInput = {
+  export type StarsCreateManyInput = {
     id?: string
     postId?: string | null
     userId: string
@@ -12874,13 +12874,13 @@ export namespace Prisma {
     deletedAt?: Date | string | null
   }
 
-  export type LikesUpdateManyMutationInput = {
+  export type StarsUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type LikesUncheckedUpdateManyInput = {
+  export type StarsUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     postId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
@@ -13093,10 +13093,10 @@ export namespace Prisma {
     none?: CommentsWhereInput
   }
 
-  export type LikesListRelationFilter = {
-    every?: LikesWhereInput
-    some?: LikesWhereInput
-    none?: LikesWhereInput
+  export type StarsListRelationFilter = {
+    every?: StarsWhereInput
+    some?: StarsWhereInput
+    none?: StarsWhereInput
   }
 
   export type PageviewsListRelationFilter = {
@@ -13114,7 +13114,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type LikesOrderByRelationAggregateInput = {
+  export type StarsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -13388,7 +13388,7 @@ export namespace Prisma {
     isNot?: CommentsWhereInput | null
   }
 
-  export type LikesCountOrderByAggregateInput = {
+  export type StarsCountOrderByAggregateInput = {
     id?: SortOrder
     postId?: SortOrder
     userId?: SortOrder
@@ -13397,7 +13397,7 @@ export namespace Prisma {
     deletedAt?: SortOrder
   }
 
-  export type LikesMaxOrderByAggregateInput = {
+  export type StarsMaxOrderByAggregateInput = {
     id?: SortOrder
     postId?: SortOrder
     userId?: SortOrder
@@ -13406,7 +13406,7 @@ export namespace Prisma {
     deletedAt?: SortOrder
   }
 
-  export type LikesMinOrderByAggregateInput = {
+  export type StarsMinOrderByAggregateInput = {
     id?: SortOrder
     postId?: SortOrder
     userId?: SortOrder
@@ -13496,11 +13496,11 @@ export namespace Prisma {
     connect?: CommentsWhereUniqueInput | CommentsWhereUniqueInput[]
   }
 
-  export type LikesCreateNestedManyWithoutUserInput = {
-    create?: XOR<LikesCreateWithoutUserInput, LikesUncheckedCreateWithoutUserInput> | LikesCreateWithoutUserInput[] | LikesUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: LikesCreateOrConnectWithoutUserInput | LikesCreateOrConnectWithoutUserInput[]
-    createMany?: LikesCreateManyUserInputEnvelope
-    connect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
+  export type StarsCreateNestedManyWithoutUserInput = {
+    create?: XOR<StarsCreateWithoutUserInput, StarsUncheckedCreateWithoutUserInput> | StarsCreateWithoutUserInput[] | StarsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: StarsCreateOrConnectWithoutUserInput | StarsCreateOrConnectWithoutUserInput[]
+    createMany?: StarsCreateManyUserInputEnvelope
+    connect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
   }
 
   export type PageviewsCreateNestedManyWithoutUserInput = {
@@ -13517,11 +13517,11 @@ export namespace Prisma {
     connect?: CommentsWhereUniqueInput | CommentsWhereUniqueInput[]
   }
 
-  export type LikesUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<LikesCreateWithoutUserInput, LikesUncheckedCreateWithoutUserInput> | LikesCreateWithoutUserInput[] | LikesUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: LikesCreateOrConnectWithoutUserInput | LikesCreateOrConnectWithoutUserInput[]
-    createMany?: LikesCreateManyUserInputEnvelope
-    connect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
+  export type StarsUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<StarsCreateWithoutUserInput, StarsUncheckedCreateWithoutUserInput> | StarsCreateWithoutUserInput[] | StarsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: StarsCreateOrConnectWithoutUserInput | StarsCreateOrConnectWithoutUserInput[]
+    createMany?: StarsCreateManyUserInputEnvelope
+    connect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
   }
 
   export type PageviewsUncheckedCreateNestedManyWithoutUserInput = {
@@ -13557,18 +13557,18 @@ export namespace Prisma {
     deleteMany?: CommentsScalarWhereInput | CommentsScalarWhereInput[]
   }
 
-  export type LikesUpdateManyWithoutUserNestedInput = {
-    create?: XOR<LikesCreateWithoutUserInput, LikesUncheckedCreateWithoutUserInput> | LikesCreateWithoutUserInput[] | LikesUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: LikesCreateOrConnectWithoutUserInput | LikesCreateOrConnectWithoutUserInput[]
-    upsert?: LikesUpsertWithWhereUniqueWithoutUserInput | LikesUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: LikesCreateManyUserInputEnvelope
-    set?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    disconnect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    delete?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    connect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    update?: LikesUpdateWithWhereUniqueWithoutUserInput | LikesUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: LikesUpdateManyWithWhereWithoutUserInput | LikesUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: LikesScalarWhereInput | LikesScalarWhereInput[]
+  export type StarsUpdateManyWithoutUserNestedInput = {
+    create?: XOR<StarsCreateWithoutUserInput, StarsUncheckedCreateWithoutUserInput> | StarsCreateWithoutUserInput[] | StarsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: StarsCreateOrConnectWithoutUserInput | StarsCreateOrConnectWithoutUserInput[]
+    upsert?: StarsUpsertWithWhereUniqueWithoutUserInput | StarsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: StarsCreateManyUserInputEnvelope
+    set?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    disconnect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    delete?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    connect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    update?: StarsUpdateWithWhereUniqueWithoutUserInput | StarsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: StarsUpdateManyWithWhereWithoutUserInput | StarsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: StarsScalarWhereInput | StarsScalarWhereInput[]
   }
 
   export type PageviewsUpdateManyWithoutUserNestedInput = {
@@ -13599,18 +13599,18 @@ export namespace Prisma {
     deleteMany?: CommentsScalarWhereInput | CommentsScalarWhereInput[]
   }
 
-  export type LikesUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<LikesCreateWithoutUserInput, LikesUncheckedCreateWithoutUserInput> | LikesCreateWithoutUserInput[] | LikesUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: LikesCreateOrConnectWithoutUserInput | LikesCreateOrConnectWithoutUserInput[]
-    upsert?: LikesUpsertWithWhereUniqueWithoutUserInput | LikesUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: LikesCreateManyUserInputEnvelope
-    set?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    disconnect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    delete?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    connect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    update?: LikesUpdateWithWhereUniqueWithoutUserInput | LikesUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: LikesUpdateManyWithWhereWithoutUserInput | LikesUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: LikesScalarWhereInput | LikesScalarWhereInput[]
+  export type StarsUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<StarsCreateWithoutUserInput, StarsUncheckedCreateWithoutUserInput> | StarsCreateWithoutUserInput[] | StarsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: StarsCreateOrConnectWithoutUserInput | StarsCreateOrConnectWithoutUserInput[]
+    upsert?: StarsUpsertWithWhereUniqueWithoutUserInput | StarsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: StarsCreateManyUserInputEnvelope
+    set?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    disconnect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    delete?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    connect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    update?: StarsUpdateWithWhereUniqueWithoutUserInput | StarsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: StarsUpdateManyWithWhereWithoutUserInput | StarsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: StarsScalarWhereInput | StarsScalarWhereInput[]
   }
 
   export type PageviewsUncheckedUpdateManyWithoutUserNestedInput = {
@@ -13731,11 +13731,11 @@ export namespace Prisma {
     connect?: AuthorsWhereUniqueInput
   }
 
-  export type LikesCreateNestedManyWithoutPostInput = {
-    create?: XOR<LikesCreateWithoutPostInput, LikesUncheckedCreateWithoutPostInput> | LikesCreateWithoutPostInput[] | LikesUncheckedCreateWithoutPostInput[]
-    connectOrCreate?: LikesCreateOrConnectWithoutPostInput | LikesCreateOrConnectWithoutPostInput[]
-    createMany?: LikesCreateManyPostInputEnvelope
-    connect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
+  export type StarsCreateNestedManyWithoutPostInput = {
+    create?: XOR<StarsCreateWithoutPostInput, StarsUncheckedCreateWithoutPostInput> | StarsCreateWithoutPostInput[] | StarsUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: StarsCreateOrConnectWithoutPostInput | StarsCreateOrConnectWithoutPostInput[]
+    createMany?: StarsCreateManyPostInputEnvelope
+    connect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
   }
 
   export type CommentsCreateNestedManyWithoutPostInput = {
@@ -13759,11 +13759,11 @@ export namespace Prisma {
     connect?: PageviewsWhereUniqueInput | PageviewsWhereUniqueInput[]
   }
 
-  export type LikesUncheckedCreateNestedManyWithoutPostInput = {
-    create?: XOR<LikesCreateWithoutPostInput, LikesUncheckedCreateWithoutPostInput> | LikesCreateWithoutPostInput[] | LikesUncheckedCreateWithoutPostInput[]
-    connectOrCreate?: LikesCreateOrConnectWithoutPostInput | LikesCreateOrConnectWithoutPostInput[]
-    createMany?: LikesCreateManyPostInputEnvelope
-    connect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
+  export type StarsUncheckedCreateNestedManyWithoutPostInput = {
+    create?: XOR<StarsCreateWithoutPostInput, StarsUncheckedCreateWithoutPostInput> | StarsCreateWithoutPostInput[] | StarsUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: StarsCreateOrConnectWithoutPostInput | StarsCreateOrConnectWithoutPostInput[]
+    createMany?: StarsCreateManyPostInputEnvelope
+    connect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
   }
 
   export type CommentsUncheckedCreateNestedManyWithoutPostInput = {
@@ -13799,18 +13799,18 @@ export namespace Prisma {
     update?: XOR<XOR<AuthorsUpdateToOneWithWhereWithoutPostsInput, AuthorsUpdateWithoutPostsInput>, AuthorsUncheckedUpdateWithoutPostsInput>
   }
 
-  export type LikesUpdateManyWithoutPostNestedInput = {
-    create?: XOR<LikesCreateWithoutPostInput, LikesUncheckedCreateWithoutPostInput> | LikesCreateWithoutPostInput[] | LikesUncheckedCreateWithoutPostInput[]
-    connectOrCreate?: LikesCreateOrConnectWithoutPostInput | LikesCreateOrConnectWithoutPostInput[]
-    upsert?: LikesUpsertWithWhereUniqueWithoutPostInput | LikesUpsertWithWhereUniqueWithoutPostInput[]
-    createMany?: LikesCreateManyPostInputEnvelope
-    set?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    disconnect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    delete?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    connect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    update?: LikesUpdateWithWhereUniqueWithoutPostInput | LikesUpdateWithWhereUniqueWithoutPostInput[]
-    updateMany?: LikesUpdateManyWithWhereWithoutPostInput | LikesUpdateManyWithWhereWithoutPostInput[]
-    deleteMany?: LikesScalarWhereInput | LikesScalarWhereInput[]
+  export type StarsUpdateManyWithoutPostNestedInput = {
+    create?: XOR<StarsCreateWithoutPostInput, StarsUncheckedCreateWithoutPostInput> | StarsCreateWithoutPostInput[] | StarsUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: StarsCreateOrConnectWithoutPostInput | StarsCreateOrConnectWithoutPostInput[]
+    upsert?: StarsUpsertWithWhereUniqueWithoutPostInput | StarsUpsertWithWhereUniqueWithoutPostInput[]
+    createMany?: StarsCreateManyPostInputEnvelope
+    set?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    disconnect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    delete?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    connect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    update?: StarsUpdateWithWhereUniqueWithoutPostInput | StarsUpdateWithWhereUniqueWithoutPostInput[]
+    updateMany?: StarsUpdateManyWithWhereWithoutPostInput | StarsUpdateManyWithWhereWithoutPostInput[]
+    deleteMany?: StarsScalarWhereInput | StarsScalarWhereInput[]
   }
 
   export type CommentsUpdateManyWithoutPostNestedInput = {
@@ -13855,18 +13855,18 @@ export namespace Prisma {
     deleteMany?: PageviewsScalarWhereInput | PageviewsScalarWhereInput[]
   }
 
-  export type LikesUncheckedUpdateManyWithoutPostNestedInput = {
-    create?: XOR<LikesCreateWithoutPostInput, LikesUncheckedCreateWithoutPostInput> | LikesCreateWithoutPostInput[] | LikesUncheckedCreateWithoutPostInput[]
-    connectOrCreate?: LikesCreateOrConnectWithoutPostInput | LikesCreateOrConnectWithoutPostInput[]
-    upsert?: LikesUpsertWithWhereUniqueWithoutPostInput | LikesUpsertWithWhereUniqueWithoutPostInput[]
-    createMany?: LikesCreateManyPostInputEnvelope
-    set?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    disconnect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    delete?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    connect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    update?: LikesUpdateWithWhereUniqueWithoutPostInput | LikesUpdateWithWhereUniqueWithoutPostInput[]
-    updateMany?: LikesUpdateManyWithWhereWithoutPostInput | LikesUpdateManyWithWhereWithoutPostInput[]
-    deleteMany?: LikesScalarWhereInput | LikesScalarWhereInput[]
+  export type StarsUncheckedUpdateManyWithoutPostNestedInput = {
+    create?: XOR<StarsCreateWithoutPostInput, StarsUncheckedCreateWithoutPostInput> | StarsCreateWithoutPostInput[] | StarsUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: StarsCreateOrConnectWithoutPostInput | StarsCreateOrConnectWithoutPostInput[]
+    upsert?: StarsUpsertWithWhereUniqueWithoutPostInput | StarsUpsertWithWhereUniqueWithoutPostInput[]
+    createMany?: StarsCreateManyPostInputEnvelope
+    set?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    disconnect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    delete?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    connect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    update?: StarsUpdateWithWhereUniqueWithoutPostInput | StarsUpdateWithWhereUniqueWithoutPostInput[]
+    updateMany?: StarsUpdateManyWithWhereWithoutPostInput | StarsUpdateManyWithWhereWithoutPostInput[]
+    deleteMany?: StarsScalarWhereInput | StarsScalarWhereInput[]
   }
 
   export type CommentsUncheckedUpdateManyWithoutPostNestedInput = {
@@ -13923,18 +13923,18 @@ export namespace Prisma {
     connect?: PostsWhereUniqueInput
   }
 
-  export type LikesCreateNestedManyWithoutCommentInput = {
-    create?: XOR<LikesCreateWithoutCommentInput, LikesUncheckedCreateWithoutCommentInput> | LikesCreateWithoutCommentInput[] | LikesUncheckedCreateWithoutCommentInput[]
-    connectOrCreate?: LikesCreateOrConnectWithoutCommentInput | LikesCreateOrConnectWithoutCommentInput[]
-    createMany?: LikesCreateManyCommentInputEnvelope
-    connect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
+  export type StarsCreateNestedManyWithoutCommentInput = {
+    create?: XOR<StarsCreateWithoutCommentInput, StarsUncheckedCreateWithoutCommentInput> | StarsCreateWithoutCommentInput[] | StarsUncheckedCreateWithoutCommentInput[]
+    connectOrCreate?: StarsCreateOrConnectWithoutCommentInput | StarsCreateOrConnectWithoutCommentInput[]
+    createMany?: StarsCreateManyCommentInputEnvelope
+    connect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
   }
 
-  export type LikesUncheckedCreateNestedManyWithoutCommentInput = {
-    create?: XOR<LikesCreateWithoutCommentInput, LikesUncheckedCreateWithoutCommentInput> | LikesCreateWithoutCommentInput[] | LikesUncheckedCreateWithoutCommentInput[]
-    connectOrCreate?: LikesCreateOrConnectWithoutCommentInput | LikesCreateOrConnectWithoutCommentInput[]
-    createMany?: LikesCreateManyCommentInputEnvelope
-    connect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
+  export type StarsUncheckedCreateNestedManyWithoutCommentInput = {
+    create?: XOR<StarsCreateWithoutCommentInput, StarsUncheckedCreateWithoutCommentInput> | StarsCreateWithoutCommentInput[] | StarsUncheckedCreateWithoutCommentInput[]
+    connectOrCreate?: StarsCreateOrConnectWithoutCommentInput | StarsCreateOrConnectWithoutCommentInput[]
+    createMany?: StarsCreateManyCommentInputEnvelope
+    connect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
   }
 
   export type UsersUpdateOneRequiredWithoutCommentsNestedInput = {
@@ -13953,78 +13953,78 @@ export namespace Prisma {
     update?: XOR<XOR<PostsUpdateToOneWithWhereWithoutCommentsInput, PostsUpdateWithoutCommentsInput>, PostsUncheckedUpdateWithoutCommentsInput>
   }
 
-  export type LikesUpdateManyWithoutCommentNestedInput = {
-    create?: XOR<LikesCreateWithoutCommentInput, LikesUncheckedCreateWithoutCommentInput> | LikesCreateWithoutCommentInput[] | LikesUncheckedCreateWithoutCommentInput[]
-    connectOrCreate?: LikesCreateOrConnectWithoutCommentInput | LikesCreateOrConnectWithoutCommentInput[]
-    upsert?: LikesUpsertWithWhereUniqueWithoutCommentInput | LikesUpsertWithWhereUniqueWithoutCommentInput[]
-    createMany?: LikesCreateManyCommentInputEnvelope
-    set?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    disconnect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    delete?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    connect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    update?: LikesUpdateWithWhereUniqueWithoutCommentInput | LikesUpdateWithWhereUniqueWithoutCommentInput[]
-    updateMany?: LikesUpdateManyWithWhereWithoutCommentInput | LikesUpdateManyWithWhereWithoutCommentInput[]
-    deleteMany?: LikesScalarWhereInput | LikesScalarWhereInput[]
+  export type StarsUpdateManyWithoutCommentNestedInput = {
+    create?: XOR<StarsCreateWithoutCommentInput, StarsUncheckedCreateWithoutCommentInput> | StarsCreateWithoutCommentInput[] | StarsUncheckedCreateWithoutCommentInput[]
+    connectOrCreate?: StarsCreateOrConnectWithoutCommentInput | StarsCreateOrConnectWithoutCommentInput[]
+    upsert?: StarsUpsertWithWhereUniqueWithoutCommentInput | StarsUpsertWithWhereUniqueWithoutCommentInput[]
+    createMany?: StarsCreateManyCommentInputEnvelope
+    set?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    disconnect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    delete?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    connect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    update?: StarsUpdateWithWhereUniqueWithoutCommentInput | StarsUpdateWithWhereUniqueWithoutCommentInput[]
+    updateMany?: StarsUpdateManyWithWhereWithoutCommentInput | StarsUpdateManyWithWhereWithoutCommentInput[]
+    deleteMany?: StarsScalarWhereInput | StarsScalarWhereInput[]
   }
 
-  export type LikesUncheckedUpdateManyWithoutCommentNestedInput = {
-    create?: XOR<LikesCreateWithoutCommentInput, LikesUncheckedCreateWithoutCommentInput> | LikesCreateWithoutCommentInput[] | LikesUncheckedCreateWithoutCommentInput[]
-    connectOrCreate?: LikesCreateOrConnectWithoutCommentInput | LikesCreateOrConnectWithoutCommentInput[]
-    upsert?: LikesUpsertWithWhereUniqueWithoutCommentInput | LikesUpsertWithWhereUniqueWithoutCommentInput[]
-    createMany?: LikesCreateManyCommentInputEnvelope
-    set?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    disconnect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    delete?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    connect?: LikesWhereUniqueInput | LikesWhereUniqueInput[]
-    update?: LikesUpdateWithWhereUniqueWithoutCommentInput | LikesUpdateWithWhereUniqueWithoutCommentInput[]
-    updateMany?: LikesUpdateManyWithWhereWithoutCommentInput | LikesUpdateManyWithWhereWithoutCommentInput[]
-    deleteMany?: LikesScalarWhereInput | LikesScalarWhereInput[]
+  export type StarsUncheckedUpdateManyWithoutCommentNestedInput = {
+    create?: XOR<StarsCreateWithoutCommentInput, StarsUncheckedCreateWithoutCommentInput> | StarsCreateWithoutCommentInput[] | StarsUncheckedCreateWithoutCommentInput[]
+    connectOrCreate?: StarsCreateOrConnectWithoutCommentInput | StarsCreateOrConnectWithoutCommentInput[]
+    upsert?: StarsUpsertWithWhereUniqueWithoutCommentInput | StarsUpsertWithWhereUniqueWithoutCommentInput[]
+    createMany?: StarsCreateManyCommentInputEnvelope
+    set?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    disconnect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    delete?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    connect?: StarsWhereUniqueInput | StarsWhereUniqueInput[]
+    update?: StarsUpdateWithWhereUniqueWithoutCommentInput | StarsUpdateWithWhereUniqueWithoutCommentInput[]
+    updateMany?: StarsUpdateManyWithWhereWithoutCommentInput | StarsUpdateManyWithWhereWithoutCommentInput[]
+    deleteMany?: StarsScalarWhereInput | StarsScalarWhereInput[]
   }
 
-  export type PostsCreateNestedOneWithoutLikesInput = {
-    create?: XOR<PostsCreateWithoutLikesInput, PostsUncheckedCreateWithoutLikesInput>
-    connectOrCreate?: PostsCreateOrConnectWithoutLikesInput
+  export type PostsCreateNestedOneWithoutStarsInput = {
+    create?: XOR<PostsCreateWithoutStarsInput, PostsUncheckedCreateWithoutStarsInput>
+    connectOrCreate?: PostsCreateOrConnectWithoutStarsInput
     connect?: PostsWhereUniqueInput
   }
 
-  export type UsersCreateNestedOneWithoutLikesInput = {
-    create?: XOR<UsersCreateWithoutLikesInput, UsersUncheckedCreateWithoutLikesInput>
-    connectOrCreate?: UsersCreateOrConnectWithoutLikesInput
+  export type UsersCreateNestedOneWithoutStarsInput = {
+    create?: XOR<UsersCreateWithoutStarsInput, UsersUncheckedCreateWithoutStarsInput>
+    connectOrCreate?: UsersCreateOrConnectWithoutStarsInput
     connect?: UsersWhereUniqueInput
   }
 
-  export type CommentsCreateNestedOneWithoutLikesInput = {
-    create?: XOR<CommentsCreateWithoutLikesInput, CommentsUncheckedCreateWithoutLikesInput>
-    connectOrCreate?: CommentsCreateOrConnectWithoutLikesInput
+  export type CommentsCreateNestedOneWithoutStarsInput = {
+    create?: XOR<CommentsCreateWithoutStarsInput, CommentsUncheckedCreateWithoutStarsInput>
+    connectOrCreate?: CommentsCreateOrConnectWithoutStarsInput
     connect?: CommentsWhereUniqueInput
   }
 
-  export type PostsUpdateOneWithoutLikesNestedInput = {
-    create?: XOR<PostsCreateWithoutLikesInput, PostsUncheckedCreateWithoutLikesInput>
-    connectOrCreate?: PostsCreateOrConnectWithoutLikesInput
-    upsert?: PostsUpsertWithoutLikesInput
+  export type PostsUpdateOneWithoutStarsNestedInput = {
+    create?: XOR<PostsCreateWithoutStarsInput, PostsUncheckedCreateWithoutStarsInput>
+    connectOrCreate?: PostsCreateOrConnectWithoutStarsInput
+    upsert?: PostsUpsertWithoutStarsInput
     disconnect?: PostsWhereInput | boolean
     delete?: PostsWhereInput | boolean
     connect?: PostsWhereUniqueInput
-    update?: XOR<XOR<PostsUpdateToOneWithWhereWithoutLikesInput, PostsUpdateWithoutLikesInput>, PostsUncheckedUpdateWithoutLikesInput>
+    update?: XOR<XOR<PostsUpdateToOneWithWhereWithoutStarsInput, PostsUpdateWithoutStarsInput>, PostsUncheckedUpdateWithoutStarsInput>
   }
 
-  export type UsersUpdateOneRequiredWithoutLikesNestedInput = {
-    create?: XOR<UsersCreateWithoutLikesInput, UsersUncheckedCreateWithoutLikesInput>
-    connectOrCreate?: UsersCreateOrConnectWithoutLikesInput
-    upsert?: UsersUpsertWithoutLikesInput
+  export type UsersUpdateOneRequiredWithoutStarsNestedInput = {
+    create?: XOR<UsersCreateWithoutStarsInput, UsersUncheckedCreateWithoutStarsInput>
+    connectOrCreate?: UsersCreateOrConnectWithoutStarsInput
+    upsert?: UsersUpsertWithoutStarsInput
     connect?: UsersWhereUniqueInput
-    update?: XOR<XOR<UsersUpdateToOneWithWhereWithoutLikesInput, UsersUpdateWithoutLikesInput>, UsersUncheckedUpdateWithoutLikesInput>
+    update?: XOR<XOR<UsersUpdateToOneWithWhereWithoutStarsInput, UsersUpdateWithoutStarsInput>, UsersUncheckedUpdateWithoutStarsInput>
   }
 
-  export type CommentsUpdateOneWithoutLikesNestedInput = {
-    create?: XOR<CommentsCreateWithoutLikesInput, CommentsUncheckedCreateWithoutLikesInput>
-    connectOrCreate?: CommentsCreateOrConnectWithoutLikesInput
-    upsert?: CommentsUpsertWithoutLikesInput
+  export type CommentsUpdateOneWithoutStarsNestedInput = {
+    create?: XOR<CommentsCreateWithoutStarsInput, CommentsUncheckedCreateWithoutStarsInput>
+    connectOrCreate?: CommentsCreateOrConnectWithoutStarsInput
+    upsert?: CommentsUpsertWithoutStarsInput
     disconnect?: CommentsWhereInput | boolean
     delete?: CommentsWhereInput | boolean
     connect?: CommentsWhereUniqueInput
-    update?: XOR<XOR<CommentsUpdateToOneWithWhereWithoutLikesInput, CommentsUpdateWithoutLikesInput>, CommentsUncheckedUpdateWithoutLikesInput>
+    update?: XOR<XOR<CommentsUpdateToOneWithWhereWithoutStarsInput, CommentsUpdateWithoutStarsInput>, CommentsUncheckedUpdateWithoutStarsInput>
   }
 
   export type PostToCategoriesCreateNestedManyWithoutCategoryInput = {
@@ -14267,7 +14267,7 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     post: PostsCreateNestedOneWithoutCommentsInput
-    likes?: LikesCreateNestedManyWithoutCommentInput
+    stars?: StarsCreateNestedManyWithoutCommentInput
   }
 
   export type CommentsUncheckedCreateWithoutUserInput = {
@@ -14276,7 +14276,7 @@ export namespace Prisma {
     commentText: string
     createdAt: Date | string
     deletedAt?: Date | string | null
-    likes?: LikesUncheckedCreateNestedManyWithoutCommentInput
+    stars?: StarsUncheckedCreateNestedManyWithoutCommentInput
   }
 
   export type CommentsCreateOrConnectWithoutUserInput = {
@@ -14289,15 +14289,15 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type LikesCreateWithoutUserInput = {
+  export type StarsCreateWithoutUserInput = {
     id?: string
     createdAt: Date | string
     deletedAt?: Date | string | null
-    post?: PostsCreateNestedOneWithoutLikesInput
-    comment?: CommentsCreateNestedOneWithoutLikesInput
+    post?: PostsCreateNestedOneWithoutStarsInput
+    comment?: CommentsCreateNestedOneWithoutStarsInput
   }
 
-  export type LikesUncheckedCreateWithoutUserInput = {
+  export type StarsUncheckedCreateWithoutUserInput = {
     id?: string
     postId?: string | null
     commentId?: string | null
@@ -14305,13 +14305,13 @@ export namespace Prisma {
     deletedAt?: Date | string | null
   }
 
-  export type LikesCreateOrConnectWithoutUserInput = {
-    where: LikesWhereUniqueInput
-    create: XOR<LikesCreateWithoutUserInput, LikesUncheckedCreateWithoutUserInput>
+  export type StarsCreateOrConnectWithoutUserInput = {
+    where: StarsWhereUniqueInput
+    create: XOR<StarsCreateWithoutUserInput, StarsUncheckedCreateWithoutUserInput>
   }
 
-  export type LikesCreateManyUserInputEnvelope = {
-    data: LikesCreateManyUserInput | LikesCreateManyUserInput[]
+  export type StarsCreateManyUserInputEnvelope = {
+    data: StarsCreateManyUserInput | StarsCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -14367,32 +14367,32 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableFilter<"Comments"> | Date | string | null
   }
 
-  export type LikesUpsertWithWhereUniqueWithoutUserInput = {
-    where: LikesWhereUniqueInput
-    update: XOR<LikesUpdateWithoutUserInput, LikesUncheckedUpdateWithoutUserInput>
-    create: XOR<LikesCreateWithoutUserInput, LikesUncheckedCreateWithoutUserInput>
+  export type StarsUpsertWithWhereUniqueWithoutUserInput = {
+    where: StarsWhereUniqueInput
+    update: XOR<StarsUpdateWithoutUserInput, StarsUncheckedUpdateWithoutUserInput>
+    create: XOR<StarsCreateWithoutUserInput, StarsUncheckedCreateWithoutUserInput>
   }
 
-  export type LikesUpdateWithWhereUniqueWithoutUserInput = {
-    where: LikesWhereUniqueInput
-    data: XOR<LikesUpdateWithoutUserInput, LikesUncheckedUpdateWithoutUserInput>
+  export type StarsUpdateWithWhereUniqueWithoutUserInput = {
+    where: StarsWhereUniqueInput
+    data: XOR<StarsUpdateWithoutUserInput, StarsUncheckedUpdateWithoutUserInput>
   }
 
-  export type LikesUpdateManyWithWhereWithoutUserInput = {
-    where: LikesScalarWhereInput
-    data: XOR<LikesUpdateManyMutationInput, LikesUncheckedUpdateManyWithoutUserInput>
+  export type StarsUpdateManyWithWhereWithoutUserInput = {
+    where: StarsScalarWhereInput
+    data: XOR<StarsUpdateManyMutationInput, StarsUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type LikesScalarWhereInput = {
-    AND?: LikesScalarWhereInput | LikesScalarWhereInput[]
-    OR?: LikesScalarWhereInput[]
-    NOT?: LikesScalarWhereInput | LikesScalarWhereInput[]
-    id?: StringFilter<"Likes"> | string
-    postId?: StringNullableFilter<"Likes"> | string | null
-    userId?: StringFilter<"Likes"> | string
-    commentId?: StringNullableFilter<"Likes"> | string | null
-    createdAt?: DateTimeFilter<"Likes"> | Date | string
-    deletedAt?: DateTimeNullableFilter<"Likes"> | Date | string | null
+  export type StarsScalarWhereInput = {
+    AND?: StarsScalarWhereInput | StarsScalarWhereInput[]
+    OR?: StarsScalarWhereInput[]
+    NOT?: StarsScalarWhereInput | StarsScalarWhereInput[]
+    id?: StringFilter<"Stars"> | string
+    postId?: StringNullableFilter<"Stars"> | string | null
+    userId?: StringFilter<"Stars"> | string
+    commentId?: StringNullableFilter<"Stars"> | string | null
+    createdAt?: DateTimeFilter<"Stars"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"Stars"> | Date | string | null
   }
 
   export type PageviewsUpsertWithWhereUniqueWithoutUserInput = {
@@ -14430,7 +14430,7 @@ export namespace Prisma {
     imageUrl?: string | null
     createdAt: Date | string
     deletedAt?: Date | string | null
-    likes?: LikesCreateNestedManyWithoutPostInput
+    stars?: StarsCreateNestedManyWithoutPostInput
     comments?: CommentsCreateNestedManyWithoutPostInput
     categories?: PostToCategoriesCreateNestedManyWithoutPostInput
     pageviews?: PageviewsCreateNestedManyWithoutPostInput
@@ -14444,7 +14444,7 @@ export namespace Prisma {
     imageUrl?: string | null
     createdAt: Date | string
     deletedAt?: Date | string | null
-    likes?: LikesUncheckedCreateNestedManyWithoutPostInput
+    stars?: StarsUncheckedCreateNestedManyWithoutPostInput
     comments?: CommentsUncheckedCreateNestedManyWithoutPostInput
     categories?: PostToCategoriesUncheckedCreateNestedManyWithoutPostInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutPostInput
@@ -14622,15 +14622,15 @@ export namespace Prisma {
     create: XOR<AuthorsCreateWithoutPostsInput, AuthorsUncheckedCreateWithoutPostsInput>
   }
 
-  export type LikesCreateWithoutPostInput = {
+  export type StarsCreateWithoutPostInput = {
     id?: string
     createdAt: Date | string
     deletedAt?: Date | string | null
-    user: UsersCreateNestedOneWithoutLikesInput
-    comment?: CommentsCreateNestedOneWithoutLikesInput
+    user: UsersCreateNestedOneWithoutStarsInput
+    comment?: CommentsCreateNestedOneWithoutStarsInput
   }
 
-  export type LikesUncheckedCreateWithoutPostInput = {
+  export type StarsUncheckedCreateWithoutPostInput = {
     id?: string
     userId: string
     commentId?: string | null
@@ -14638,13 +14638,13 @@ export namespace Prisma {
     deletedAt?: Date | string | null
   }
 
-  export type LikesCreateOrConnectWithoutPostInput = {
-    where: LikesWhereUniqueInput
-    create: XOR<LikesCreateWithoutPostInput, LikesUncheckedCreateWithoutPostInput>
+  export type StarsCreateOrConnectWithoutPostInput = {
+    where: StarsWhereUniqueInput
+    create: XOR<StarsCreateWithoutPostInput, StarsUncheckedCreateWithoutPostInput>
   }
 
-  export type LikesCreateManyPostInputEnvelope = {
-    data: LikesCreateManyPostInput | LikesCreateManyPostInput[]
+  export type StarsCreateManyPostInputEnvelope = {
+    data: StarsCreateManyPostInput | StarsCreateManyPostInput[]
     skipDuplicates?: boolean
   }
 
@@ -14654,7 +14654,7 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     user: UsersCreateNestedOneWithoutCommentsInput
-    likes?: LikesCreateNestedManyWithoutCommentInput
+    stars?: StarsCreateNestedManyWithoutCommentInput
   }
 
   export type CommentsUncheckedCreateWithoutPostInput = {
@@ -14663,7 +14663,7 @@ export namespace Prisma {
     commentText: string
     createdAt: Date | string
     deletedAt?: Date | string | null
-    likes?: LikesUncheckedCreateNestedManyWithoutCommentInput
+    stars?: StarsUncheckedCreateNestedManyWithoutCommentInput
   }
 
   export type CommentsCreateOrConnectWithoutPostInput = {
@@ -14755,20 +14755,20 @@ export namespace Prisma {
     sessions?: SessionsUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
-  export type LikesUpsertWithWhereUniqueWithoutPostInput = {
-    where: LikesWhereUniqueInput
-    update: XOR<LikesUpdateWithoutPostInput, LikesUncheckedUpdateWithoutPostInput>
-    create: XOR<LikesCreateWithoutPostInput, LikesUncheckedCreateWithoutPostInput>
+  export type StarsUpsertWithWhereUniqueWithoutPostInput = {
+    where: StarsWhereUniqueInput
+    update: XOR<StarsUpdateWithoutPostInput, StarsUncheckedUpdateWithoutPostInput>
+    create: XOR<StarsCreateWithoutPostInput, StarsUncheckedCreateWithoutPostInput>
   }
 
-  export type LikesUpdateWithWhereUniqueWithoutPostInput = {
-    where: LikesWhereUniqueInput
-    data: XOR<LikesUpdateWithoutPostInput, LikesUncheckedUpdateWithoutPostInput>
+  export type StarsUpdateWithWhereUniqueWithoutPostInput = {
+    where: StarsWhereUniqueInput
+    data: XOR<StarsUpdateWithoutPostInput, StarsUncheckedUpdateWithoutPostInput>
   }
 
-  export type LikesUpdateManyWithWhereWithoutPostInput = {
-    where: LikesScalarWhereInput
-    data: XOR<LikesUpdateManyMutationInput, LikesUncheckedUpdateManyWithoutPostInput>
+  export type StarsUpdateManyWithWhereWithoutPostInput = {
+    where: StarsScalarWhereInput
+    data: XOR<StarsUpdateManyMutationInput, StarsUncheckedUpdateManyWithoutPostInput>
   }
 
   export type CommentsUpsertWithWhereUniqueWithoutPostInput = {
@@ -14835,7 +14835,7 @@ export namespace Prisma {
     fullName: string
     registeredAt: Date | string
     deletedAt?: Date | string | null
-    likes?: LikesCreateNestedManyWithoutUserInput
+    stars?: StarsCreateNestedManyWithoutUserInput
     pageviews?: PageviewsCreateNestedManyWithoutUserInput
   }
 
@@ -14844,7 +14844,7 @@ export namespace Prisma {
     fullName: string
     registeredAt: Date | string
     deletedAt?: Date | string | null
-    likes?: LikesUncheckedCreateNestedManyWithoutUserInput
+    stars?: StarsUncheckedCreateNestedManyWithoutUserInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -14862,7 +14862,7 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     author: AuthorsCreateNestedOneWithoutPostsInput
-    likes?: LikesCreateNestedManyWithoutPostInput
+    stars?: StarsCreateNestedManyWithoutPostInput
     categories?: PostToCategoriesCreateNestedManyWithoutPostInput
     pageviews?: PageviewsCreateNestedManyWithoutPostInput
   }
@@ -14876,7 +14876,7 @@ export namespace Prisma {
     authorId: string
     createdAt: Date | string
     deletedAt?: Date | string | null
-    likes?: LikesUncheckedCreateNestedManyWithoutPostInput
+    stars?: StarsUncheckedCreateNestedManyWithoutPostInput
     categories?: PostToCategoriesUncheckedCreateNestedManyWithoutPostInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutPostInput
   }
@@ -14886,15 +14886,15 @@ export namespace Prisma {
     create: XOR<PostsCreateWithoutCommentsInput, PostsUncheckedCreateWithoutCommentsInput>
   }
 
-  export type LikesCreateWithoutCommentInput = {
+  export type StarsCreateWithoutCommentInput = {
     id?: string
     createdAt: Date | string
     deletedAt?: Date | string | null
-    post?: PostsCreateNestedOneWithoutLikesInput
-    user: UsersCreateNestedOneWithoutLikesInput
+    post?: PostsCreateNestedOneWithoutStarsInput
+    user: UsersCreateNestedOneWithoutStarsInput
   }
 
-  export type LikesUncheckedCreateWithoutCommentInput = {
+  export type StarsUncheckedCreateWithoutCommentInput = {
     id?: string
     postId?: string | null
     userId: string
@@ -14902,13 +14902,13 @@ export namespace Prisma {
     deletedAt?: Date | string | null
   }
 
-  export type LikesCreateOrConnectWithoutCommentInput = {
-    where: LikesWhereUniqueInput
-    create: XOR<LikesCreateWithoutCommentInput, LikesUncheckedCreateWithoutCommentInput>
+  export type StarsCreateOrConnectWithoutCommentInput = {
+    where: StarsWhereUniqueInput
+    create: XOR<StarsCreateWithoutCommentInput, StarsUncheckedCreateWithoutCommentInput>
   }
 
-  export type LikesCreateManyCommentInputEnvelope = {
-    data: LikesCreateManyCommentInput | LikesCreateManyCommentInput[]
+  export type StarsCreateManyCommentInputEnvelope = {
+    data: StarsCreateManyCommentInput | StarsCreateManyCommentInput[]
     skipDuplicates?: boolean
   }
 
@@ -14928,7 +14928,7 @@ export namespace Prisma {
     fullName?: StringFieldUpdateOperationsInput | string
     registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    likes?: LikesUpdateManyWithoutUserNestedInput
+    stars?: StarsUpdateManyWithoutUserNestedInput
     pageviews?: PageviewsUpdateManyWithoutUserNestedInput
   }
 
@@ -14937,7 +14937,7 @@ export namespace Prisma {
     fullName?: StringFieldUpdateOperationsInput | string
     registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    likes?: LikesUncheckedUpdateManyWithoutUserNestedInput
+    stars?: StarsUncheckedUpdateManyWithoutUserNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -14961,7 +14961,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     author?: AuthorsUpdateOneRequiredWithoutPostsNestedInput
-    likes?: LikesUpdateManyWithoutPostNestedInput
+    stars?: StarsUpdateManyWithoutPostNestedInput
     categories?: PostToCategoriesUpdateManyWithoutPostNestedInput
     pageviews?: PageviewsUpdateManyWithoutPostNestedInput
   }
@@ -14975,28 +14975,28 @@ export namespace Prisma {
     authorId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    likes?: LikesUncheckedUpdateManyWithoutPostNestedInput
+    stars?: StarsUncheckedUpdateManyWithoutPostNestedInput
     categories?: PostToCategoriesUncheckedUpdateManyWithoutPostNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutPostNestedInput
   }
 
-  export type LikesUpsertWithWhereUniqueWithoutCommentInput = {
-    where: LikesWhereUniqueInput
-    update: XOR<LikesUpdateWithoutCommentInput, LikesUncheckedUpdateWithoutCommentInput>
-    create: XOR<LikesCreateWithoutCommentInput, LikesUncheckedCreateWithoutCommentInput>
+  export type StarsUpsertWithWhereUniqueWithoutCommentInput = {
+    where: StarsWhereUniqueInput
+    update: XOR<StarsUpdateWithoutCommentInput, StarsUncheckedUpdateWithoutCommentInput>
+    create: XOR<StarsCreateWithoutCommentInput, StarsUncheckedCreateWithoutCommentInput>
   }
 
-  export type LikesUpdateWithWhereUniqueWithoutCommentInput = {
-    where: LikesWhereUniqueInput
-    data: XOR<LikesUpdateWithoutCommentInput, LikesUncheckedUpdateWithoutCommentInput>
+  export type StarsUpdateWithWhereUniqueWithoutCommentInput = {
+    where: StarsWhereUniqueInput
+    data: XOR<StarsUpdateWithoutCommentInput, StarsUncheckedUpdateWithoutCommentInput>
   }
 
-  export type LikesUpdateManyWithWhereWithoutCommentInput = {
-    where: LikesScalarWhereInput
-    data: XOR<LikesUpdateManyMutationInput, LikesUncheckedUpdateManyWithoutCommentInput>
+  export type StarsUpdateManyWithWhereWithoutCommentInput = {
+    where: StarsScalarWhereInput
+    data: XOR<StarsUpdateManyMutationInput, StarsUncheckedUpdateManyWithoutCommentInput>
   }
 
-  export type PostsCreateWithoutLikesInput = {
+  export type PostsCreateWithoutStarsInput = {
     id?: string
     title: string
     description: string
@@ -15010,7 +15010,7 @@ export namespace Prisma {
     pageviews?: PageviewsCreateNestedManyWithoutPostInput
   }
 
-  export type PostsUncheckedCreateWithoutLikesInput = {
+  export type PostsUncheckedCreateWithoutStarsInput = {
     id?: string
     title: string
     description: string
@@ -15024,12 +15024,12 @@ export namespace Prisma {
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutPostInput
   }
 
-  export type PostsCreateOrConnectWithoutLikesInput = {
+  export type PostsCreateOrConnectWithoutStarsInput = {
     where: PostsWhereUniqueInput
-    create: XOR<PostsCreateWithoutLikesInput, PostsUncheckedCreateWithoutLikesInput>
+    create: XOR<PostsCreateWithoutStarsInput, PostsUncheckedCreateWithoutStarsInput>
   }
 
-  export type UsersCreateWithoutLikesInput = {
+  export type UsersCreateWithoutStarsInput = {
     id?: string
     fullName: string
     registeredAt: Date | string
@@ -15038,7 +15038,7 @@ export namespace Prisma {
     pageviews?: PageviewsCreateNestedManyWithoutUserInput
   }
 
-  export type UsersUncheckedCreateWithoutLikesInput = {
+  export type UsersUncheckedCreateWithoutStarsInput = {
     id?: string
     fullName: string
     registeredAt: Date | string
@@ -15047,12 +15047,12 @@ export namespace Prisma {
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UsersCreateOrConnectWithoutLikesInput = {
+  export type UsersCreateOrConnectWithoutStarsInput = {
     where: UsersWhereUniqueInput
-    create: XOR<UsersCreateWithoutLikesInput, UsersUncheckedCreateWithoutLikesInput>
+    create: XOR<UsersCreateWithoutStarsInput, UsersUncheckedCreateWithoutStarsInput>
   }
 
-  export type CommentsCreateWithoutLikesInput = {
+  export type CommentsCreateWithoutStarsInput = {
     id?: string
     commentText: string
     createdAt: Date | string
@@ -15061,7 +15061,7 @@ export namespace Prisma {
     post: PostsCreateNestedOneWithoutCommentsInput
   }
 
-  export type CommentsUncheckedCreateWithoutLikesInput = {
+  export type CommentsUncheckedCreateWithoutStarsInput = {
     id?: string
     userId: string
     postId: string
@@ -15070,23 +15070,23 @@ export namespace Prisma {
     deletedAt?: Date | string | null
   }
 
-  export type CommentsCreateOrConnectWithoutLikesInput = {
+  export type CommentsCreateOrConnectWithoutStarsInput = {
     where: CommentsWhereUniqueInput
-    create: XOR<CommentsCreateWithoutLikesInput, CommentsUncheckedCreateWithoutLikesInput>
+    create: XOR<CommentsCreateWithoutStarsInput, CommentsUncheckedCreateWithoutStarsInput>
   }
 
-  export type PostsUpsertWithoutLikesInput = {
-    update: XOR<PostsUpdateWithoutLikesInput, PostsUncheckedUpdateWithoutLikesInput>
-    create: XOR<PostsCreateWithoutLikesInput, PostsUncheckedCreateWithoutLikesInput>
+  export type PostsUpsertWithoutStarsInput = {
+    update: XOR<PostsUpdateWithoutStarsInput, PostsUncheckedUpdateWithoutStarsInput>
+    create: XOR<PostsCreateWithoutStarsInput, PostsUncheckedCreateWithoutStarsInput>
     where?: PostsWhereInput
   }
 
-  export type PostsUpdateToOneWithWhereWithoutLikesInput = {
+  export type PostsUpdateToOneWithWhereWithoutStarsInput = {
     where?: PostsWhereInput
-    data: XOR<PostsUpdateWithoutLikesInput, PostsUncheckedUpdateWithoutLikesInput>
+    data: XOR<PostsUpdateWithoutStarsInput, PostsUncheckedUpdateWithoutStarsInput>
   }
 
-  export type PostsUpdateWithoutLikesInput = {
+  export type PostsUpdateWithoutStarsInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -15100,7 +15100,7 @@ export namespace Prisma {
     pageviews?: PageviewsUpdateManyWithoutPostNestedInput
   }
 
-  export type PostsUncheckedUpdateWithoutLikesInput = {
+  export type PostsUncheckedUpdateWithoutStarsInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -15114,18 +15114,18 @@ export namespace Prisma {
     pageviews?: PageviewsUncheckedUpdateManyWithoutPostNestedInput
   }
 
-  export type UsersUpsertWithoutLikesInput = {
-    update: XOR<UsersUpdateWithoutLikesInput, UsersUncheckedUpdateWithoutLikesInput>
-    create: XOR<UsersCreateWithoutLikesInput, UsersUncheckedCreateWithoutLikesInput>
+  export type UsersUpsertWithoutStarsInput = {
+    update: XOR<UsersUpdateWithoutStarsInput, UsersUncheckedUpdateWithoutStarsInput>
+    create: XOR<UsersCreateWithoutStarsInput, UsersUncheckedCreateWithoutStarsInput>
     where?: UsersWhereInput
   }
 
-  export type UsersUpdateToOneWithWhereWithoutLikesInput = {
+  export type UsersUpdateToOneWithWhereWithoutStarsInput = {
     where?: UsersWhereInput
-    data: XOR<UsersUpdateWithoutLikesInput, UsersUncheckedUpdateWithoutLikesInput>
+    data: XOR<UsersUpdateWithoutStarsInput, UsersUncheckedUpdateWithoutStarsInput>
   }
 
-  export type UsersUpdateWithoutLikesInput = {
+  export type UsersUpdateWithoutStarsInput = {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
     registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -15134,7 +15134,7 @@ export namespace Prisma {
     pageviews?: PageviewsUpdateManyWithoutUserNestedInput
   }
 
-  export type UsersUncheckedUpdateWithoutLikesInput = {
+  export type UsersUncheckedUpdateWithoutStarsInput = {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
     registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -15143,18 +15143,18 @@ export namespace Prisma {
     pageviews?: PageviewsUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type CommentsUpsertWithoutLikesInput = {
-    update: XOR<CommentsUpdateWithoutLikesInput, CommentsUncheckedUpdateWithoutLikesInput>
-    create: XOR<CommentsCreateWithoutLikesInput, CommentsUncheckedCreateWithoutLikesInput>
+  export type CommentsUpsertWithoutStarsInput = {
+    update: XOR<CommentsUpdateWithoutStarsInput, CommentsUncheckedUpdateWithoutStarsInput>
+    create: XOR<CommentsCreateWithoutStarsInput, CommentsUncheckedCreateWithoutStarsInput>
     where?: CommentsWhereInput
   }
 
-  export type CommentsUpdateToOneWithWhereWithoutLikesInput = {
+  export type CommentsUpdateToOneWithWhereWithoutStarsInput = {
     where?: CommentsWhereInput
-    data: XOR<CommentsUpdateWithoutLikesInput, CommentsUncheckedUpdateWithoutLikesInput>
+    data: XOR<CommentsUpdateWithoutStarsInput, CommentsUncheckedUpdateWithoutStarsInput>
   }
 
-  export type CommentsUpdateWithoutLikesInput = {
+  export type CommentsUpdateWithoutStarsInput = {
     id?: StringFieldUpdateOperationsInput | string
     commentText?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -15163,7 +15163,7 @@ export namespace Prisma {
     post?: PostsUpdateOneRequiredWithoutCommentsNestedInput
   }
 
-  export type CommentsUncheckedUpdateWithoutLikesInput = {
+  export type CommentsUncheckedUpdateWithoutStarsInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     postId?: StringFieldUpdateOperationsInput | string
@@ -15221,7 +15221,7 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     author: AuthorsCreateNestedOneWithoutPostsInput
-    likes?: LikesCreateNestedManyWithoutPostInput
+    stars?: StarsCreateNestedManyWithoutPostInput
     comments?: CommentsCreateNestedManyWithoutPostInput
     pageviews?: PageviewsCreateNestedManyWithoutPostInput
   }
@@ -15235,7 +15235,7 @@ export namespace Prisma {
     authorId: string
     createdAt: Date | string
     deletedAt?: Date | string | null
-    likes?: LikesUncheckedCreateNestedManyWithoutPostInput
+    stars?: StarsUncheckedCreateNestedManyWithoutPostInput
     comments?: CommentsUncheckedCreateNestedManyWithoutPostInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutPostInput
   }
@@ -15284,7 +15284,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     author?: AuthorsUpdateOneRequiredWithoutPostsNestedInput
-    likes?: LikesUpdateManyWithoutPostNestedInput
+    stars?: StarsUpdateManyWithoutPostNestedInput
     comments?: CommentsUpdateManyWithoutPostNestedInput
     pageviews?: PageviewsUpdateManyWithoutPostNestedInput
   }
@@ -15298,7 +15298,7 @@ export namespace Prisma {
     authorId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    likes?: LikesUncheckedUpdateManyWithoutPostNestedInput
+    stars?: StarsUncheckedUpdateManyWithoutPostNestedInput
     comments?: CommentsUncheckedUpdateManyWithoutPostNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutPostNestedInput
   }
@@ -15337,7 +15337,7 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     author: AuthorsCreateNestedOneWithoutPostsInput
-    likes?: LikesCreateNestedManyWithoutPostInput
+    stars?: StarsCreateNestedManyWithoutPostInput
     comments?: CommentsCreateNestedManyWithoutPostInput
     categories?: PostToCategoriesCreateNestedManyWithoutPostInput
   }
@@ -15351,7 +15351,7 @@ export namespace Prisma {
     authorId: string
     createdAt: Date | string
     deletedAt?: Date | string | null
-    likes?: LikesUncheckedCreateNestedManyWithoutPostInput
+    stars?: StarsUncheckedCreateNestedManyWithoutPostInput
     comments?: CommentsUncheckedCreateNestedManyWithoutPostInput
     categories?: PostToCategoriesUncheckedCreateNestedManyWithoutPostInput
   }
@@ -15367,7 +15367,7 @@ export namespace Prisma {
     registeredAt: Date | string
     deletedAt?: Date | string | null
     comments?: CommentsCreateNestedManyWithoutUserInput
-    likes?: LikesCreateNestedManyWithoutUserInput
+    stars?: StarsCreateNestedManyWithoutUserInput
   }
 
   export type UsersUncheckedCreateWithoutPageviewsInput = {
@@ -15376,7 +15376,7 @@ export namespace Prisma {
     registeredAt: Date | string
     deletedAt?: Date | string | null
     comments?: CommentsUncheckedCreateNestedManyWithoutUserInput
-    likes?: LikesUncheckedCreateNestedManyWithoutUserInput
+    stars?: StarsUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UsersCreateOrConnectWithoutPageviewsInput = {
@@ -15404,7 +15404,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     author?: AuthorsUpdateOneRequiredWithoutPostsNestedInput
-    likes?: LikesUpdateManyWithoutPostNestedInput
+    stars?: StarsUpdateManyWithoutPostNestedInput
     comments?: CommentsUpdateManyWithoutPostNestedInput
     categories?: PostToCategoriesUpdateManyWithoutPostNestedInput
   }
@@ -15418,7 +15418,7 @@ export namespace Prisma {
     authorId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    likes?: LikesUncheckedUpdateManyWithoutPostNestedInput
+    stars?: StarsUncheckedUpdateManyWithoutPostNestedInput
     comments?: CommentsUncheckedUpdateManyWithoutPostNestedInput
     categories?: PostToCategoriesUncheckedUpdateManyWithoutPostNestedInput
   }
@@ -15440,7 +15440,7 @@ export namespace Prisma {
     registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     comments?: CommentsUpdateManyWithoutUserNestedInput
-    likes?: LikesUpdateManyWithoutUserNestedInput
+    stars?: StarsUpdateManyWithoutUserNestedInput
   }
 
   export type UsersUncheckedUpdateWithoutPageviewsInput = {
@@ -15449,7 +15449,7 @@ export namespace Prisma {
     registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     comments?: CommentsUncheckedUpdateManyWithoutUserNestedInput
-    likes?: LikesUncheckedUpdateManyWithoutUserNestedInput
+    stars?: StarsUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type CommentsCreateManyUserInput = {
@@ -15460,7 +15460,7 @@ export namespace Prisma {
     deletedAt?: Date | string | null
   }
 
-  export type LikesCreateManyUserInput = {
+  export type StarsCreateManyUserInput = {
     id?: string
     postId?: string | null
     commentId?: string | null
@@ -15481,7 +15481,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     post?: PostsUpdateOneRequiredWithoutCommentsNestedInput
-    likes?: LikesUpdateManyWithoutCommentNestedInput
+    stars?: StarsUpdateManyWithoutCommentNestedInput
   }
 
   export type CommentsUncheckedUpdateWithoutUserInput = {
@@ -15490,7 +15490,7 @@ export namespace Prisma {
     commentText?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    likes?: LikesUncheckedUpdateManyWithoutCommentNestedInput
+    stars?: StarsUncheckedUpdateManyWithoutCommentNestedInput
   }
 
   export type CommentsUncheckedUpdateManyWithoutUserInput = {
@@ -15501,15 +15501,15 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type LikesUpdateWithoutUserInput = {
+  export type StarsUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    post?: PostsUpdateOneWithoutLikesNestedInput
-    comment?: CommentsUpdateOneWithoutLikesNestedInput
+    post?: PostsUpdateOneWithoutStarsNestedInput
+    comment?: CommentsUpdateOneWithoutStarsNestedInput
   }
 
-  export type LikesUncheckedUpdateWithoutUserInput = {
+  export type StarsUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     postId?: NullableStringFieldUpdateOperationsInput | string | null
     commentId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15517,7 +15517,7 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type LikesUncheckedUpdateManyWithoutUserInput = {
+  export type StarsUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     postId?: NullableStringFieldUpdateOperationsInput | string | null
     commentId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15571,7 +15571,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    likes?: LikesUpdateManyWithoutPostNestedInput
+    stars?: StarsUpdateManyWithoutPostNestedInput
     comments?: CommentsUpdateManyWithoutPostNestedInput
     categories?: PostToCategoriesUpdateManyWithoutPostNestedInput
     pageviews?: PageviewsUpdateManyWithoutPostNestedInput
@@ -15585,7 +15585,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    likes?: LikesUncheckedUpdateManyWithoutPostNestedInput
+    stars?: StarsUncheckedUpdateManyWithoutPostNestedInput
     comments?: CommentsUncheckedUpdateManyWithoutPostNestedInput
     categories?: PostToCategoriesUncheckedUpdateManyWithoutPostNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutPostNestedInput
@@ -15622,7 +15622,7 @@ export namespace Prisma {
     loggedOutAdt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type LikesCreateManyPostInput = {
+  export type StarsCreateManyPostInput = {
     id?: string
     userId: string
     commentId?: string | null
@@ -15652,15 +15652,15 @@ export namespace Prisma {
     deletedAt?: Date | string | null
   }
 
-  export type LikesUpdateWithoutPostInput = {
+  export type StarsUpdateWithoutPostInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    user?: UsersUpdateOneRequiredWithoutLikesNestedInput
-    comment?: CommentsUpdateOneWithoutLikesNestedInput
+    user?: UsersUpdateOneRequiredWithoutStarsNestedInput
+    comment?: CommentsUpdateOneWithoutStarsNestedInput
   }
 
-  export type LikesUncheckedUpdateWithoutPostInput = {
+  export type StarsUncheckedUpdateWithoutPostInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     commentId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15668,7 +15668,7 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type LikesUncheckedUpdateManyWithoutPostInput = {
+  export type StarsUncheckedUpdateManyWithoutPostInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     commentId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15682,7 +15682,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UsersUpdateOneRequiredWithoutCommentsNestedInput
-    likes?: LikesUpdateManyWithoutCommentNestedInput
+    stars?: StarsUpdateManyWithoutCommentNestedInput
   }
 
   export type CommentsUncheckedUpdateWithoutPostInput = {
@@ -15691,7 +15691,7 @@ export namespace Prisma {
     commentText?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    likes?: LikesUncheckedUpdateManyWithoutCommentNestedInput
+    stars?: StarsUncheckedUpdateManyWithoutCommentNestedInput
   }
 
   export type CommentsUncheckedUpdateManyWithoutPostInput = {
@@ -15744,7 +15744,7 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type LikesCreateManyCommentInput = {
+  export type StarsCreateManyCommentInput = {
     id?: string
     postId?: string | null
     userId: string
@@ -15752,15 +15752,15 @@ export namespace Prisma {
     deletedAt?: Date | string | null
   }
 
-  export type LikesUpdateWithoutCommentInput = {
+  export type StarsUpdateWithoutCommentInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    post?: PostsUpdateOneWithoutLikesNestedInput
-    user?: UsersUpdateOneRequiredWithoutLikesNestedInput
+    post?: PostsUpdateOneWithoutStarsNestedInput
+    user?: UsersUpdateOneRequiredWithoutStarsNestedInput
   }
 
-  export type LikesUncheckedUpdateWithoutCommentInput = {
+  export type StarsUncheckedUpdateWithoutCommentInput = {
     id?: StringFieldUpdateOperationsInput | string
     postId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
@@ -15768,7 +15768,7 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type LikesUncheckedUpdateManyWithoutCommentInput = {
+  export type StarsUncheckedUpdateManyWithoutCommentInput = {
     id?: StringFieldUpdateOperationsInput | string
     postId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string

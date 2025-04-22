@@ -6,7 +6,6 @@ export const getUsersRepo = async () => {
   return await prisma.users.findMany({
     include: {
       comments: true,
-      likes: true,
       stars: true,
       pageviews: {
         include: {

@@ -1,5 +1,5 @@
 import { CommentTypeExtends } from "./commentType";
-import { LikeTypeExtends } from "./likeType";
+import { LikeTypeExtends } from "./starType";
 import { PageviewTypeExtends } from "./pageviewType";
 
 export interface RequestUserType {
