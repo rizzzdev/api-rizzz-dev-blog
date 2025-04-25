@@ -10,7 +10,7 @@
     {
       "src": "/(.*)",
       "dest": "src/index.ts",
-      "methods": ["GET", "POST", "PATCH"],
+      "methods": ["GET", "POST", "PATCH", "OPTIONS"],
       "headers": {
         "Access-Control-Allow-Origin": "https://rizzz-dev-blog.vercel.app",
         "Access-Control-Allow-Credentials": "true",
