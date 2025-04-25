@@ -35,7 +35,11 @@ export const createUserController = async (
   const user = await createUserService(data);
 
   response
-    .cookie("userId", user.data?.id, { httpOnly: true })
+    .cookie("userId", user.data?.id, {
+      httpOnly: true,
+      sameSite: "none",
+      secure: true,
+    })
     .status(user.statusCode)
     .send(user);
 };
