@@ -1,5 +1,6 @@
 import { datetime } from "../libs/datetime";
 import { prisma } from "../server";
+import { Reactions } from "../server/prisma";
 import { RequestReactionType } from "../types/reactionType";
 
 export const getReactionsRepo = async () => {
@@ -13,6 +14,10 @@ export const getReactionsRepo = async () => {
 
 export const getReactionByIdRepo = async (id: string) => {
   return await prisma.reactions.findUnique({
+    include: {
+      article: true,
+      user: true,
+    },
     where: { id },
   });
 };
@@ -23,6 +28,10 @@ export const createReactionRepo = async (data: RequestReactionType) => {
       ...data,
       createdAt: datetime(),
     },
+    include: {
+      article: true,
+      user: true,
+    },
   });
 };
 
@@ -30,7 +39,7 @@ export const updateReactionByIdRepo = async (
   id: string,
   data: RequestReactionType
 ) => {
-  const reaction = await getReactionByIdRepo(id);
+  const reaction = (await getReactionByIdRepo(id)) as Reactions;
   return await prisma.reactions.update({
     data: {
       ...reaction,
@@ -38,6 +47,10 @@ export const updateReactionByIdRepo = async (
     },
     where: {
       id,
+    },
+    include: {
+      article: true,
+      user: true,
     },
   });
 };
@@ -51,6 +64,10 @@ export const deleteReactionsByIdRepo = async (id: string) => {
     },
     where: {
       id,
+    },
+    include: {
+      article: true,
+      user: true,
     },
   });
 };

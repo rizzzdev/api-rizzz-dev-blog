@@ -9,7 +9,7 @@ export const getAuthorsRepo = async () => {
       articles: {
         include: {
           topics: true,
-          reaction: true,
+          reactions: true,
           stars: true,
           pageviews: true,
         },

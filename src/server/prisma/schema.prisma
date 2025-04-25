@@ -54,7 +54,7 @@ model Articles {
   author          Authors           @relation(references: [id], fields: [authorId])
   authorId        String
   stars           Stars[]
-  reaction        Reactions[]
+  reactions       Reactions[]
   topics          ArticleToTopics[]
   pageviews       Pageviews[]
   createdAt       DateTime

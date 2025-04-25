@@ -5,6 +5,7 @@ import {
   getArticlesService,
   updateArticleByIdService,
   createArticleService,
+  getArticlesBySearchService,
 } from "../services/articleService";
 import { RequestArticleType } from "../types/articleType";
 
@@ -12,8 +13,14 @@ export const getArticlesController = async (
   request: Request,
   response: Response
 ) => {
-  const articles = await getArticlesService();
+  const search = request.query.search as string;
+  if (search) {
+    const articles = await getArticlesBySearchService(search);
+    response.status(articles.statusCode).send(articles);
+    return;
+  }
 
+  const articles = await getArticlesService();
   response.status(articles.statusCode).send(articles);
 };
 

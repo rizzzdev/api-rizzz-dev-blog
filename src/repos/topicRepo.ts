@@ -10,7 +10,7 @@ export const getTopicsRepo = async () => {
           article: {
             include: {
               author: true,
-              reaction: true,
+              reactions: true,
               pageviews: true,
               stars: true,
             },

@@ -33,6 +33,31 @@ export const getArticlesService = async () => {
   );
 };
 
+export const getArticlesBySearchService = async (searchQuery: string) => {
+  const articles = await getArticlesRepo();
+  const searchArticles = articles.filter((article) =>
+    JSON.stringify(article)
+      .toLowerCase()
+      .includes(searchQuery.toLocaleLowerCase())
+  );
+
+  if (searchArticles.length === 0) {
+    return apiResponse(
+      true,
+      StatusCode.NOT_FOUND,
+      "Articles Not Found!",
+      searchArticles
+    );
+  }
+
+  return apiResponse(
+    false,
+    StatusCode.OK,
+    "Get Articles Successfully !",
+    searchArticles
+  );
+};
+
 export const getArticleByIdService = async (id: string) => {
   const article = await getArticleByIdRepo(id);
 

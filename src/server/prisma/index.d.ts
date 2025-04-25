@@ -1687,14 +1687,14 @@ export namespace Prisma {
 
   export type ArticlesCountOutputType = {
     stars: number
-    reaction: number
+    reactions: number
     topics: number
     pageviews: number
   }
 
   export type ArticlesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     stars?: boolean | ArticlesCountOutputTypeCountStarsArgs
-    reaction?: boolean | ArticlesCountOutputTypeCountReactionArgs
+    reactions?: boolean | ArticlesCountOutputTypeCountReactionsArgs
     topics?: boolean | ArticlesCountOutputTypeCountTopicsArgs
     pageviews?: boolean | ArticlesCountOutputTypeCountPageviewsArgs
   }
@@ -1720,7 +1720,7 @@ export namespace Prisma {
   /**
    * ArticlesCountOutputType without action
    */
-  export type ArticlesCountOutputTypeCountReactionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ArticlesCountOutputTypeCountReactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ReactionsWhereInput
   }
 
@@ -5246,7 +5246,7 @@ export namespace Prisma {
     deletedAt?: boolean
     author?: boolean | AuthorsDefaultArgs<ExtArgs>
     stars?: boolean | Articles$starsArgs<ExtArgs>
-    reaction?: boolean | Articles$reactionArgs<ExtArgs>
+    reactions?: boolean | Articles$reactionsArgs<ExtArgs>
     topics?: boolean | Articles$topicsArgs<ExtArgs>
     pageviews?: boolean | Articles$pageviewsArgs<ExtArgs>
     _count?: boolean | ArticlesCountOutputTypeDefaultArgs<ExtArgs>
@@ -5291,7 +5291,7 @@ export namespace Prisma {
   export type ArticlesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     author?: boolean | AuthorsDefaultArgs<ExtArgs>
     stars?: boolean | Articles$starsArgs<ExtArgs>
-    reaction?: boolean | Articles$reactionArgs<ExtArgs>
+    reactions?: boolean | Articles$reactionsArgs<ExtArgs>
     topics?: boolean | Articles$topicsArgs<ExtArgs>
     pageviews?: boolean | Articles$pageviewsArgs<ExtArgs>
     _count?: boolean | ArticlesCountOutputTypeDefaultArgs<ExtArgs>
@@ -5308,7 +5308,7 @@ export namespace Prisma {
     objects: {
       author: Prisma.$AuthorsPayload<ExtArgs>
       stars: Prisma.$StarsPayload<ExtArgs>[]
-      reaction: Prisma.$ReactionsPayload<ExtArgs>[]
+      reactions: Prisma.$ReactionsPayload<ExtArgs>[]
       topics: Prisma.$ArticleToTopicsPayload<ExtArgs>[]
       pageviews: Prisma.$PageviewsPayload<ExtArgs>[]
     }
@@ -5717,7 +5717,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     author<T extends AuthorsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AuthorsDefaultArgs<ExtArgs>>): Prisma__AuthorsClient<$Result.GetResult<Prisma.$AuthorsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     stars<T extends Articles$starsArgs<ExtArgs> = {}>(args?: Subset<T, Articles$starsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    reaction<T extends Articles$reactionArgs<ExtArgs> = {}>(args?: Subset<T, Articles$reactionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReactionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    reactions<T extends Articles$reactionsArgs<ExtArgs> = {}>(args?: Subset<T, Articles$reactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReactionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     topics<T extends Articles$topicsArgs<ExtArgs> = {}>(args?: Subset<T, Articles$topicsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArticleToTopicsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     pageviews<T extends Articles$pageviewsArgs<ExtArgs> = {}>(args?: Subset<T, Articles$pageviewsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PageviewsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -6177,9 +6177,9 @@ export namespace Prisma {
   }
 
   /**
-   * Articles.reaction
+   * Articles.reactions
    */
-  export type Articles$reactionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Articles$reactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Reactions
      */
@@ -12017,7 +12017,7 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableFilter<"Articles"> | Date | string | null
     author?: XOR<AuthorsScalarRelationFilter, AuthorsWhereInput>
     stars?: StarsListRelationFilter
-    reaction?: ReactionsListRelationFilter
+    reactions?: ReactionsListRelationFilter
     topics?: ArticleToTopicsListRelationFilter
     pageviews?: PageviewsListRelationFilter
   }
@@ -12033,7 +12033,7 @@ export namespace Prisma {
     deletedAt?: SortOrderInput | SortOrder
     author?: AuthorsOrderByWithRelationInput
     stars?: StarsOrderByRelationAggregateInput
-    reaction?: ReactionsOrderByRelationAggregateInput
+    reactions?: ReactionsOrderByRelationAggregateInput
     topics?: ArticleToTopicsOrderByRelationAggregateInput
     pageviews?: PageviewsOrderByRelationAggregateInput
   }
@@ -12052,7 +12052,7 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableFilter<"Articles"> | Date | string | null
     author?: XOR<AuthorsScalarRelationFilter, AuthorsWhereInput>
     stars?: StarsListRelationFilter
-    reaction?: ReactionsListRelationFilter
+    reactions?: ReactionsListRelationFilter
     topics?: ArticleToTopicsListRelationFilter
     pageviews?: PageviewsListRelationFilter
   }, "id">
@@ -12569,7 +12569,7 @@ export namespace Prisma {
     deletedAt?: Date | string | null
     author: AuthorsCreateNestedOneWithoutArticlesInput
     stars?: StarsCreateNestedManyWithoutArticleInput
-    reaction?: ReactionsCreateNestedManyWithoutArticleInput
+    reactions?: ReactionsCreateNestedManyWithoutArticleInput
     topics?: ArticleToTopicsCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsCreateNestedManyWithoutArticleInput
   }
@@ -12584,7 +12584,7 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     stars?: StarsUncheckedCreateNestedManyWithoutArticleInput
-    reaction?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
+    reactions?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
     topics?: ArticleToTopicsUncheckedCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutArticleInput
   }
@@ -12599,7 +12599,7 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     author?: AuthorsUpdateOneRequiredWithoutArticlesNestedInput
     stars?: StarsUpdateManyWithoutArticleNestedInput
-    reaction?: ReactionsUpdateManyWithoutArticleNestedInput
+    reactions?: ReactionsUpdateManyWithoutArticleNestedInput
     topics?: ArticleToTopicsUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUpdateManyWithoutArticleNestedInput
   }
@@ -12614,7 +12614,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     stars?: StarsUncheckedUpdateManyWithoutArticleNestedInput
-    reaction?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
+    reactions?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
     topics?: ArticleToTopicsUncheckedUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutArticleNestedInput
   }
@@ -12657,7 +12657,7 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     user: UsersCreateNestedOneWithoutReactionInput
-    article: ArticlesCreateNestedOneWithoutReactionInput
+    article: ArticlesCreateNestedOneWithoutReactionsInput
   }
 
   export type ReactionsUncheckedCreateInput = {
@@ -12675,7 +12675,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UsersUpdateOneRequiredWithoutReactionNestedInput
-    article?: ArticlesUpdateOneRequiredWithoutReactionNestedInput
+    article?: ArticlesUpdateOneRequiredWithoutReactionsNestedInput
   }
 
   export type ReactionsUncheckedUpdateInput = {
@@ -13786,9 +13786,9 @@ export namespace Prisma {
     connect?: UsersWhereUniqueInput
   }
 
-  export type ArticlesCreateNestedOneWithoutReactionInput = {
-    create?: XOR<ArticlesCreateWithoutReactionInput, ArticlesUncheckedCreateWithoutReactionInput>
-    connectOrCreate?: ArticlesCreateOrConnectWithoutReactionInput
+  export type ArticlesCreateNestedOneWithoutReactionsInput = {
+    create?: XOR<ArticlesCreateWithoutReactionsInput, ArticlesUncheckedCreateWithoutReactionsInput>
+    connectOrCreate?: ArticlesCreateOrConnectWithoutReactionsInput
     connect?: ArticlesWhereUniqueInput
   }
 
@@ -13800,12 +13800,12 @@ export namespace Prisma {
     update?: XOR<XOR<UsersUpdateToOneWithWhereWithoutReactionInput, UsersUpdateWithoutReactionInput>, UsersUncheckedUpdateWithoutReactionInput>
   }
 
-  export type ArticlesUpdateOneRequiredWithoutReactionNestedInput = {
-    create?: XOR<ArticlesCreateWithoutReactionInput, ArticlesUncheckedCreateWithoutReactionInput>
-    connectOrCreate?: ArticlesCreateOrConnectWithoutReactionInput
-    upsert?: ArticlesUpsertWithoutReactionInput
+  export type ArticlesUpdateOneRequiredWithoutReactionsNestedInput = {
+    create?: XOR<ArticlesCreateWithoutReactionsInput, ArticlesUncheckedCreateWithoutReactionsInput>
+    connectOrCreate?: ArticlesCreateOrConnectWithoutReactionsInput
+    upsert?: ArticlesUpsertWithoutReactionsInput
     connect?: ArticlesWhereUniqueInput
-    update?: XOR<XOR<ArticlesUpdateToOneWithWhereWithoutReactionInput, ArticlesUpdateWithoutReactionInput>, ArticlesUncheckedUpdateWithoutReactionInput>
+    update?: XOR<XOR<ArticlesUpdateToOneWithWhereWithoutReactionsInput, ArticlesUpdateWithoutReactionsInput>, ArticlesUncheckedUpdateWithoutReactionsInput>
   }
 
   export type ArticlesCreateNestedOneWithoutStarsInput = {
@@ -14077,7 +14077,7 @@ export namespace Prisma {
     reactionText: string
     createdAt: Date | string
     deletedAt?: Date | string | null
-    article: ArticlesCreateNestedOneWithoutReactionInput
+    article: ArticlesCreateNestedOneWithoutReactionsInput
   }
 
   export type ReactionsUncheckedCreateWithoutUserInput = {
@@ -14237,7 +14237,7 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     stars?: StarsCreateNestedManyWithoutArticleInput
-    reaction?: ReactionsCreateNestedManyWithoutArticleInput
+    reactions?: ReactionsCreateNestedManyWithoutArticleInput
     topics?: ArticleToTopicsCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsCreateNestedManyWithoutArticleInput
   }
@@ -14251,7 +14251,7 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     stars?: StarsUncheckedCreateNestedManyWithoutArticleInput
-    reaction?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
+    reactions?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
     topics?: ArticleToTopicsUncheckedCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutArticleInput
   }
@@ -14655,7 +14655,7 @@ export namespace Prisma {
     create: XOR<UsersCreateWithoutReactionInput, UsersUncheckedCreateWithoutReactionInput>
   }
 
-  export type ArticlesCreateWithoutReactionInput = {
+  export type ArticlesCreateWithoutReactionsInput = {
     id?: string
     title: string
     description: string
@@ -14669,7 +14669,7 @@ export namespace Prisma {
     pageviews?: PageviewsCreateNestedManyWithoutArticleInput
   }
 
-  export type ArticlesUncheckedCreateWithoutReactionInput = {
+  export type ArticlesUncheckedCreateWithoutReactionsInput = {
     id?: string
     title: string
     description: string
@@ -14683,9 +14683,9 @@ export namespace Prisma {
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutArticleInput
   }
 
-  export type ArticlesCreateOrConnectWithoutReactionInput = {
+  export type ArticlesCreateOrConnectWithoutReactionsInput = {
     where: ArticlesWhereUniqueInput
-    create: XOR<ArticlesCreateWithoutReactionInput, ArticlesUncheckedCreateWithoutReactionInput>
+    create: XOR<ArticlesCreateWithoutReactionsInput, ArticlesUncheckedCreateWithoutReactionsInput>
   }
 
   export type UsersUpsertWithoutReactionInput = {
@@ -14717,18 +14717,18 @@ export namespace Prisma {
     pageviews?: PageviewsUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type ArticlesUpsertWithoutReactionInput = {
-    update: XOR<ArticlesUpdateWithoutReactionInput, ArticlesUncheckedUpdateWithoutReactionInput>
-    create: XOR<ArticlesCreateWithoutReactionInput, ArticlesUncheckedCreateWithoutReactionInput>
+  export type ArticlesUpsertWithoutReactionsInput = {
+    update: XOR<ArticlesUpdateWithoutReactionsInput, ArticlesUncheckedUpdateWithoutReactionsInput>
+    create: XOR<ArticlesCreateWithoutReactionsInput, ArticlesUncheckedCreateWithoutReactionsInput>
     where?: ArticlesWhereInput
   }
 
-  export type ArticlesUpdateToOneWithWhereWithoutReactionInput = {
+  export type ArticlesUpdateToOneWithWhereWithoutReactionsInput = {
     where?: ArticlesWhereInput
-    data: XOR<ArticlesUpdateWithoutReactionInput, ArticlesUncheckedUpdateWithoutReactionInput>
+    data: XOR<ArticlesUpdateWithoutReactionsInput, ArticlesUncheckedUpdateWithoutReactionsInput>
   }
 
-  export type ArticlesUpdateWithoutReactionInput = {
+  export type ArticlesUpdateWithoutReactionsInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -14742,7 +14742,7 @@ export namespace Prisma {
     pageviews?: PageviewsUpdateManyWithoutArticleNestedInput
   }
 
-  export type ArticlesUncheckedUpdateWithoutReactionInput = {
+  export type ArticlesUncheckedUpdateWithoutReactionsInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -14765,7 +14765,7 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     author: AuthorsCreateNestedOneWithoutArticlesInput
-    reaction?: ReactionsCreateNestedManyWithoutArticleInput
+    reactions?: ReactionsCreateNestedManyWithoutArticleInput
     topics?: ArticleToTopicsCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsCreateNestedManyWithoutArticleInput
   }
@@ -14779,7 +14779,7 @@ export namespace Prisma {
     authorId: string
     createdAt: Date | string
     deletedAt?: Date | string | null
-    reaction?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
+    reactions?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
     topics?: ArticleToTopicsUncheckedCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutArticleInput
   }
@@ -14832,7 +14832,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     author?: AuthorsUpdateOneRequiredWithoutArticlesNestedInput
-    reaction?: ReactionsUpdateManyWithoutArticleNestedInput
+    reactions?: ReactionsUpdateManyWithoutArticleNestedInput
     topics?: ArticleToTopicsUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUpdateManyWithoutArticleNestedInput
   }
@@ -14846,7 +14846,7 @@ export namespace Prisma {
     authorId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    reaction?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
+    reactions?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
     topics?: ArticleToTopicsUncheckedUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutArticleNestedInput
   }
@@ -14930,7 +14930,7 @@ export namespace Prisma {
     deletedAt?: Date | string | null
     author: AuthorsCreateNestedOneWithoutArticlesInput
     stars?: StarsCreateNestedManyWithoutArticleInput
-    reaction?: ReactionsCreateNestedManyWithoutArticleInput
+    reactions?: ReactionsCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsCreateNestedManyWithoutArticleInput
   }
 
@@ -14944,7 +14944,7 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     stars?: StarsUncheckedCreateNestedManyWithoutArticleInput
-    reaction?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
+    reactions?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutArticleInput
   }
 
@@ -14993,7 +14993,7 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     author?: AuthorsUpdateOneRequiredWithoutArticlesNestedInput
     stars?: StarsUpdateManyWithoutArticleNestedInput
-    reaction?: ReactionsUpdateManyWithoutArticleNestedInput
+    reactions?: ReactionsUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUpdateManyWithoutArticleNestedInput
   }
 
@@ -15007,7 +15007,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     stars?: StarsUncheckedUpdateManyWithoutArticleNestedInput
-    reaction?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
+    reactions?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutArticleNestedInput
   }
 
@@ -15046,7 +15046,7 @@ export namespace Prisma {
     deletedAt?: Date | string | null
     author: AuthorsCreateNestedOneWithoutArticlesInput
     stars?: StarsCreateNestedManyWithoutArticleInput
-    reaction?: ReactionsCreateNestedManyWithoutArticleInput
+    reactions?: ReactionsCreateNestedManyWithoutArticleInput
     topics?: ArticleToTopicsCreateNestedManyWithoutArticleInput
   }
 
@@ -15060,7 +15060,7 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     stars?: StarsUncheckedCreateNestedManyWithoutArticleInput
-    reaction?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
+    reactions?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
     topics?: ArticleToTopicsUncheckedCreateNestedManyWithoutArticleInput
   }
 
@@ -15113,7 +15113,7 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     author?: AuthorsUpdateOneRequiredWithoutArticlesNestedInput
     stars?: StarsUpdateManyWithoutArticleNestedInput
-    reaction?: ReactionsUpdateManyWithoutArticleNestedInput
+    reactions?: ReactionsUpdateManyWithoutArticleNestedInput
     topics?: ArticleToTopicsUpdateManyWithoutArticleNestedInput
   }
 
@@ -15127,7 +15127,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     stars?: StarsUncheckedUpdateManyWithoutArticleNestedInput
-    reaction?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
+    reactions?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
     topics?: ArticleToTopicsUncheckedUpdateManyWithoutArticleNestedInput
   }
 
@@ -15187,7 +15187,7 @@ export namespace Prisma {
     reactionText?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    article?: ArticlesUpdateOneRequiredWithoutReactionNestedInput
+    article?: ArticlesUpdateOneRequiredWithoutReactionsNestedInput
   }
 
   export type ReactionsUncheckedUpdateWithoutUserInput = {
@@ -15274,7 +15274,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     stars?: StarsUpdateManyWithoutArticleNestedInput
-    reaction?: ReactionsUpdateManyWithoutArticleNestedInput
+    reactions?: ReactionsUpdateManyWithoutArticleNestedInput
     topics?: ArticleToTopicsUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUpdateManyWithoutArticleNestedInput
   }
@@ -15288,7 +15288,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     stars?: StarsUncheckedUpdateManyWithoutArticleNestedInput
-    reaction?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
+    reactions?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
     topics?: ArticleToTopicsUncheckedUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutArticleNestedInput
   }

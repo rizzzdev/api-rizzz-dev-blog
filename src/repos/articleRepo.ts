@@ -11,7 +11,7 @@ export const getArticlesRepo = async () => {
           topic: true,
         },
       },
-      reaction: {
+      reactions: {
         include: {
           user: true,
         },
@@ -42,7 +42,7 @@ export const getArticleByIdRepo = async (id: string) => {
           topic: true,
         },
       },
-      reaction: {
+      reactions: {
         include: {
           user: true,
         },
