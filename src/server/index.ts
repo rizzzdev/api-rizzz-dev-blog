@@ -9,9 +9,6 @@ export const prisma = new PrismaClient();
 
 const server = () => {
   const app: Application = express();
-  app.use(express.json());
-  app.use(express.urlencoded());
-  app.use(cookieParser());
   app.use(
     cors({
       credentials: true,
@@ -20,6 +17,9 @@ const server = () => {
       allowedHeaders: ["Content-Type", "Authorization"],
     })
   );
+  app.use(express.json());
+  app.use(express.urlencoded());
+  app.use(cookieParser());
   routes(app);
 
   return app;
