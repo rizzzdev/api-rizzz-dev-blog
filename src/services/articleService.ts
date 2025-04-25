@@ -40,13 +40,15 @@ export const getArticlesBySearchService = async (searchQuery: string) => {
       .toLowerCase()
       .includes(searchQuery.toLocaleLowerCase())
   );
-
+  const sortedArticles = searchArticles.sort(
+    (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
+  );
   if (searchArticles.length === 0) {
     return apiResponse(
       true,
       StatusCode.NOT_FOUND,
       "Articles Not Found!",
-      searchArticles
+      sortedArticles
     );
   }
 
@@ -54,7 +56,7 @@ export const getArticlesBySearchService = async (searchQuery: string) => {
     false,
     StatusCode.OK,
     "Get Articles Successfully !",
-    searchArticles
+    sortedArticles
   );
 };
 
