@@ -11854,16 +11854,16 @@ export namespace Prisma {
 
   export type UsersWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    fullName?: string
     AND?: UsersWhereInput | UsersWhereInput[]
     OR?: UsersWhereInput[]
     NOT?: UsersWhereInput | UsersWhereInput[]
-    fullName?: StringFilter<"Users"> | string
     registeredAt?: DateTimeFilter<"Users"> | Date | string
     deletedAt?: DateTimeNullableFilter<"Users"> | Date | string | null
     reaction?: ReactionsListRelationFilter
     stars?: StarsListRelationFilter
     pageviews?: PageviewsListRelationFilter
-  }, "id">
+  }, "id" | "fullName">
 
   export type UsersOrderByWithAggregationInput = {
     id?: SortOrder

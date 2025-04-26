@@ -1,5 +1,6 @@
 import { datetime } from "../libs/datetime";
 import { prisma } from "../server";
+import { Users } from "../server/prisma";
 import { RequestUserType } from "../types/userType";
 
 export const getUsersRepo = async () => {
@@ -21,6 +22,32 @@ export const getUserByIdRepo = async (id: string) => {
     where: {
       id,
     },
+    include: {
+      reaction: true,
+      stars: true,
+      pageviews: {
+        include: {
+          article: true,
+        },
+      },
+    },
+  });
+};
+
+export const getUserByFullName = async (fullName: string) => {
+  return await prisma.users.findUnique({
+    where: {
+      fullName,
+    },
+    include: {
+      reaction: true,
+      stars: true,
+      pageviews: {
+        include: {
+          article: true,
+        },
+      },
+    },
   });
 };
 
@@ -30,11 +57,20 @@ export const createUserRepo = async (data: RequestUserType) => {
       ...data,
       registeredAt: datetime(),
     },
+    include: {
+      reaction: true,
+      stars: true,
+      pageviews: {
+        include: {
+          article: true,
+        },
+      },
+    },
   });
 };
 
 export const updateUserByIdRepo = async (id: string, data: RequestUserType) => {
-  const user = await getUserByIdRepo(id);
+  const user = (await getUserByIdRepo(id)) as Users;
   return await prisma.users.update({
     data: {
       ...user,
@@ -42,6 +78,15 @@ export const updateUserByIdRepo = async (id: string, data: RequestUserType) => {
     },
     where: {
       id,
+    },
+    include: {
+      reaction: true,
+      stars: true,
+      pageviews: {
+        include: {
+          article: true,
+        },
+      },
     },
   });
 };
@@ -55,6 +100,15 @@ export const deleteUserByIdRepo = async (id: string) => {
     },
     where: {
       id,
+    },
+    include: {
+      reaction: true,
+      stars: true,
+      pageviews: {
+        include: {
+          article: true,
+        },
+      },
     },
   });
 };

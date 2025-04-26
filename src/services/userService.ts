@@ -1,7 +1,9 @@
 import { apiResponse } from "../libs/apiResponse";
+import { fullNameParser } from "../libs/fullNameParser";
 import {
   createUserRepo,
   deleteUserByIdRepo,
+  getUserByFullName,
   getUserByIdRepo,
   getUsersRepo,
   updateUserByIdRepo,
@@ -36,12 +38,24 @@ export const createUserService = async (data: RequestUserType) => {
     return apiResponse(true, StatusCode.BAD_REQUEST, error.message, null);
   }
 
-  const user = await createUserRepo(data);
+  const user = await getUserByFullName(fullNameParser(data.fullName));
+  if (user) {
+    return apiResponse(
+      false,
+      StatusCode.CREATED,
+      "User is exist, not created!",
+      user
+    );
+  }
+
+  const newUser = await createUserRepo({
+    fullName: fullNameParser(data.fullName),
+  });
   return apiResponse(
     false,
     StatusCode.CREATED,
     "Create User Successfully",
-    user
+    newUser
   );
 };
 
