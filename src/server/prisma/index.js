@@ -203,7 +203,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/rizzzdev/Projects/rizzz-dev-blog/api/src/server/prisma",
+      "value": "/home/rizzzdev/Projects/rizzz-dev-blog/api-rizzz-dev-blog/src/server/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -221,7 +221,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/rizzzdev/Projects/rizzz-dev-blog/api/prisma/schema.prisma",
+    "sourceFilePath": "/home/rizzzdev/Projects/rizzz-dev-blog/api-rizzz-dev-blog/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -235,11 +235,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "PROD_DATABASE_URL",
-        "value": "postgresql://rizzz-dev-blog_owner:npg_SvusAi0yVz6l@ep-shrill-night-a1udr1fk-pooler.ap-southeast-1.aws.neon.tech/rizzz-dev-blog?sslmode=require"
+        "value": null
       }
     }
   },
