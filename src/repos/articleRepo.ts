@@ -75,14 +75,37 @@ export const updateArticleByIdRepo = async (
   id: string,
   data: RequestArticleType
 ) => {
-  const article = (await getArticleByIdRepo(id)) as Articles;
+  // const article = (await getArticleByIdRepo(id)) as Articles;
   return await prisma.articles.update({
     data: {
-      ...article,
+      // ...article,
       ...data,
     },
     where: {
       id,
+    },
+    include: {
+      topics: {
+        include: {
+          topic: true,
+        },
+      },
+      reactions: {
+        include: {
+          user: true,
+        },
+      },
+      stars: {
+        include: {
+          user: true,
+        },
+      },
+      author: true,
+      pageviews: {
+        include: {
+          user: true,
+        },
+      },
     },
   });
 };
