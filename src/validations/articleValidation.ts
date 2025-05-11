@@ -8,6 +8,7 @@ export const requestArticleValidation = (data: RequestArticleType) => {
     articleMarkdown: Joi.string().required(),
     description: Joi.string().required(),
     imageUrl: Joi.string().optional(),
+    seriesId: Joi.string().optional(),
   });
 
   return schema.validate(data);

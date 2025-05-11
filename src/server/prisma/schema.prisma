@@ -13,7 +13,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("PROD_DATABASE_URL")
+  url      = env("DEV_DATABASE_URL")
 }
 
 model Users {
@@ -58,8 +58,18 @@ model Articles {
   reactions       Reactions[]
   topics          ArticleToTopics[]
   pageviews       Pageviews[]
+  series          Series?           @relation(references: [id], fields: [seriesId])
+  seriesId        String?
   createdAt       DateTime
   deletedAt       DateTime?
+}
+
+model Series {
+  id         String     @id @default(uuid())
+  seriesName String
+  articles   Articles[]
+  createdAt  DateTime
+  deletedAt  DateTime?
 }
 
 model Reactions {

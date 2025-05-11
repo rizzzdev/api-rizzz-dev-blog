@@ -9,6 +9,7 @@ import articleToTopicRouter from "./articleToTopicRoute";
 import userRouter from "./userRoute";
 import pageviewRouter from "./pageviewRoute";
 import sessionRouter from "./sessionRoute";
+import seriesRouter from "./seriesRoute";
 
 const _routes: { endpoint: string; router: Router }[] = [
   {
@@ -50,6 +51,10 @@ const _routes: { endpoint: string; router: Router }[] = [
   {
     endpoint: "/sessions",
     router: sessionRouter,
+  },
+  {
+    endpoint: "/series",
+    router: seriesRouter,
   },
 ];
 

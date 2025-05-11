@@ -8,6 +8,7 @@ export interface RequestArticleType {
   title: string;
   description: string;
   articleMarkdown: string;
+  seriesId?: string;
   imageUrl?: string;
   authorId: string;
 }

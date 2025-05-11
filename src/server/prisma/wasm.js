@@ -148,6 +148,14 @@ exports.Prisma.ArticlesScalarFieldEnum = {
   articleMarkdown: 'articleMarkdown',
   imageUrl: 'imageUrl',
   authorId: 'authorId',
+  seriesId: 'seriesId',
+  createdAt: 'createdAt',
+  deletedAt: 'deletedAt'
+};
+
+exports.Prisma.SeriesScalarFieldEnum = {
+  id: 'id',
+  seriesName: 'seriesName',
   createdAt: 'createdAt',
   deletedAt: 'deletedAt'
 };
@@ -213,6 +221,7 @@ exports.Prisma.ModelName = {
   Authors: 'Authors',
   Sessions: 'Sessions',
   Articles: 'Articles',
+  Series: 'Series',
   Reactions: 'Reactions',
   Stars: 'Stars',
   Topics: 'Topics',
