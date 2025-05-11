@@ -49,16 +49,6 @@ export type Reactions = $Result.DefaultSelection<Prisma.$ReactionsPayload>
  */
 export type Stars = $Result.DefaultSelection<Prisma.$StarsPayload>
 /**
- * Model Topics
- * 
- */
-export type Topics = $Result.DefaultSelection<Prisma.$TopicsPayload>
-/**
- * Model ArticleToTopics
- * 
- */
-export type ArticleToTopics = $Result.DefaultSelection<Prisma.$ArticleToTopicsPayload>
-/**
  * Model Pageviews
  * 
  */
@@ -258,26 +248,6 @@ export class PrismaClient<
     * ```
     */
   get stars(): Prisma.StarsDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.topics`: Exposes CRUD operations for the **Topics** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Topics
-    * const topics = await prisma.topics.findMany()
-    * ```
-    */
-  get topics(): Prisma.TopicsDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.articleToTopics`: Exposes CRUD operations for the **ArticleToTopics** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more ArticleToTopics
-    * const articleToTopics = await prisma.articleToTopics.findMany()
-    * ```
-    */
-  get articleToTopics(): Prisma.ArticleToTopicsDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.pageviews`: Exposes CRUD operations for the **Pageviews** model.
@@ -735,8 +705,6 @@ export namespace Prisma {
     Series: 'Series',
     Reactions: 'Reactions',
     Stars: 'Stars',
-    Topics: 'Topics',
-    ArticleToTopics: 'ArticleToTopics',
     Pageviews: 'Pageviews'
   };
 
@@ -756,7 +724,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "users" | "authors" | "sessions" | "articles" | "series" | "reactions" | "stars" | "topics" | "articleToTopics" | "pageviews"
+      modelProps: "users" | "authors" | "sessions" | "articles" | "series" | "reactions" | "stars" | "pageviews"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1278,154 +1246,6 @@ export namespace Prisma {
           }
         }
       }
-      Topics: {
-        payload: Prisma.$TopicsPayload<ExtArgs>
-        fields: Prisma.TopicsFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.TopicsFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TopicsPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.TopicsFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TopicsPayload>
-          }
-          findFirst: {
-            args: Prisma.TopicsFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TopicsPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.TopicsFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TopicsPayload>
-          }
-          findMany: {
-            args: Prisma.TopicsFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TopicsPayload>[]
-          }
-          create: {
-            args: Prisma.TopicsCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TopicsPayload>
-          }
-          createMany: {
-            args: Prisma.TopicsCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.TopicsCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TopicsPayload>[]
-          }
-          delete: {
-            args: Prisma.TopicsDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TopicsPayload>
-          }
-          update: {
-            args: Prisma.TopicsUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TopicsPayload>
-          }
-          deleteMany: {
-            args: Prisma.TopicsDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.TopicsUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.TopicsUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TopicsPayload>[]
-          }
-          upsert: {
-            args: Prisma.TopicsUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TopicsPayload>
-          }
-          aggregate: {
-            args: Prisma.TopicsAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateTopics>
-          }
-          groupBy: {
-            args: Prisma.TopicsGroupByArgs<ExtArgs>
-            result: $Utils.Optional<TopicsGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.TopicsCountArgs<ExtArgs>
-            result: $Utils.Optional<TopicsCountAggregateOutputType> | number
-          }
-        }
-      }
-      ArticleToTopics: {
-        payload: Prisma.$ArticleToTopicsPayload<ExtArgs>
-        fields: Prisma.ArticleToTopicsFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.ArticleToTopicsFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ArticleToTopicsPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.ArticleToTopicsFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ArticleToTopicsPayload>
-          }
-          findFirst: {
-            args: Prisma.ArticleToTopicsFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ArticleToTopicsPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.ArticleToTopicsFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ArticleToTopicsPayload>
-          }
-          findMany: {
-            args: Prisma.ArticleToTopicsFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ArticleToTopicsPayload>[]
-          }
-          create: {
-            args: Prisma.ArticleToTopicsCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ArticleToTopicsPayload>
-          }
-          createMany: {
-            args: Prisma.ArticleToTopicsCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.ArticleToTopicsCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ArticleToTopicsPayload>[]
-          }
-          delete: {
-            args: Prisma.ArticleToTopicsDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ArticleToTopicsPayload>
-          }
-          update: {
-            args: Prisma.ArticleToTopicsUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ArticleToTopicsPayload>
-          }
-          deleteMany: {
-            args: Prisma.ArticleToTopicsDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.ArticleToTopicsUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.ArticleToTopicsUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ArticleToTopicsPayload>[]
-          }
-          upsert: {
-            args: Prisma.ArticleToTopicsUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ArticleToTopicsPayload>
-          }
-          aggregate: {
-            args: Prisma.ArticleToTopicsAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateArticleToTopics>
-          }
-          groupBy: {
-            args: Prisma.ArticleToTopicsGroupByArgs<ExtArgs>
-            result: $Utils.Optional<ArticleToTopicsGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.ArticleToTopicsCountArgs<ExtArgs>
-            result: $Utils.Optional<ArticleToTopicsCountAggregateOutputType> | number
-          }
-        }
-      }
       Pageviews: {
         payload: Prisma.$PageviewsPayload<ExtArgs>
         fields: Prisma.PageviewsFieldRefs
@@ -1591,8 +1411,6 @@ export namespace Prisma {
     series?: SeriesOmit
     reactions?: ReactionsOmit
     stars?: StarsOmit
-    topics?: TopicsOmit
-    articleToTopics?: ArticleToTopicsOmit
     pageviews?: PageviewsOmit
   }
 
@@ -1779,14 +1597,12 @@ export namespace Prisma {
   export type ArticlesCountOutputType = {
     stars: number
     reactions: number
-    topics: number
     pageviews: number
   }
 
   export type ArticlesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     stars?: boolean | ArticlesCountOutputTypeCountStarsArgs
     reactions?: boolean | ArticlesCountOutputTypeCountReactionsArgs
-    topics?: boolean | ArticlesCountOutputTypeCountTopicsArgs
     pageviews?: boolean | ArticlesCountOutputTypeCountPageviewsArgs
   }
 
@@ -1813,13 +1629,6 @@ export namespace Prisma {
    */
   export type ArticlesCountOutputTypeCountReactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ReactionsWhereInput
-  }
-
-  /**
-   * ArticlesCountOutputType without action
-   */
-  export type ArticlesCountOutputTypeCountTopicsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ArticleToTopicsWhereInput
   }
 
   /**
@@ -1858,37 +1667,6 @@ export namespace Prisma {
    */
   export type SeriesCountOutputTypeCountArticlesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ArticlesWhereInput
-  }
-
-
-  /**
-   * Count Type TopicsCountOutputType
-   */
-
-  export type TopicsCountOutputType = {
-    articles: number
-  }
-
-  export type TopicsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    articles?: boolean | TopicsCountOutputTypeCountArticlesArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * TopicsCountOutputType without action
-   */
-  export type TopicsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TopicsCountOutputType
-     */
-    select?: TopicsCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * TopicsCountOutputType without action
-   */
-  export type TopicsCountOutputTypeCountArticlesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ArticleToTopicsWhereInput
   }
 
 
@@ -5377,7 +5155,6 @@ export namespace Prisma {
     author?: boolean | AuthorsDefaultArgs<ExtArgs>
     stars?: boolean | Articles$starsArgs<ExtArgs>
     reactions?: boolean | Articles$reactionsArgs<ExtArgs>
-    topics?: boolean | Articles$topicsArgs<ExtArgs>
     pageviews?: boolean | Articles$pageviewsArgs<ExtArgs>
     series?: boolean | Articles$seriesArgs<ExtArgs>
     _count?: boolean | ArticlesCountOutputTypeDefaultArgs<ExtArgs>
@@ -5428,7 +5205,6 @@ export namespace Prisma {
     author?: boolean | AuthorsDefaultArgs<ExtArgs>
     stars?: boolean | Articles$starsArgs<ExtArgs>
     reactions?: boolean | Articles$reactionsArgs<ExtArgs>
-    topics?: boolean | Articles$topicsArgs<ExtArgs>
     pageviews?: boolean | Articles$pageviewsArgs<ExtArgs>
     series?: boolean | Articles$seriesArgs<ExtArgs>
     _count?: boolean | ArticlesCountOutputTypeDefaultArgs<ExtArgs>
@@ -5448,7 +5224,6 @@ export namespace Prisma {
       author: Prisma.$AuthorsPayload<ExtArgs>
       stars: Prisma.$StarsPayload<ExtArgs>[]
       reactions: Prisma.$ReactionsPayload<ExtArgs>[]
-      topics: Prisma.$ArticleToTopicsPayload<ExtArgs>[]
       pageviews: Prisma.$PageviewsPayload<ExtArgs>[]
       series: Prisma.$SeriesPayload<ExtArgs> | null
     }
@@ -5859,7 +5634,6 @@ export namespace Prisma {
     author<T extends AuthorsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AuthorsDefaultArgs<ExtArgs>>): Prisma__AuthorsClient<$Result.GetResult<Prisma.$AuthorsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     stars<T extends Articles$starsArgs<ExtArgs> = {}>(args?: Subset<T, Articles$starsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StarsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     reactions<T extends Articles$reactionsArgs<ExtArgs> = {}>(args?: Subset<T, Articles$reactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReactionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    topics<T extends Articles$topicsArgs<ExtArgs> = {}>(args?: Subset<T, Articles$topicsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArticleToTopicsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     pageviews<T extends Articles$pageviewsArgs<ExtArgs> = {}>(args?: Subset<T, Articles$pageviewsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PageviewsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     series<T extends Articles$seriesArgs<ExtArgs> = {}>(args?: Subset<T, Articles$seriesArgs<ExtArgs>>): Prisma__SeriesClient<$Result.GetResult<Prisma.$SeriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
@@ -6341,30 +6115,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ReactionsScalarFieldEnum | ReactionsScalarFieldEnum[]
-  }
-
-  /**
-   * Articles.topics
-   */
-  export type Articles$topicsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ArticleToTopics
-     */
-    select?: ArticleToTopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ArticleToTopics
-     */
-    omit?: ArticleToTopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ArticleToTopicsInclude<ExtArgs> | null
-    where?: ArticleToTopicsWhereInput
-    orderBy?: ArticleToTopicsOrderByWithRelationInput | ArticleToTopicsOrderByWithRelationInput[]
-    cursor?: ArticleToTopicsWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ArticleToTopicsScalarFieldEnum | ArticleToTopicsScalarFieldEnum[]
   }
 
   /**
@@ -9651,2129 +9401,6 @@ export namespace Prisma {
 
 
   /**
-   * Model Topics
-   */
-
-  export type AggregateTopics = {
-    _count: TopicsCountAggregateOutputType | null
-    _min: TopicsMinAggregateOutputType | null
-    _max: TopicsMaxAggregateOutputType | null
-  }
-
-  export type TopicsMinAggregateOutputType = {
-    id: string | null
-    topicName: string | null
-    createdAt: Date | null
-    deletedAt: Date | null
-  }
-
-  export type TopicsMaxAggregateOutputType = {
-    id: string | null
-    topicName: string | null
-    createdAt: Date | null
-    deletedAt: Date | null
-  }
-
-  export type TopicsCountAggregateOutputType = {
-    id: number
-    topicName: number
-    createdAt: number
-    deletedAt: number
-    _all: number
-  }
-
-
-  export type TopicsMinAggregateInputType = {
-    id?: true
-    topicName?: true
-    createdAt?: true
-    deletedAt?: true
-  }
-
-  export type TopicsMaxAggregateInputType = {
-    id?: true
-    topicName?: true
-    createdAt?: true
-    deletedAt?: true
-  }
-
-  export type TopicsCountAggregateInputType = {
-    id?: true
-    topicName?: true
-    createdAt?: true
-    deletedAt?: true
-    _all?: true
-  }
-
-  export type TopicsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Topics to aggregate.
-     */
-    where?: TopicsWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Topics to fetch.
-     */
-    orderBy?: TopicsOrderByWithRelationInput | TopicsOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: TopicsWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Topics from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Topics.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Topics
-    **/
-    _count?: true | TopicsCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: TopicsMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: TopicsMaxAggregateInputType
-  }
-
-  export type GetTopicsAggregateType<T extends TopicsAggregateArgs> = {
-        [P in keyof T & keyof AggregateTopics]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateTopics[P]>
-      : GetScalarType<T[P], AggregateTopics[P]>
-  }
-
-
-
-
-  export type TopicsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TopicsWhereInput
-    orderBy?: TopicsOrderByWithAggregationInput | TopicsOrderByWithAggregationInput[]
-    by: TopicsScalarFieldEnum[] | TopicsScalarFieldEnum
-    having?: TopicsScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: TopicsCountAggregateInputType | true
-    _min?: TopicsMinAggregateInputType
-    _max?: TopicsMaxAggregateInputType
-  }
-
-  export type TopicsGroupByOutputType = {
-    id: string
-    topicName: string
-    createdAt: Date
-    deletedAt: Date | null
-    _count: TopicsCountAggregateOutputType | null
-    _min: TopicsMinAggregateOutputType | null
-    _max: TopicsMaxAggregateOutputType | null
-  }
-
-  type GetTopicsGroupByPayload<T extends TopicsGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<TopicsGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof TopicsGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], TopicsGroupByOutputType[P]>
-            : GetScalarType<T[P], TopicsGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type TopicsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    topicName?: boolean
-    createdAt?: boolean
-    deletedAt?: boolean
-    articles?: boolean | Topics$articlesArgs<ExtArgs>
-    _count?: boolean | TopicsCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["topics"]>
-
-  export type TopicsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    topicName?: boolean
-    createdAt?: boolean
-    deletedAt?: boolean
-  }, ExtArgs["result"]["topics"]>
-
-  export type TopicsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    topicName?: boolean
-    createdAt?: boolean
-    deletedAt?: boolean
-  }, ExtArgs["result"]["topics"]>
-
-  export type TopicsSelectScalar = {
-    id?: boolean
-    topicName?: boolean
-    createdAt?: boolean
-    deletedAt?: boolean
-  }
-
-  export type TopicsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "topicName" | "createdAt" | "deletedAt", ExtArgs["result"]["topics"]>
-  export type TopicsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    articles?: boolean | Topics$articlesArgs<ExtArgs>
-    _count?: boolean | TopicsCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type TopicsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type TopicsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-
-  export type $TopicsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Topics"
-    objects: {
-      articles: Prisma.$ArticleToTopicsPayload<ExtArgs>[]
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      topicName: string
-      createdAt: Date
-      deletedAt: Date | null
-    }, ExtArgs["result"]["topics"]>
-    composites: {}
-  }
-
-  type TopicsGetPayload<S extends boolean | null | undefined | TopicsDefaultArgs> = $Result.GetResult<Prisma.$TopicsPayload, S>
-
-  type TopicsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<TopicsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: TopicsCountAggregateInputType | true
-    }
-
-  export interface TopicsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Topics'], meta: { name: 'Topics' } }
-    /**
-     * Find zero or one Topics that matches the filter.
-     * @param {TopicsFindUniqueArgs} args - Arguments to find a Topics
-     * @example
-     * // Get one Topics
-     * const topics = await prisma.topics.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends TopicsFindUniqueArgs>(args: SelectSubset<T, TopicsFindUniqueArgs<ExtArgs>>): Prisma__TopicsClient<$Result.GetResult<Prisma.$TopicsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Topics that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {TopicsFindUniqueOrThrowArgs} args - Arguments to find a Topics
-     * @example
-     * // Get one Topics
-     * const topics = await prisma.topics.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends TopicsFindUniqueOrThrowArgs>(args: SelectSubset<T, TopicsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TopicsClient<$Result.GetResult<Prisma.$TopicsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Topics that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TopicsFindFirstArgs} args - Arguments to find a Topics
-     * @example
-     * // Get one Topics
-     * const topics = await prisma.topics.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends TopicsFindFirstArgs>(args?: SelectSubset<T, TopicsFindFirstArgs<ExtArgs>>): Prisma__TopicsClient<$Result.GetResult<Prisma.$TopicsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Topics that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TopicsFindFirstOrThrowArgs} args - Arguments to find a Topics
-     * @example
-     * // Get one Topics
-     * const topics = await prisma.topics.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends TopicsFindFirstOrThrowArgs>(args?: SelectSubset<T, TopicsFindFirstOrThrowArgs<ExtArgs>>): Prisma__TopicsClient<$Result.GetResult<Prisma.$TopicsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Topics that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TopicsFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Topics
-     * const topics = await prisma.topics.findMany()
-     * 
-     * // Get first 10 Topics
-     * const topics = await prisma.topics.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const topicsWithIdOnly = await prisma.topics.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends TopicsFindManyArgs>(args?: SelectSubset<T, TopicsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TopicsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Topics.
-     * @param {TopicsCreateArgs} args - Arguments to create a Topics.
-     * @example
-     * // Create one Topics
-     * const Topics = await prisma.topics.create({
-     *   data: {
-     *     // ... data to create a Topics
-     *   }
-     * })
-     * 
-     */
-    create<T extends TopicsCreateArgs>(args: SelectSubset<T, TopicsCreateArgs<ExtArgs>>): Prisma__TopicsClient<$Result.GetResult<Prisma.$TopicsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Topics.
-     * @param {TopicsCreateManyArgs} args - Arguments to create many Topics.
-     * @example
-     * // Create many Topics
-     * const topics = await prisma.topics.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends TopicsCreateManyArgs>(args?: SelectSubset<T, TopicsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Topics and returns the data saved in the database.
-     * @param {TopicsCreateManyAndReturnArgs} args - Arguments to create many Topics.
-     * @example
-     * // Create many Topics
-     * const topics = await prisma.topics.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Topics and only return the `id`
-     * const topicsWithIdOnly = await prisma.topics.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends TopicsCreateManyAndReturnArgs>(args?: SelectSubset<T, TopicsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TopicsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Topics.
-     * @param {TopicsDeleteArgs} args - Arguments to delete one Topics.
-     * @example
-     * // Delete one Topics
-     * const Topics = await prisma.topics.delete({
-     *   where: {
-     *     // ... filter to delete one Topics
-     *   }
-     * })
-     * 
-     */
-    delete<T extends TopicsDeleteArgs>(args: SelectSubset<T, TopicsDeleteArgs<ExtArgs>>): Prisma__TopicsClient<$Result.GetResult<Prisma.$TopicsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Topics.
-     * @param {TopicsUpdateArgs} args - Arguments to update one Topics.
-     * @example
-     * // Update one Topics
-     * const topics = await prisma.topics.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends TopicsUpdateArgs>(args: SelectSubset<T, TopicsUpdateArgs<ExtArgs>>): Prisma__TopicsClient<$Result.GetResult<Prisma.$TopicsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Topics.
-     * @param {TopicsDeleteManyArgs} args - Arguments to filter Topics to delete.
-     * @example
-     * // Delete a few Topics
-     * const { count } = await prisma.topics.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends TopicsDeleteManyArgs>(args?: SelectSubset<T, TopicsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Topics.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TopicsUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Topics
-     * const topics = await prisma.topics.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends TopicsUpdateManyArgs>(args: SelectSubset<T, TopicsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Topics and returns the data updated in the database.
-     * @param {TopicsUpdateManyAndReturnArgs} args - Arguments to update many Topics.
-     * @example
-     * // Update many Topics
-     * const topics = await prisma.topics.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Topics and only return the `id`
-     * const topicsWithIdOnly = await prisma.topics.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends TopicsUpdateManyAndReturnArgs>(args: SelectSubset<T, TopicsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TopicsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Topics.
-     * @param {TopicsUpsertArgs} args - Arguments to update or create a Topics.
-     * @example
-     * // Update or create a Topics
-     * const topics = await prisma.topics.upsert({
-     *   create: {
-     *     // ... data to create a Topics
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Topics we want to update
-     *   }
-     * })
-     */
-    upsert<T extends TopicsUpsertArgs>(args: SelectSubset<T, TopicsUpsertArgs<ExtArgs>>): Prisma__TopicsClient<$Result.GetResult<Prisma.$TopicsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Topics.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TopicsCountArgs} args - Arguments to filter Topics to count.
-     * @example
-     * // Count the number of Topics
-     * const count = await prisma.topics.count({
-     *   where: {
-     *     // ... the filter for the Topics we want to count
-     *   }
-     * })
-    **/
-    count<T extends TopicsCountArgs>(
-      args?: Subset<T, TopicsCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], TopicsCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Topics.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TopicsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends TopicsAggregateArgs>(args: Subset<T, TopicsAggregateArgs>): Prisma.PrismaPromise<GetTopicsAggregateType<T>>
-
-    /**
-     * Group by Topics.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TopicsGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends TopicsGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: TopicsGroupByArgs['orderBy'] }
-        : { orderBy?: TopicsGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, TopicsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTopicsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Topics model
-   */
-  readonly fields: TopicsFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Topics.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__TopicsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    articles<T extends Topics$articlesArgs<ExtArgs> = {}>(args?: Subset<T, Topics$articlesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArticleToTopicsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Topics model
-   */
-  interface TopicsFieldRefs {
-    readonly id: FieldRef<"Topics", 'String'>
-    readonly topicName: FieldRef<"Topics", 'String'>
-    readonly createdAt: FieldRef<"Topics", 'DateTime'>
-    readonly deletedAt: FieldRef<"Topics", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Topics findUnique
-   */
-  export type TopicsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Topics
-     */
-    select?: TopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Topics
-     */
-    omit?: TopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TopicsInclude<ExtArgs> | null
-    /**
-     * Filter, which Topics to fetch.
-     */
-    where: TopicsWhereUniqueInput
-  }
-
-  /**
-   * Topics findUniqueOrThrow
-   */
-  export type TopicsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Topics
-     */
-    select?: TopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Topics
-     */
-    omit?: TopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TopicsInclude<ExtArgs> | null
-    /**
-     * Filter, which Topics to fetch.
-     */
-    where: TopicsWhereUniqueInput
-  }
-
-  /**
-   * Topics findFirst
-   */
-  export type TopicsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Topics
-     */
-    select?: TopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Topics
-     */
-    omit?: TopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TopicsInclude<ExtArgs> | null
-    /**
-     * Filter, which Topics to fetch.
-     */
-    where?: TopicsWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Topics to fetch.
-     */
-    orderBy?: TopicsOrderByWithRelationInput | TopicsOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Topics.
-     */
-    cursor?: TopicsWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Topics from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Topics.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Topics.
-     */
-    distinct?: TopicsScalarFieldEnum | TopicsScalarFieldEnum[]
-  }
-
-  /**
-   * Topics findFirstOrThrow
-   */
-  export type TopicsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Topics
-     */
-    select?: TopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Topics
-     */
-    omit?: TopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TopicsInclude<ExtArgs> | null
-    /**
-     * Filter, which Topics to fetch.
-     */
-    where?: TopicsWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Topics to fetch.
-     */
-    orderBy?: TopicsOrderByWithRelationInput | TopicsOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Topics.
-     */
-    cursor?: TopicsWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Topics from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Topics.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Topics.
-     */
-    distinct?: TopicsScalarFieldEnum | TopicsScalarFieldEnum[]
-  }
-
-  /**
-   * Topics findMany
-   */
-  export type TopicsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Topics
-     */
-    select?: TopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Topics
-     */
-    omit?: TopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TopicsInclude<ExtArgs> | null
-    /**
-     * Filter, which Topics to fetch.
-     */
-    where?: TopicsWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Topics to fetch.
-     */
-    orderBy?: TopicsOrderByWithRelationInput | TopicsOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Topics.
-     */
-    cursor?: TopicsWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Topics from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Topics.
-     */
-    skip?: number
-    distinct?: TopicsScalarFieldEnum | TopicsScalarFieldEnum[]
-  }
-
-  /**
-   * Topics create
-   */
-  export type TopicsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Topics
-     */
-    select?: TopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Topics
-     */
-    omit?: TopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TopicsInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Topics.
-     */
-    data: XOR<TopicsCreateInput, TopicsUncheckedCreateInput>
-  }
-
-  /**
-   * Topics createMany
-   */
-  export type TopicsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Topics.
-     */
-    data: TopicsCreateManyInput | TopicsCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Topics createManyAndReturn
-   */
-  export type TopicsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Topics
-     */
-    select?: TopicsSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Topics
-     */
-    omit?: TopicsOmit<ExtArgs> | null
-    /**
-     * The data used to create many Topics.
-     */
-    data: TopicsCreateManyInput | TopicsCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Topics update
-   */
-  export type TopicsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Topics
-     */
-    select?: TopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Topics
-     */
-    omit?: TopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TopicsInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Topics.
-     */
-    data: XOR<TopicsUpdateInput, TopicsUncheckedUpdateInput>
-    /**
-     * Choose, which Topics to update.
-     */
-    where: TopicsWhereUniqueInput
-  }
-
-  /**
-   * Topics updateMany
-   */
-  export type TopicsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Topics.
-     */
-    data: XOR<TopicsUpdateManyMutationInput, TopicsUncheckedUpdateManyInput>
-    /**
-     * Filter which Topics to update
-     */
-    where?: TopicsWhereInput
-    /**
-     * Limit how many Topics to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Topics updateManyAndReturn
-   */
-  export type TopicsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Topics
-     */
-    select?: TopicsSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Topics
-     */
-    omit?: TopicsOmit<ExtArgs> | null
-    /**
-     * The data used to update Topics.
-     */
-    data: XOR<TopicsUpdateManyMutationInput, TopicsUncheckedUpdateManyInput>
-    /**
-     * Filter which Topics to update
-     */
-    where?: TopicsWhereInput
-    /**
-     * Limit how many Topics to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Topics upsert
-   */
-  export type TopicsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Topics
-     */
-    select?: TopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Topics
-     */
-    omit?: TopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TopicsInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Topics to update in case it exists.
-     */
-    where: TopicsWhereUniqueInput
-    /**
-     * In case the Topics found by the `where` argument doesn't exist, create a new Topics with this data.
-     */
-    create: XOR<TopicsCreateInput, TopicsUncheckedCreateInput>
-    /**
-     * In case the Topics was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<TopicsUpdateInput, TopicsUncheckedUpdateInput>
-  }
-
-  /**
-   * Topics delete
-   */
-  export type TopicsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Topics
-     */
-    select?: TopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Topics
-     */
-    omit?: TopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TopicsInclude<ExtArgs> | null
-    /**
-     * Filter which Topics to delete.
-     */
-    where: TopicsWhereUniqueInput
-  }
-
-  /**
-   * Topics deleteMany
-   */
-  export type TopicsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Topics to delete
-     */
-    where?: TopicsWhereInput
-    /**
-     * Limit how many Topics to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Topics.articles
-   */
-  export type Topics$articlesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ArticleToTopics
-     */
-    select?: ArticleToTopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ArticleToTopics
-     */
-    omit?: ArticleToTopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ArticleToTopicsInclude<ExtArgs> | null
-    where?: ArticleToTopicsWhereInput
-    orderBy?: ArticleToTopicsOrderByWithRelationInput | ArticleToTopicsOrderByWithRelationInput[]
-    cursor?: ArticleToTopicsWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ArticleToTopicsScalarFieldEnum | ArticleToTopicsScalarFieldEnum[]
-  }
-
-  /**
-   * Topics without action
-   */
-  export type TopicsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Topics
-     */
-    select?: TopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Topics
-     */
-    omit?: TopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TopicsInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model ArticleToTopics
-   */
-
-  export type AggregateArticleToTopics = {
-    _count: ArticleToTopicsCountAggregateOutputType | null
-    _min: ArticleToTopicsMinAggregateOutputType | null
-    _max: ArticleToTopicsMaxAggregateOutputType | null
-  }
-
-  export type ArticleToTopicsMinAggregateOutputType = {
-    id: string | null
-    articleId: string | null
-    topicId: string | null
-    createdAt: Date | null
-    deletedAt: Date | null
-  }
-
-  export type ArticleToTopicsMaxAggregateOutputType = {
-    id: string | null
-    articleId: string | null
-    topicId: string | null
-    createdAt: Date | null
-    deletedAt: Date | null
-  }
-
-  export type ArticleToTopicsCountAggregateOutputType = {
-    id: number
-    articleId: number
-    topicId: number
-    createdAt: number
-    deletedAt: number
-    _all: number
-  }
-
-
-  export type ArticleToTopicsMinAggregateInputType = {
-    id?: true
-    articleId?: true
-    topicId?: true
-    createdAt?: true
-    deletedAt?: true
-  }
-
-  export type ArticleToTopicsMaxAggregateInputType = {
-    id?: true
-    articleId?: true
-    topicId?: true
-    createdAt?: true
-    deletedAt?: true
-  }
-
-  export type ArticleToTopicsCountAggregateInputType = {
-    id?: true
-    articleId?: true
-    topicId?: true
-    createdAt?: true
-    deletedAt?: true
-    _all?: true
-  }
-
-  export type ArticleToTopicsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which ArticleToTopics to aggregate.
-     */
-    where?: ArticleToTopicsWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ArticleToTopics to fetch.
-     */
-    orderBy?: ArticleToTopicsOrderByWithRelationInput | ArticleToTopicsOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: ArticleToTopicsWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ArticleToTopics from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ArticleToTopics.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned ArticleToTopics
-    **/
-    _count?: true | ArticleToTopicsCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: ArticleToTopicsMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: ArticleToTopicsMaxAggregateInputType
-  }
-
-  export type GetArticleToTopicsAggregateType<T extends ArticleToTopicsAggregateArgs> = {
-        [P in keyof T & keyof AggregateArticleToTopics]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateArticleToTopics[P]>
-      : GetScalarType<T[P], AggregateArticleToTopics[P]>
-  }
-
-
-
-
-  export type ArticleToTopicsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ArticleToTopicsWhereInput
-    orderBy?: ArticleToTopicsOrderByWithAggregationInput | ArticleToTopicsOrderByWithAggregationInput[]
-    by: ArticleToTopicsScalarFieldEnum[] | ArticleToTopicsScalarFieldEnum
-    having?: ArticleToTopicsScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: ArticleToTopicsCountAggregateInputType | true
-    _min?: ArticleToTopicsMinAggregateInputType
-    _max?: ArticleToTopicsMaxAggregateInputType
-  }
-
-  export type ArticleToTopicsGroupByOutputType = {
-    id: string
-    articleId: string
-    topicId: string
-    createdAt: Date
-    deletedAt: Date | null
-    _count: ArticleToTopicsCountAggregateOutputType | null
-    _min: ArticleToTopicsMinAggregateOutputType | null
-    _max: ArticleToTopicsMaxAggregateOutputType | null
-  }
-
-  type GetArticleToTopicsGroupByPayload<T extends ArticleToTopicsGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<ArticleToTopicsGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof ArticleToTopicsGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], ArticleToTopicsGroupByOutputType[P]>
-            : GetScalarType<T[P], ArticleToTopicsGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type ArticleToTopicsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    articleId?: boolean
-    topicId?: boolean
-    createdAt?: boolean
-    deletedAt?: boolean
-    article?: boolean | ArticlesDefaultArgs<ExtArgs>
-    topic?: boolean | TopicsDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["articleToTopics"]>
-
-  export type ArticleToTopicsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    articleId?: boolean
-    topicId?: boolean
-    createdAt?: boolean
-    deletedAt?: boolean
-    article?: boolean | ArticlesDefaultArgs<ExtArgs>
-    topic?: boolean | TopicsDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["articleToTopics"]>
-
-  export type ArticleToTopicsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    articleId?: boolean
-    topicId?: boolean
-    createdAt?: boolean
-    deletedAt?: boolean
-    article?: boolean | ArticlesDefaultArgs<ExtArgs>
-    topic?: boolean | TopicsDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["articleToTopics"]>
-
-  export type ArticleToTopicsSelectScalar = {
-    id?: boolean
-    articleId?: boolean
-    topicId?: boolean
-    createdAt?: boolean
-    deletedAt?: boolean
-  }
-
-  export type ArticleToTopicsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "articleId" | "topicId" | "createdAt" | "deletedAt", ExtArgs["result"]["articleToTopics"]>
-  export type ArticleToTopicsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    article?: boolean | ArticlesDefaultArgs<ExtArgs>
-    topic?: boolean | TopicsDefaultArgs<ExtArgs>
-  }
-  export type ArticleToTopicsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    article?: boolean | ArticlesDefaultArgs<ExtArgs>
-    topic?: boolean | TopicsDefaultArgs<ExtArgs>
-  }
-  export type ArticleToTopicsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    article?: boolean | ArticlesDefaultArgs<ExtArgs>
-    topic?: boolean | TopicsDefaultArgs<ExtArgs>
-  }
-
-  export type $ArticleToTopicsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "ArticleToTopics"
-    objects: {
-      article: Prisma.$ArticlesPayload<ExtArgs>
-      topic: Prisma.$TopicsPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      articleId: string
-      topicId: string
-      createdAt: Date
-      deletedAt: Date | null
-    }, ExtArgs["result"]["articleToTopics"]>
-    composites: {}
-  }
-
-  type ArticleToTopicsGetPayload<S extends boolean | null | undefined | ArticleToTopicsDefaultArgs> = $Result.GetResult<Prisma.$ArticleToTopicsPayload, S>
-
-  type ArticleToTopicsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<ArticleToTopicsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: ArticleToTopicsCountAggregateInputType | true
-    }
-
-  export interface ArticleToTopicsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ArticleToTopics'], meta: { name: 'ArticleToTopics' } }
-    /**
-     * Find zero or one ArticleToTopics that matches the filter.
-     * @param {ArticleToTopicsFindUniqueArgs} args - Arguments to find a ArticleToTopics
-     * @example
-     * // Get one ArticleToTopics
-     * const articleToTopics = await prisma.articleToTopics.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends ArticleToTopicsFindUniqueArgs>(args: SelectSubset<T, ArticleToTopicsFindUniqueArgs<ExtArgs>>): Prisma__ArticleToTopicsClient<$Result.GetResult<Prisma.$ArticleToTopicsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one ArticleToTopics that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {ArticleToTopicsFindUniqueOrThrowArgs} args - Arguments to find a ArticleToTopics
-     * @example
-     * // Get one ArticleToTopics
-     * const articleToTopics = await prisma.articleToTopics.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends ArticleToTopicsFindUniqueOrThrowArgs>(args: SelectSubset<T, ArticleToTopicsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ArticleToTopicsClient<$Result.GetResult<Prisma.$ArticleToTopicsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first ArticleToTopics that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ArticleToTopicsFindFirstArgs} args - Arguments to find a ArticleToTopics
-     * @example
-     * // Get one ArticleToTopics
-     * const articleToTopics = await prisma.articleToTopics.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends ArticleToTopicsFindFirstArgs>(args?: SelectSubset<T, ArticleToTopicsFindFirstArgs<ExtArgs>>): Prisma__ArticleToTopicsClient<$Result.GetResult<Prisma.$ArticleToTopicsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first ArticleToTopics that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ArticleToTopicsFindFirstOrThrowArgs} args - Arguments to find a ArticleToTopics
-     * @example
-     * // Get one ArticleToTopics
-     * const articleToTopics = await prisma.articleToTopics.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends ArticleToTopicsFindFirstOrThrowArgs>(args?: SelectSubset<T, ArticleToTopicsFindFirstOrThrowArgs<ExtArgs>>): Prisma__ArticleToTopicsClient<$Result.GetResult<Prisma.$ArticleToTopicsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more ArticleToTopics that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ArticleToTopicsFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all ArticleToTopics
-     * const articleToTopics = await prisma.articleToTopics.findMany()
-     * 
-     * // Get first 10 ArticleToTopics
-     * const articleToTopics = await prisma.articleToTopics.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const articleToTopicsWithIdOnly = await prisma.articleToTopics.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends ArticleToTopicsFindManyArgs>(args?: SelectSubset<T, ArticleToTopicsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArticleToTopicsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a ArticleToTopics.
-     * @param {ArticleToTopicsCreateArgs} args - Arguments to create a ArticleToTopics.
-     * @example
-     * // Create one ArticleToTopics
-     * const ArticleToTopics = await prisma.articleToTopics.create({
-     *   data: {
-     *     // ... data to create a ArticleToTopics
-     *   }
-     * })
-     * 
-     */
-    create<T extends ArticleToTopicsCreateArgs>(args: SelectSubset<T, ArticleToTopicsCreateArgs<ExtArgs>>): Prisma__ArticleToTopicsClient<$Result.GetResult<Prisma.$ArticleToTopicsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many ArticleToTopics.
-     * @param {ArticleToTopicsCreateManyArgs} args - Arguments to create many ArticleToTopics.
-     * @example
-     * // Create many ArticleToTopics
-     * const articleToTopics = await prisma.articleToTopics.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends ArticleToTopicsCreateManyArgs>(args?: SelectSubset<T, ArticleToTopicsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many ArticleToTopics and returns the data saved in the database.
-     * @param {ArticleToTopicsCreateManyAndReturnArgs} args - Arguments to create many ArticleToTopics.
-     * @example
-     * // Create many ArticleToTopics
-     * const articleToTopics = await prisma.articleToTopics.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many ArticleToTopics and only return the `id`
-     * const articleToTopicsWithIdOnly = await prisma.articleToTopics.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends ArticleToTopicsCreateManyAndReturnArgs>(args?: SelectSubset<T, ArticleToTopicsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArticleToTopicsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a ArticleToTopics.
-     * @param {ArticleToTopicsDeleteArgs} args - Arguments to delete one ArticleToTopics.
-     * @example
-     * // Delete one ArticleToTopics
-     * const ArticleToTopics = await prisma.articleToTopics.delete({
-     *   where: {
-     *     // ... filter to delete one ArticleToTopics
-     *   }
-     * })
-     * 
-     */
-    delete<T extends ArticleToTopicsDeleteArgs>(args: SelectSubset<T, ArticleToTopicsDeleteArgs<ExtArgs>>): Prisma__ArticleToTopicsClient<$Result.GetResult<Prisma.$ArticleToTopicsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one ArticleToTopics.
-     * @param {ArticleToTopicsUpdateArgs} args - Arguments to update one ArticleToTopics.
-     * @example
-     * // Update one ArticleToTopics
-     * const articleToTopics = await prisma.articleToTopics.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends ArticleToTopicsUpdateArgs>(args: SelectSubset<T, ArticleToTopicsUpdateArgs<ExtArgs>>): Prisma__ArticleToTopicsClient<$Result.GetResult<Prisma.$ArticleToTopicsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more ArticleToTopics.
-     * @param {ArticleToTopicsDeleteManyArgs} args - Arguments to filter ArticleToTopics to delete.
-     * @example
-     * // Delete a few ArticleToTopics
-     * const { count } = await prisma.articleToTopics.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends ArticleToTopicsDeleteManyArgs>(args?: SelectSubset<T, ArticleToTopicsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more ArticleToTopics.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ArticleToTopicsUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many ArticleToTopics
-     * const articleToTopics = await prisma.articleToTopics.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends ArticleToTopicsUpdateManyArgs>(args: SelectSubset<T, ArticleToTopicsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more ArticleToTopics and returns the data updated in the database.
-     * @param {ArticleToTopicsUpdateManyAndReturnArgs} args - Arguments to update many ArticleToTopics.
-     * @example
-     * // Update many ArticleToTopics
-     * const articleToTopics = await prisma.articleToTopics.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more ArticleToTopics and only return the `id`
-     * const articleToTopicsWithIdOnly = await prisma.articleToTopics.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends ArticleToTopicsUpdateManyAndReturnArgs>(args: SelectSubset<T, ArticleToTopicsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArticleToTopicsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one ArticleToTopics.
-     * @param {ArticleToTopicsUpsertArgs} args - Arguments to update or create a ArticleToTopics.
-     * @example
-     * // Update or create a ArticleToTopics
-     * const articleToTopics = await prisma.articleToTopics.upsert({
-     *   create: {
-     *     // ... data to create a ArticleToTopics
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the ArticleToTopics we want to update
-     *   }
-     * })
-     */
-    upsert<T extends ArticleToTopicsUpsertArgs>(args: SelectSubset<T, ArticleToTopicsUpsertArgs<ExtArgs>>): Prisma__ArticleToTopicsClient<$Result.GetResult<Prisma.$ArticleToTopicsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of ArticleToTopics.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ArticleToTopicsCountArgs} args - Arguments to filter ArticleToTopics to count.
-     * @example
-     * // Count the number of ArticleToTopics
-     * const count = await prisma.articleToTopics.count({
-     *   where: {
-     *     // ... the filter for the ArticleToTopics we want to count
-     *   }
-     * })
-    **/
-    count<T extends ArticleToTopicsCountArgs>(
-      args?: Subset<T, ArticleToTopicsCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], ArticleToTopicsCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a ArticleToTopics.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ArticleToTopicsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends ArticleToTopicsAggregateArgs>(args: Subset<T, ArticleToTopicsAggregateArgs>): Prisma.PrismaPromise<GetArticleToTopicsAggregateType<T>>
-
-    /**
-     * Group by ArticleToTopics.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ArticleToTopicsGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends ArticleToTopicsGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ArticleToTopicsGroupByArgs['orderBy'] }
-        : { orderBy?: ArticleToTopicsGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, ArticleToTopicsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetArticleToTopicsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the ArticleToTopics model
-   */
-  readonly fields: ArticleToTopicsFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for ArticleToTopics.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__ArticleToTopicsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    article<T extends ArticlesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ArticlesDefaultArgs<ExtArgs>>): Prisma__ArticlesClient<$Result.GetResult<Prisma.$ArticlesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    topic<T extends TopicsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TopicsDefaultArgs<ExtArgs>>): Prisma__TopicsClient<$Result.GetResult<Prisma.$TopicsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the ArticleToTopics model
-   */
-  interface ArticleToTopicsFieldRefs {
-    readonly id: FieldRef<"ArticleToTopics", 'String'>
-    readonly articleId: FieldRef<"ArticleToTopics", 'String'>
-    readonly topicId: FieldRef<"ArticleToTopics", 'String'>
-    readonly createdAt: FieldRef<"ArticleToTopics", 'DateTime'>
-    readonly deletedAt: FieldRef<"ArticleToTopics", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * ArticleToTopics findUnique
-   */
-  export type ArticleToTopicsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ArticleToTopics
-     */
-    select?: ArticleToTopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ArticleToTopics
-     */
-    omit?: ArticleToTopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ArticleToTopicsInclude<ExtArgs> | null
-    /**
-     * Filter, which ArticleToTopics to fetch.
-     */
-    where: ArticleToTopicsWhereUniqueInput
-  }
-
-  /**
-   * ArticleToTopics findUniqueOrThrow
-   */
-  export type ArticleToTopicsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ArticleToTopics
-     */
-    select?: ArticleToTopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ArticleToTopics
-     */
-    omit?: ArticleToTopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ArticleToTopicsInclude<ExtArgs> | null
-    /**
-     * Filter, which ArticleToTopics to fetch.
-     */
-    where: ArticleToTopicsWhereUniqueInput
-  }
-
-  /**
-   * ArticleToTopics findFirst
-   */
-  export type ArticleToTopicsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ArticleToTopics
-     */
-    select?: ArticleToTopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ArticleToTopics
-     */
-    omit?: ArticleToTopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ArticleToTopicsInclude<ExtArgs> | null
-    /**
-     * Filter, which ArticleToTopics to fetch.
-     */
-    where?: ArticleToTopicsWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ArticleToTopics to fetch.
-     */
-    orderBy?: ArticleToTopicsOrderByWithRelationInput | ArticleToTopicsOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for ArticleToTopics.
-     */
-    cursor?: ArticleToTopicsWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ArticleToTopics from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ArticleToTopics.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of ArticleToTopics.
-     */
-    distinct?: ArticleToTopicsScalarFieldEnum | ArticleToTopicsScalarFieldEnum[]
-  }
-
-  /**
-   * ArticleToTopics findFirstOrThrow
-   */
-  export type ArticleToTopicsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ArticleToTopics
-     */
-    select?: ArticleToTopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ArticleToTopics
-     */
-    omit?: ArticleToTopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ArticleToTopicsInclude<ExtArgs> | null
-    /**
-     * Filter, which ArticleToTopics to fetch.
-     */
-    where?: ArticleToTopicsWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ArticleToTopics to fetch.
-     */
-    orderBy?: ArticleToTopicsOrderByWithRelationInput | ArticleToTopicsOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for ArticleToTopics.
-     */
-    cursor?: ArticleToTopicsWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ArticleToTopics from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ArticleToTopics.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of ArticleToTopics.
-     */
-    distinct?: ArticleToTopicsScalarFieldEnum | ArticleToTopicsScalarFieldEnum[]
-  }
-
-  /**
-   * ArticleToTopics findMany
-   */
-  export type ArticleToTopicsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ArticleToTopics
-     */
-    select?: ArticleToTopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ArticleToTopics
-     */
-    omit?: ArticleToTopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ArticleToTopicsInclude<ExtArgs> | null
-    /**
-     * Filter, which ArticleToTopics to fetch.
-     */
-    where?: ArticleToTopicsWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ArticleToTopics to fetch.
-     */
-    orderBy?: ArticleToTopicsOrderByWithRelationInput | ArticleToTopicsOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing ArticleToTopics.
-     */
-    cursor?: ArticleToTopicsWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ArticleToTopics from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ArticleToTopics.
-     */
-    skip?: number
-    distinct?: ArticleToTopicsScalarFieldEnum | ArticleToTopicsScalarFieldEnum[]
-  }
-
-  /**
-   * ArticleToTopics create
-   */
-  export type ArticleToTopicsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ArticleToTopics
-     */
-    select?: ArticleToTopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ArticleToTopics
-     */
-    omit?: ArticleToTopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ArticleToTopicsInclude<ExtArgs> | null
-    /**
-     * The data needed to create a ArticleToTopics.
-     */
-    data: XOR<ArticleToTopicsCreateInput, ArticleToTopicsUncheckedCreateInput>
-  }
-
-  /**
-   * ArticleToTopics createMany
-   */
-  export type ArticleToTopicsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many ArticleToTopics.
-     */
-    data: ArticleToTopicsCreateManyInput | ArticleToTopicsCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * ArticleToTopics createManyAndReturn
-   */
-  export type ArticleToTopicsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ArticleToTopics
-     */
-    select?: ArticleToTopicsSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the ArticleToTopics
-     */
-    omit?: ArticleToTopicsOmit<ExtArgs> | null
-    /**
-     * The data used to create many ArticleToTopics.
-     */
-    data: ArticleToTopicsCreateManyInput | ArticleToTopicsCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ArticleToTopicsIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * ArticleToTopics update
-   */
-  export type ArticleToTopicsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ArticleToTopics
-     */
-    select?: ArticleToTopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ArticleToTopics
-     */
-    omit?: ArticleToTopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ArticleToTopicsInclude<ExtArgs> | null
-    /**
-     * The data needed to update a ArticleToTopics.
-     */
-    data: XOR<ArticleToTopicsUpdateInput, ArticleToTopicsUncheckedUpdateInput>
-    /**
-     * Choose, which ArticleToTopics to update.
-     */
-    where: ArticleToTopicsWhereUniqueInput
-  }
-
-  /**
-   * ArticleToTopics updateMany
-   */
-  export type ArticleToTopicsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update ArticleToTopics.
-     */
-    data: XOR<ArticleToTopicsUpdateManyMutationInput, ArticleToTopicsUncheckedUpdateManyInput>
-    /**
-     * Filter which ArticleToTopics to update
-     */
-    where?: ArticleToTopicsWhereInput
-    /**
-     * Limit how many ArticleToTopics to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * ArticleToTopics updateManyAndReturn
-   */
-  export type ArticleToTopicsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ArticleToTopics
-     */
-    select?: ArticleToTopicsSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the ArticleToTopics
-     */
-    omit?: ArticleToTopicsOmit<ExtArgs> | null
-    /**
-     * The data used to update ArticleToTopics.
-     */
-    data: XOR<ArticleToTopicsUpdateManyMutationInput, ArticleToTopicsUncheckedUpdateManyInput>
-    /**
-     * Filter which ArticleToTopics to update
-     */
-    where?: ArticleToTopicsWhereInput
-    /**
-     * Limit how many ArticleToTopics to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ArticleToTopicsIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * ArticleToTopics upsert
-   */
-  export type ArticleToTopicsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ArticleToTopics
-     */
-    select?: ArticleToTopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ArticleToTopics
-     */
-    omit?: ArticleToTopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ArticleToTopicsInclude<ExtArgs> | null
-    /**
-     * The filter to search for the ArticleToTopics to update in case it exists.
-     */
-    where: ArticleToTopicsWhereUniqueInput
-    /**
-     * In case the ArticleToTopics found by the `where` argument doesn't exist, create a new ArticleToTopics with this data.
-     */
-    create: XOR<ArticleToTopicsCreateInput, ArticleToTopicsUncheckedCreateInput>
-    /**
-     * In case the ArticleToTopics was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<ArticleToTopicsUpdateInput, ArticleToTopicsUncheckedUpdateInput>
-  }
-
-  /**
-   * ArticleToTopics delete
-   */
-  export type ArticleToTopicsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ArticleToTopics
-     */
-    select?: ArticleToTopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ArticleToTopics
-     */
-    omit?: ArticleToTopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ArticleToTopicsInclude<ExtArgs> | null
-    /**
-     * Filter which ArticleToTopics to delete.
-     */
-    where: ArticleToTopicsWhereUniqueInput
-  }
-
-  /**
-   * ArticleToTopics deleteMany
-   */
-  export type ArticleToTopicsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which ArticleToTopics to delete
-     */
-    where?: ArticleToTopicsWhereInput
-    /**
-     * Limit how many ArticleToTopics to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * ArticleToTopics without action
-   */
-  export type ArticleToTopicsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ArticleToTopics
-     */
-    select?: ArticleToTopicsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ArticleToTopics
-     */
-    omit?: ArticleToTopicsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ArticleToTopicsInclude<ExtArgs> | null
-  }
-
-
-  /**
    * Model Pageviews
    */
 
@@ -12953,27 +10580,6 @@ export namespace Prisma {
   export type StarsScalarFieldEnum = (typeof StarsScalarFieldEnum)[keyof typeof StarsScalarFieldEnum]
 
 
-  export const TopicsScalarFieldEnum: {
-    id: 'id',
-    topicName: 'topicName',
-    createdAt: 'createdAt',
-    deletedAt: 'deletedAt'
-  };
-
-  export type TopicsScalarFieldEnum = (typeof TopicsScalarFieldEnum)[keyof typeof TopicsScalarFieldEnum]
-
-
-  export const ArticleToTopicsScalarFieldEnum: {
-    id: 'id',
-    articleId: 'articleId',
-    topicId: 'topicId',
-    createdAt: 'createdAt',
-    deletedAt: 'deletedAt'
-  };
-
-  export type ArticleToTopicsScalarFieldEnum = (typeof ArticleToTopicsScalarFieldEnum)[keyof typeof ArticleToTopicsScalarFieldEnum]
-
-
   export const PageviewsScalarFieldEnum: {
     id: 'id',
     articleId: 'articleId',
@@ -13249,7 +10855,6 @@ export namespace Prisma {
     author?: XOR<AuthorsScalarRelationFilter, AuthorsWhereInput>
     stars?: StarsListRelationFilter
     reactions?: ReactionsListRelationFilter
-    topics?: ArticleToTopicsListRelationFilter
     pageviews?: PageviewsListRelationFilter
     series?: XOR<SeriesNullableScalarRelationFilter, SeriesWhereInput> | null
   }
@@ -13267,7 +10872,6 @@ export namespace Prisma {
     author?: AuthorsOrderByWithRelationInput
     stars?: StarsOrderByRelationAggregateInput
     reactions?: ReactionsOrderByRelationAggregateInput
-    topics?: ArticleToTopicsOrderByRelationAggregateInput
     pageviews?: PageviewsOrderByRelationAggregateInput
     series?: SeriesOrderByWithRelationInput
   }
@@ -13288,7 +10892,6 @@ export namespace Prisma {
     author?: XOR<AuthorsScalarRelationFilter, AuthorsWhereInput>
     stars?: StarsListRelationFilter
     reactions?: ReactionsListRelationFilter
-    topics?: ArticleToTopicsListRelationFilter
     pageviews?: PageviewsListRelationFilter
     series?: XOR<SeriesNullableScalarRelationFilter, SeriesWhereInput> | null
   }, "id">
@@ -13492,114 +11095,6 @@ export namespace Prisma {
     userId?: StringWithAggregatesFilter<"Stars"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Stars"> | Date | string
     deletedAt?: DateTimeNullableWithAggregatesFilter<"Stars"> | Date | string | null
-  }
-
-  export type TopicsWhereInput = {
-    AND?: TopicsWhereInput | TopicsWhereInput[]
-    OR?: TopicsWhereInput[]
-    NOT?: TopicsWhereInput | TopicsWhereInput[]
-    id?: StringFilter<"Topics"> | string
-    topicName?: StringFilter<"Topics"> | string
-    createdAt?: DateTimeFilter<"Topics"> | Date | string
-    deletedAt?: DateTimeNullableFilter<"Topics"> | Date | string | null
-    articles?: ArticleToTopicsListRelationFilter
-  }
-
-  export type TopicsOrderByWithRelationInput = {
-    id?: SortOrder
-    topicName?: SortOrder
-    createdAt?: SortOrder
-    deletedAt?: SortOrderInput | SortOrder
-    articles?: ArticleToTopicsOrderByRelationAggregateInput
-  }
-
-  export type TopicsWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: TopicsWhereInput | TopicsWhereInput[]
-    OR?: TopicsWhereInput[]
-    NOT?: TopicsWhereInput | TopicsWhereInput[]
-    topicName?: StringFilter<"Topics"> | string
-    createdAt?: DateTimeFilter<"Topics"> | Date | string
-    deletedAt?: DateTimeNullableFilter<"Topics"> | Date | string | null
-    articles?: ArticleToTopicsListRelationFilter
-  }, "id">
-
-  export type TopicsOrderByWithAggregationInput = {
-    id?: SortOrder
-    topicName?: SortOrder
-    createdAt?: SortOrder
-    deletedAt?: SortOrderInput | SortOrder
-    _count?: TopicsCountOrderByAggregateInput
-    _max?: TopicsMaxOrderByAggregateInput
-    _min?: TopicsMinOrderByAggregateInput
-  }
-
-  export type TopicsScalarWhereWithAggregatesInput = {
-    AND?: TopicsScalarWhereWithAggregatesInput | TopicsScalarWhereWithAggregatesInput[]
-    OR?: TopicsScalarWhereWithAggregatesInput[]
-    NOT?: TopicsScalarWhereWithAggregatesInput | TopicsScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Topics"> | string
-    topicName?: StringWithAggregatesFilter<"Topics"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"Topics"> | Date | string
-    deletedAt?: DateTimeNullableWithAggregatesFilter<"Topics"> | Date | string | null
-  }
-
-  export type ArticleToTopicsWhereInput = {
-    AND?: ArticleToTopicsWhereInput | ArticleToTopicsWhereInput[]
-    OR?: ArticleToTopicsWhereInput[]
-    NOT?: ArticleToTopicsWhereInput | ArticleToTopicsWhereInput[]
-    id?: StringFilter<"ArticleToTopics"> | string
-    articleId?: StringFilter<"ArticleToTopics"> | string
-    topicId?: StringFilter<"ArticleToTopics"> | string
-    createdAt?: DateTimeFilter<"ArticleToTopics"> | Date | string
-    deletedAt?: DateTimeNullableFilter<"ArticleToTopics"> | Date | string | null
-    article?: XOR<ArticlesScalarRelationFilter, ArticlesWhereInput>
-    topic?: XOR<TopicsScalarRelationFilter, TopicsWhereInput>
-  }
-
-  export type ArticleToTopicsOrderByWithRelationInput = {
-    id?: SortOrder
-    articleId?: SortOrder
-    topicId?: SortOrder
-    createdAt?: SortOrder
-    deletedAt?: SortOrderInput | SortOrder
-    article?: ArticlesOrderByWithRelationInput
-    topic?: TopicsOrderByWithRelationInput
-  }
-
-  export type ArticleToTopicsWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: ArticleToTopicsWhereInput | ArticleToTopicsWhereInput[]
-    OR?: ArticleToTopicsWhereInput[]
-    NOT?: ArticleToTopicsWhereInput | ArticleToTopicsWhereInput[]
-    articleId?: StringFilter<"ArticleToTopics"> | string
-    topicId?: StringFilter<"ArticleToTopics"> | string
-    createdAt?: DateTimeFilter<"ArticleToTopics"> | Date | string
-    deletedAt?: DateTimeNullableFilter<"ArticleToTopics"> | Date | string | null
-    article?: XOR<ArticlesScalarRelationFilter, ArticlesWhereInput>
-    topic?: XOR<TopicsScalarRelationFilter, TopicsWhereInput>
-  }, "id">
-
-  export type ArticleToTopicsOrderByWithAggregationInput = {
-    id?: SortOrder
-    articleId?: SortOrder
-    topicId?: SortOrder
-    createdAt?: SortOrder
-    deletedAt?: SortOrderInput | SortOrder
-    _count?: ArticleToTopicsCountOrderByAggregateInput
-    _max?: ArticleToTopicsMaxOrderByAggregateInput
-    _min?: ArticleToTopicsMinOrderByAggregateInput
-  }
-
-  export type ArticleToTopicsScalarWhereWithAggregatesInput = {
-    AND?: ArticleToTopicsScalarWhereWithAggregatesInput | ArticleToTopicsScalarWhereWithAggregatesInput[]
-    OR?: ArticleToTopicsScalarWhereWithAggregatesInput[]
-    NOT?: ArticleToTopicsScalarWhereWithAggregatesInput | ArticleToTopicsScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"ArticleToTopics"> | string
-    articleId?: StringWithAggregatesFilter<"ArticleToTopics"> | string
-    topicId?: StringWithAggregatesFilter<"ArticleToTopics"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"ArticleToTopics"> | Date | string
-    deletedAt?: DateTimeNullableWithAggregatesFilter<"ArticleToTopics"> | Date | string | null
   }
 
   export type PageviewsWhereInput = {
@@ -13858,7 +11353,6 @@ export namespace Prisma {
     author: AuthorsCreateNestedOneWithoutArticlesInput
     stars?: StarsCreateNestedManyWithoutArticleInput
     reactions?: ReactionsCreateNestedManyWithoutArticleInput
-    topics?: ArticleToTopicsCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsCreateNestedManyWithoutArticleInput
     series?: SeriesCreateNestedOneWithoutArticlesInput
   }
@@ -13875,7 +11369,6 @@ export namespace Prisma {
     deletedAt?: Date | string | null
     stars?: StarsUncheckedCreateNestedManyWithoutArticleInput
     reactions?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
-    topics?: ArticleToTopicsUncheckedCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutArticleInput
   }
 
@@ -13890,7 +11383,6 @@ export namespace Prisma {
     author?: AuthorsUpdateOneRequiredWithoutArticlesNestedInput
     stars?: StarsUpdateManyWithoutArticleNestedInput
     reactions?: ReactionsUpdateManyWithoutArticleNestedInput
-    topics?: ArticleToTopicsUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUpdateManyWithoutArticleNestedInput
     series?: SeriesUpdateOneWithoutArticlesNestedInput
   }
@@ -13907,7 +11399,6 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     stars?: StarsUncheckedUpdateManyWithoutArticleNestedInput
     reactions?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
-    topics?: ArticleToTopicsUncheckedUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutArticleNestedInput
   }
 
@@ -14109,113 +11600,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     articleId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type TopicsCreateInput = {
-    id?: string
-    topicName: string
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-    articles?: ArticleToTopicsCreateNestedManyWithoutTopicInput
-  }
-
-  export type TopicsUncheckedCreateInput = {
-    id?: string
-    topicName: string
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-    articles?: ArticleToTopicsUncheckedCreateNestedManyWithoutTopicInput
-  }
-
-  export type TopicsUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    topicName?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    articles?: ArticleToTopicsUpdateManyWithoutTopicNestedInput
-  }
-
-  export type TopicsUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    topicName?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    articles?: ArticleToTopicsUncheckedUpdateManyWithoutTopicNestedInput
-  }
-
-  export type TopicsCreateManyInput = {
-    id?: string
-    topicName: string
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-  }
-
-  export type TopicsUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    topicName?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type TopicsUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    topicName?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type ArticleToTopicsCreateInput = {
-    id?: string
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-    article: ArticlesCreateNestedOneWithoutTopicsInput
-    topic: TopicsCreateNestedOneWithoutArticlesInput
-  }
-
-  export type ArticleToTopicsUncheckedCreateInput = {
-    id?: string
-    articleId: string
-    topicId: string
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-  }
-
-  export type ArticleToTopicsUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    article?: ArticlesUpdateOneRequiredWithoutTopicsNestedInput
-    topic?: TopicsUpdateOneRequiredWithoutArticlesNestedInput
-  }
-
-  export type ArticleToTopicsUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    articleId?: StringFieldUpdateOperationsInput | string
-    topicId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type ArticleToTopicsCreateManyInput = {
-    id?: string
-    articleId: string
-    topicId: string
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-  }
-
-  export type ArticleToTopicsUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type ArticleToTopicsUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    articleId?: StringFieldUpdateOperationsInput | string
-    topicId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -14504,19 +11888,9 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type ArticleToTopicsListRelationFilter = {
-    every?: ArticleToTopicsWhereInput
-    some?: ArticleToTopicsWhereInput
-    none?: ArticleToTopicsWhereInput
-  }
-
   export type SeriesNullableScalarRelationFilter = {
     is?: SeriesWhereInput | null
     isNot?: SeriesWhereInput | null
-  }
-
-  export type ArticleToTopicsOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type ArticlesCountOrderByAggregateInput = {
@@ -14656,56 +12030,6 @@ export namespace Prisma {
     id?: SortOrder
     articleId?: SortOrder
     userId?: SortOrder
-    createdAt?: SortOrder
-    deletedAt?: SortOrder
-  }
-
-  export type TopicsCountOrderByAggregateInput = {
-    id?: SortOrder
-    topicName?: SortOrder
-    createdAt?: SortOrder
-    deletedAt?: SortOrder
-  }
-
-  export type TopicsMaxOrderByAggregateInput = {
-    id?: SortOrder
-    topicName?: SortOrder
-    createdAt?: SortOrder
-    deletedAt?: SortOrder
-  }
-
-  export type TopicsMinOrderByAggregateInput = {
-    id?: SortOrder
-    topicName?: SortOrder
-    createdAt?: SortOrder
-    deletedAt?: SortOrder
-  }
-
-  export type TopicsScalarRelationFilter = {
-    is?: TopicsWhereInput
-    isNot?: TopicsWhereInput
-  }
-
-  export type ArticleToTopicsCountOrderByAggregateInput = {
-    id?: SortOrder
-    articleId?: SortOrder
-    topicId?: SortOrder
-    createdAt?: SortOrder
-    deletedAt?: SortOrder
-  }
-
-  export type ArticleToTopicsMaxOrderByAggregateInput = {
-    id?: SortOrder
-    articleId?: SortOrder
-    topicId?: SortOrder
-    createdAt?: SortOrder
-    deletedAt?: SortOrder
-  }
-
-  export type ArticleToTopicsMinOrderByAggregateInput = {
-    id?: SortOrder
-    articleId?: SortOrder
-    topicId?: SortOrder
     createdAt?: SortOrder
     deletedAt?: SortOrder
   }
@@ -14990,13 +12314,6 @@ export namespace Prisma {
     connect?: ReactionsWhereUniqueInput | ReactionsWhereUniqueInput[]
   }
 
-  export type ArticleToTopicsCreateNestedManyWithoutArticleInput = {
-    create?: XOR<ArticleToTopicsCreateWithoutArticleInput, ArticleToTopicsUncheckedCreateWithoutArticleInput> | ArticleToTopicsCreateWithoutArticleInput[] | ArticleToTopicsUncheckedCreateWithoutArticleInput[]
-    connectOrCreate?: ArticleToTopicsCreateOrConnectWithoutArticleInput | ArticleToTopicsCreateOrConnectWithoutArticleInput[]
-    createMany?: ArticleToTopicsCreateManyArticleInputEnvelope
-    connect?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-  }
-
   export type PageviewsCreateNestedManyWithoutArticleInput = {
     create?: XOR<PageviewsCreateWithoutArticleInput, PageviewsUncheckedCreateWithoutArticleInput> | PageviewsCreateWithoutArticleInput[] | PageviewsUncheckedCreateWithoutArticleInput[]
     connectOrCreate?: PageviewsCreateOrConnectWithoutArticleInput | PageviewsCreateOrConnectWithoutArticleInput[]
@@ -15022,13 +12339,6 @@ export namespace Prisma {
     connectOrCreate?: ReactionsCreateOrConnectWithoutArticleInput | ReactionsCreateOrConnectWithoutArticleInput[]
     createMany?: ReactionsCreateManyArticleInputEnvelope
     connect?: ReactionsWhereUniqueInput | ReactionsWhereUniqueInput[]
-  }
-
-  export type ArticleToTopicsUncheckedCreateNestedManyWithoutArticleInput = {
-    create?: XOR<ArticleToTopicsCreateWithoutArticleInput, ArticleToTopicsUncheckedCreateWithoutArticleInput> | ArticleToTopicsCreateWithoutArticleInput[] | ArticleToTopicsUncheckedCreateWithoutArticleInput[]
-    connectOrCreate?: ArticleToTopicsCreateOrConnectWithoutArticleInput | ArticleToTopicsCreateOrConnectWithoutArticleInput[]
-    createMany?: ArticleToTopicsCreateManyArticleInputEnvelope
-    connect?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
   }
 
   export type PageviewsUncheckedCreateNestedManyWithoutArticleInput = {
@@ -15076,20 +12386,6 @@ export namespace Prisma {
     update?: ReactionsUpdateWithWhereUniqueWithoutArticleInput | ReactionsUpdateWithWhereUniqueWithoutArticleInput[]
     updateMany?: ReactionsUpdateManyWithWhereWithoutArticleInput | ReactionsUpdateManyWithWhereWithoutArticleInput[]
     deleteMany?: ReactionsScalarWhereInput | ReactionsScalarWhereInput[]
-  }
-
-  export type ArticleToTopicsUpdateManyWithoutArticleNestedInput = {
-    create?: XOR<ArticleToTopicsCreateWithoutArticleInput, ArticleToTopicsUncheckedCreateWithoutArticleInput> | ArticleToTopicsCreateWithoutArticleInput[] | ArticleToTopicsUncheckedCreateWithoutArticleInput[]
-    connectOrCreate?: ArticleToTopicsCreateOrConnectWithoutArticleInput | ArticleToTopicsCreateOrConnectWithoutArticleInput[]
-    upsert?: ArticleToTopicsUpsertWithWhereUniqueWithoutArticleInput | ArticleToTopicsUpsertWithWhereUniqueWithoutArticleInput[]
-    createMany?: ArticleToTopicsCreateManyArticleInputEnvelope
-    set?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    disconnect?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    delete?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    connect?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    update?: ArticleToTopicsUpdateWithWhereUniqueWithoutArticleInput | ArticleToTopicsUpdateWithWhereUniqueWithoutArticleInput[]
-    updateMany?: ArticleToTopicsUpdateManyWithWhereWithoutArticleInput | ArticleToTopicsUpdateManyWithWhereWithoutArticleInput[]
-    deleteMany?: ArticleToTopicsScalarWhereInput | ArticleToTopicsScalarWhereInput[]
   }
 
   export type PageviewsUpdateManyWithoutArticleNestedInput = {
@@ -15142,20 +12438,6 @@ export namespace Prisma {
     update?: ReactionsUpdateWithWhereUniqueWithoutArticleInput | ReactionsUpdateWithWhereUniqueWithoutArticleInput[]
     updateMany?: ReactionsUpdateManyWithWhereWithoutArticleInput | ReactionsUpdateManyWithWhereWithoutArticleInput[]
     deleteMany?: ReactionsScalarWhereInput | ReactionsScalarWhereInput[]
-  }
-
-  export type ArticleToTopicsUncheckedUpdateManyWithoutArticleNestedInput = {
-    create?: XOR<ArticleToTopicsCreateWithoutArticleInput, ArticleToTopicsUncheckedCreateWithoutArticleInput> | ArticleToTopicsCreateWithoutArticleInput[] | ArticleToTopicsUncheckedCreateWithoutArticleInput[]
-    connectOrCreate?: ArticleToTopicsCreateOrConnectWithoutArticleInput | ArticleToTopicsCreateOrConnectWithoutArticleInput[]
-    upsert?: ArticleToTopicsUpsertWithWhereUniqueWithoutArticleInput | ArticleToTopicsUpsertWithWhereUniqueWithoutArticleInput[]
-    createMany?: ArticleToTopicsCreateManyArticleInputEnvelope
-    set?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    disconnect?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    delete?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    connect?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    update?: ArticleToTopicsUpdateWithWhereUniqueWithoutArticleInput | ArticleToTopicsUpdateWithWhereUniqueWithoutArticleInput[]
-    updateMany?: ArticleToTopicsUpdateManyWithWhereWithoutArticleInput | ArticleToTopicsUpdateManyWithWhereWithoutArticleInput[]
-    deleteMany?: ArticleToTopicsScalarWhereInput | ArticleToTopicsScalarWhereInput[]
   }
 
   export type PageviewsUncheckedUpdateManyWithoutArticleNestedInput = {
@@ -15270,76 +12552,6 @@ export namespace Prisma {
     upsert?: UsersUpsertWithoutStarsInput
     connect?: UsersWhereUniqueInput
     update?: XOR<XOR<UsersUpdateToOneWithWhereWithoutStarsInput, UsersUpdateWithoutStarsInput>, UsersUncheckedUpdateWithoutStarsInput>
-  }
-
-  export type ArticleToTopicsCreateNestedManyWithoutTopicInput = {
-    create?: XOR<ArticleToTopicsCreateWithoutTopicInput, ArticleToTopicsUncheckedCreateWithoutTopicInput> | ArticleToTopicsCreateWithoutTopicInput[] | ArticleToTopicsUncheckedCreateWithoutTopicInput[]
-    connectOrCreate?: ArticleToTopicsCreateOrConnectWithoutTopicInput | ArticleToTopicsCreateOrConnectWithoutTopicInput[]
-    createMany?: ArticleToTopicsCreateManyTopicInputEnvelope
-    connect?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-  }
-
-  export type ArticleToTopicsUncheckedCreateNestedManyWithoutTopicInput = {
-    create?: XOR<ArticleToTopicsCreateWithoutTopicInput, ArticleToTopicsUncheckedCreateWithoutTopicInput> | ArticleToTopicsCreateWithoutTopicInput[] | ArticleToTopicsUncheckedCreateWithoutTopicInput[]
-    connectOrCreate?: ArticleToTopicsCreateOrConnectWithoutTopicInput | ArticleToTopicsCreateOrConnectWithoutTopicInput[]
-    createMany?: ArticleToTopicsCreateManyTopicInputEnvelope
-    connect?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-  }
-
-  export type ArticleToTopicsUpdateManyWithoutTopicNestedInput = {
-    create?: XOR<ArticleToTopicsCreateWithoutTopicInput, ArticleToTopicsUncheckedCreateWithoutTopicInput> | ArticleToTopicsCreateWithoutTopicInput[] | ArticleToTopicsUncheckedCreateWithoutTopicInput[]
-    connectOrCreate?: ArticleToTopicsCreateOrConnectWithoutTopicInput | ArticleToTopicsCreateOrConnectWithoutTopicInput[]
-    upsert?: ArticleToTopicsUpsertWithWhereUniqueWithoutTopicInput | ArticleToTopicsUpsertWithWhereUniqueWithoutTopicInput[]
-    createMany?: ArticleToTopicsCreateManyTopicInputEnvelope
-    set?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    disconnect?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    delete?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    connect?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    update?: ArticleToTopicsUpdateWithWhereUniqueWithoutTopicInput | ArticleToTopicsUpdateWithWhereUniqueWithoutTopicInput[]
-    updateMany?: ArticleToTopicsUpdateManyWithWhereWithoutTopicInput | ArticleToTopicsUpdateManyWithWhereWithoutTopicInput[]
-    deleteMany?: ArticleToTopicsScalarWhereInput | ArticleToTopicsScalarWhereInput[]
-  }
-
-  export type ArticleToTopicsUncheckedUpdateManyWithoutTopicNestedInput = {
-    create?: XOR<ArticleToTopicsCreateWithoutTopicInput, ArticleToTopicsUncheckedCreateWithoutTopicInput> | ArticleToTopicsCreateWithoutTopicInput[] | ArticleToTopicsUncheckedCreateWithoutTopicInput[]
-    connectOrCreate?: ArticleToTopicsCreateOrConnectWithoutTopicInput | ArticleToTopicsCreateOrConnectWithoutTopicInput[]
-    upsert?: ArticleToTopicsUpsertWithWhereUniqueWithoutTopicInput | ArticleToTopicsUpsertWithWhereUniqueWithoutTopicInput[]
-    createMany?: ArticleToTopicsCreateManyTopicInputEnvelope
-    set?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    disconnect?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    delete?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    connect?: ArticleToTopicsWhereUniqueInput | ArticleToTopicsWhereUniqueInput[]
-    update?: ArticleToTopicsUpdateWithWhereUniqueWithoutTopicInput | ArticleToTopicsUpdateWithWhereUniqueWithoutTopicInput[]
-    updateMany?: ArticleToTopicsUpdateManyWithWhereWithoutTopicInput | ArticleToTopicsUpdateManyWithWhereWithoutTopicInput[]
-    deleteMany?: ArticleToTopicsScalarWhereInput | ArticleToTopicsScalarWhereInput[]
-  }
-
-  export type ArticlesCreateNestedOneWithoutTopicsInput = {
-    create?: XOR<ArticlesCreateWithoutTopicsInput, ArticlesUncheckedCreateWithoutTopicsInput>
-    connectOrCreate?: ArticlesCreateOrConnectWithoutTopicsInput
-    connect?: ArticlesWhereUniqueInput
-  }
-
-  export type TopicsCreateNestedOneWithoutArticlesInput = {
-    create?: XOR<TopicsCreateWithoutArticlesInput, TopicsUncheckedCreateWithoutArticlesInput>
-    connectOrCreate?: TopicsCreateOrConnectWithoutArticlesInput
-    connect?: TopicsWhereUniqueInput
-  }
-
-  export type ArticlesUpdateOneRequiredWithoutTopicsNestedInput = {
-    create?: XOR<ArticlesCreateWithoutTopicsInput, ArticlesUncheckedCreateWithoutTopicsInput>
-    connectOrCreate?: ArticlesCreateOrConnectWithoutTopicsInput
-    upsert?: ArticlesUpsertWithoutTopicsInput
-    connect?: ArticlesWhereUniqueInput
-    update?: XOR<XOR<ArticlesUpdateToOneWithWhereWithoutTopicsInput, ArticlesUpdateWithoutTopicsInput>, ArticlesUncheckedUpdateWithoutTopicsInput>
-  }
-
-  export type TopicsUpdateOneRequiredWithoutArticlesNestedInput = {
-    create?: XOR<TopicsCreateWithoutArticlesInput, TopicsUncheckedCreateWithoutArticlesInput>
-    connectOrCreate?: TopicsCreateOrConnectWithoutArticlesInput
-    upsert?: TopicsUpsertWithoutArticlesInput
-    connect?: TopicsWhereUniqueInput
-    update?: XOR<XOR<TopicsUpdateToOneWithWhereWithoutArticlesInput, TopicsUpdateWithoutArticlesInput>, TopicsUncheckedUpdateWithoutArticlesInput>
   }
 
   export type ArticlesCreateNestedOneWithoutPageviewsInput = {
@@ -15672,7 +12884,6 @@ export namespace Prisma {
     deletedAt?: Date | string | null
     stars?: StarsCreateNestedManyWithoutArticleInput
     reactions?: ReactionsCreateNestedManyWithoutArticleInput
-    topics?: ArticleToTopicsCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsCreateNestedManyWithoutArticleInput
     series?: SeriesCreateNestedOneWithoutArticlesInput
   }
@@ -15688,7 +12899,6 @@ export namespace Prisma {
     deletedAt?: Date | string | null
     stars?: StarsUncheckedCreateNestedManyWithoutArticleInput
     reactions?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
-    topics?: ArticleToTopicsUncheckedCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutArticleInput
   }
 
@@ -15915,30 +13125,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ArticleToTopicsCreateWithoutArticleInput = {
-    id?: string
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-    topic: TopicsCreateNestedOneWithoutArticlesInput
-  }
-
-  export type ArticleToTopicsUncheckedCreateWithoutArticleInput = {
-    id?: string
-    topicId: string
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-  }
-
-  export type ArticleToTopicsCreateOrConnectWithoutArticleInput = {
-    where: ArticleToTopicsWhereUniqueInput
-    create: XOR<ArticleToTopicsCreateWithoutArticleInput, ArticleToTopicsUncheckedCreateWithoutArticleInput>
-  }
-
-  export type ArticleToTopicsCreateManyArticleInputEnvelope = {
-    data: ArticleToTopicsCreateManyArticleInput | ArticleToTopicsCreateManyArticleInput[]
-    skipDuplicates?: boolean
-  }
-
   export type PageviewsCreateWithoutArticleInput = {
     id?: string
     createdAt: Date | string
@@ -16045,33 +13231,6 @@ export namespace Prisma {
     data: XOR<ReactionsUpdateManyMutationInput, ReactionsUncheckedUpdateManyWithoutArticleInput>
   }
 
-  export type ArticleToTopicsUpsertWithWhereUniqueWithoutArticleInput = {
-    where: ArticleToTopicsWhereUniqueInput
-    update: XOR<ArticleToTopicsUpdateWithoutArticleInput, ArticleToTopicsUncheckedUpdateWithoutArticleInput>
-    create: XOR<ArticleToTopicsCreateWithoutArticleInput, ArticleToTopicsUncheckedCreateWithoutArticleInput>
-  }
-
-  export type ArticleToTopicsUpdateWithWhereUniqueWithoutArticleInput = {
-    where: ArticleToTopicsWhereUniqueInput
-    data: XOR<ArticleToTopicsUpdateWithoutArticleInput, ArticleToTopicsUncheckedUpdateWithoutArticleInput>
-  }
-
-  export type ArticleToTopicsUpdateManyWithWhereWithoutArticleInput = {
-    where: ArticleToTopicsScalarWhereInput
-    data: XOR<ArticleToTopicsUpdateManyMutationInput, ArticleToTopicsUncheckedUpdateManyWithoutArticleInput>
-  }
-
-  export type ArticleToTopicsScalarWhereInput = {
-    AND?: ArticleToTopicsScalarWhereInput | ArticleToTopicsScalarWhereInput[]
-    OR?: ArticleToTopicsScalarWhereInput[]
-    NOT?: ArticleToTopicsScalarWhereInput | ArticleToTopicsScalarWhereInput[]
-    id?: StringFilter<"ArticleToTopics"> | string
-    articleId?: StringFilter<"ArticleToTopics"> | string
-    topicId?: StringFilter<"ArticleToTopics"> | string
-    createdAt?: DateTimeFilter<"ArticleToTopics"> | Date | string
-    deletedAt?: DateTimeNullableFilter<"ArticleToTopics"> | Date | string | null
-  }
-
   export type PageviewsUpsertWithWhereUniqueWithoutArticleInput = {
     where: PageviewsWhereUniqueInput
     update: XOR<PageviewsUpdateWithoutArticleInput, PageviewsUncheckedUpdateWithoutArticleInput>
@@ -16124,7 +13283,6 @@ export namespace Prisma {
     author: AuthorsCreateNestedOneWithoutArticlesInput
     stars?: StarsCreateNestedManyWithoutArticleInput
     reactions?: ReactionsCreateNestedManyWithoutArticleInput
-    topics?: ArticleToTopicsCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsCreateNestedManyWithoutArticleInput
   }
 
@@ -16139,7 +13297,6 @@ export namespace Prisma {
     deletedAt?: Date | string | null
     stars?: StarsUncheckedCreateNestedManyWithoutArticleInput
     reactions?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
-    topics?: ArticleToTopicsUncheckedCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutArticleInput
   }
 
@@ -16202,7 +13359,6 @@ export namespace Prisma {
     deletedAt?: Date | string | null
     author: AuthorsCreateNestedOneWithoutArticlesInput
     stars?: StarsCreateNestedManyWithoutArticleInput
-    topics?: ArticleToTopicsCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsCreateNestedManyWithoutArticleInput
     series?: SeriesCreateNestedOneWithoutArticlesInput
   }
@@ -16218,7 +13374,6 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     stars?: StarsUncheckedCreateNestedManyWithoutArticleInput
-    topics?: ArticleToTopicsUncheckedCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutArticleInput
   }
 
@@ -16277,7 +13432,6 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     author?: AuthorsUpdateOneRequiredWithoutArticlesNestedInput
     stars?: StarsUpdateManyWithoutArticleNestedInput
-    topics?: ArticleToTopicsUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUpdateManyWithoutArticleNestedInput
     series?: SeriesUpdateOneWithoutArticlesNestedInput
   }
@@ -16293,7 +13447,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     stars?: StarsUncheckedUpdateManyWithoutArticleNestedInput
-    topics?: ArticleToTopicsUncheckedUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutArticleNestedInput
   }
 
@@ -16307,7 +13460,6 @@ export namespace Prisma {
     deletedAt?: Date | string | null
     author: AuthorsCreateNestedOneWithoutArticlesInput
     reactions?: ReactionsCreateNestedManyWithoutArticleInput
-    topics?: ArticleToTopicsCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsCreateNestedManyWithoutArticleInput
     series?: SeriesCreateNestedOneWithoutArticlesInput
   }
@@ -16323,7 +13475,6 @@ export namespace Prisma {
     createdAt: Date | string
     deletedAt?: Date | string | null
     reactions?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
-    topics?: ArticleToTopicsUncheckedCreateNestedManyWithoutArticleInput
     pageviews?: PageviewsUncheckedCreateNestedManyWithoutArticleInput
   }
 
@@ -16376,7 +13527,6 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     author?: AuthorsUpdateOneRequiredWithoutArticlesNestedInput
     reactions?: ReactionsUpdateManyWithoutArticleNestedInput
-    topics?: ArticleToTopicsUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUpdateManyWithoutArticleNestedInput
     series?: SeriesUpdateOneWithoutArticlesNestedInput
   }
@@ -16392,7 +13542,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
-    topics?: ArticleToTopicsUncheckedUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutArticleNestedInput
   }
 
@@ -16425,166 +13574,6 @@ export namespace Prisma {
     pageviews?: PageviewsUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type ArticleToTopicsCreateWithoutTopicInput = {
-    id?: string
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-    article: ArticlesCreateNestedOneWithoutTopicsInput
-  }
-
-  export type ArticleToTopicsUncheckedCreateWithoutTopicInput = {
-    id?: string
-    articleId: string
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-  }
-
-  export type ArticleToTopicsCreateOrConnectWithoutTopicInput = {
-    where: ArticleToTopicsWhereUniqueInput
-    create: XOR<ArticleToTopicsCreateWithoutTopicInput, ArticleToTopicsUncheckedCreateWithoutTopicInput>
-  }
-
-  export type ArticleToTopicsCreateManyTopicInputEnvelope = {
-    data: ArticleToTopicsCreateManyTopicInput | ArticleToTopicsCreateManyTopicInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ArticleToTopicsUpsertWithWhereUniqueWithoutTopicInput = {
-    where: ArticleToTopicsWhereUniqueInput
-    update: XOR<ArticleToTopicsUpdateWithoutTopicInput, ArticleToTopicsUncheckedUpdateWithoutTopicInput>
-    create: XOR<ArticleToTopicsCreateWithoutTopicInput, ArticleToTopicsUncheckedCreateWithoutTopicInput>
-  }
-
-  export type ArticleToTopicsUpdateWithWhereUniqueWithoutTopicInput = {
-    where: ArticleToTopicsWhereUniqueInput
-    data: XOR<ArticleToTopicsUpdateWithoutTopicInput, ArticleToTopicsUncheckedUpdateWithoutTopicInput>
-  }
-
-  export type ArticleToTopicsUpdateManyWithWhereWithoutTopicInput = {
-    where: ArticleToTopicsScalarWhereInput
-    data: XOR<ArticleToTopicsUpdateManyMutationInput, ArticleToTopicsUncheckedUpdateManyWithoutTopicInput>
-  }
-
-  export type ArticlesCreateWithoutTopicsInput = {
-    id?: string
-    title: string
-    description: string
-    articleMarkdown: string
-    imageUrl?: string | null
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-    author: AuthorsCreateNestedOneWithoutArticlesInput
-    stars?: StarsCreateNestedManyWithoutArticleInput
-    reactions?: ReactionsCreateNestedManyWithoutArticleInput
-    pageviews?: PageviewsCreateNestedManyWithoutArticleInput
-    series?: SeriesCreateNestedOneWithoutArticlesInput
-  }
-
-  export type ArticlesUncheckedCreateWithoutTopicsInput = {
-    id?: string
-    title: string
-    description: string
-    articleMarkdown: string
-    imageUrl?: string | null
-    authorId: string
-    seriesId?: string | null
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-    stars?: StarsUncheckedCreateNestedManyWithoutArticleInput
-    reactions?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
-    pageviews?: PageviewsUncheckedCreateNestedManyWithoutArticleInput
-  }
-
-  export type ArticlesCreateOrConnectWithoutTopicsInput = {
-    where: ArticlesWhereUniqueInput
-    create: XOR<ArticlesCreateWithoutTopicsInput, ArticlesUncheckedCreateWithoutTopicsInput>
-  }
-
-  export type TopicsCreateWithoutArticlesInput = {
-    id?: string
-    topicName: string
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-  }
-
-  export type TopicsUncheckedCreateWithoutArticlesInput = {
-    id?: string
-    topicName: string
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-  }
-
-  export type TopicsCreateOrConnectWithoutArticlesInput = {
-    where: TopicsWhereUniqueInput
-    create: XOR<TopicsCreateWithoutArticlesInput, TopicsUncheckedCreateWithoutArticlesInput>
-  }
-
-  export type ArticlesUpsertWithoutTopicsInput = {
-    update: XOR<ArticlesUpdateWithoutTopicsInput, ArticlesUncheckedUpdateWithoutTopicsInput>
-    create: XOR<ArticlesCreateWithoutTopicsInput, ArticlesUncheckedCreateWithoutTopicsInput>
-    where?: ArticlesWhereInput
-  }
-
-  export type ArticlesUpdateToOneWithWhereWithoutTopicsInput = {
-    where?: ArticlesWhereInput
-    data: XOR<ArticlesUpdateWithoutTopicsInput, ArticlesUncheckedUpdateWithoutTopicsInput>
-  }
-
-  export type ArticlesUpdateWithoutTopicsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    articleMarkdown?: StringFieldUpdateOperationsInput | string
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    author?: AuthorsUpdateOneRequiredWithoutArticlesNestedInput
-    stars?: StarsUpdateManyWithoutArticleNestedInput
-    reactions?: ReactionsUpdateManyWithoutArticleNestedInput
-    pageviews?: PageviewsUpdateManyWithoutArticleNestedInput
-    series?: SeriesUpdateOneWithoutArticlesNestedInput
-  }
-
-  export type ArticlesUncheckedUpdateWithoutTopicsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    articleMarkdown?: StringFieldUpdateOperationsInput | string
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    authorId?: StringFieldUpdateOperationsInput | string
-    seriesId?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    stars?: StarsUncheckedUpdateManyWithoutArticleNestedInput
-    reactions?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
-    pageviews?: PageviewsUncheckedUpdateManyWithoutArticleNestedInput
-  }
-
-  export type TopicsUpsertWithoutArticlesInput = {
-    update: XOR<TopicsUpdateWithoutArticlesInput, TopicsUncheckedUpdateWithoutArticlesInput>
-    create: XOR<TopicsCreateWithoutArticlesInput, TopicsUncheckedCreateWithoutArticlesInput>
-    where?: TopicsWhereInput
-  }
-
-  export type TopicsUpdateToOneWithWhereWithoutArticlesInput = {
-    where?: TopicsWhereInput
-    data: XOR<TopicsUpdateWithoutArticlesInput, TopicsUncheckedUpdateWithoutArticlesInput>
-  }
-
-  export type TopicsUpdateWithoutArticlesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    topicName?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type TopicsUncheckedUpdateWithoutArticlesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    topicName?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
   export type ArticlesCreateWithoutPageviewsInput = {
     id?: string
     title: string
@@ -16596,7 +13585,6 @@ export namespace Prisma {
     author: AuthorsCreateNestedOneWithoutArticlesInput
     stars?: StarsCreateNestedManyWithoutArticleInput
     reactions?: ReactionsCreateNestedManyWithoutArticleInput
-    topics?: ArticleToTopicsCreateNestedManyWithoutArticleInput
     series?: SeriesCreateNestedOneWithoutArticlesInput
   }
 
@@ -16612,7 +13600,6 @@ export namespace Prisma {
     deletedAt?: Date | string | null
     stars?: StarsUncheckedCreateNestedManyWithoutArticleInput
     reactions?: ReactionsUncheckedCreateNestedManyWithoutArticleInput
-    topics?: ArticleToTopicsUncheckedCreateNestedManyWithoutArticleInput
   }
 
   export type ArticlesCreateOrConnectWithoutPageviewsInput = {
@@ -16665,7 +13652,6 @@ export namespace Prisma {
     author?: AuthorsUpdateOneRequiredWithoutArticlesNestedInput
     stars?: StarsUpdateManyWithoutArticleNestedInput
     reactions?: ReactionsUpdateManyWithoutArticleNestedInput
-    topics?: ArticleToTopicsUpdateManyWithoutArticleNestedInput
     series?: SeriesUpdateOneWithoutArticlesNestedInput
   }
 
@@ -16681,7 +13667,6 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     stars?: StarsUncheckedUpdateManyWithoutArticleNestedInput
     reactions?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
-    topics?: ArticleToTopicsUncheckedUpdateManyWithoutArticleNestedInput
   }
 
   export type UsersUpsertWithoutPageviewsInput = {
@@ -16829,7 +13814,6 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     stars?: StarsUpdateManyWithoutArticleNestedInput
     reactions?: ReactionsUpdateManyWithoutArticleNestedInput
-    topics?: ArticleToTopicsUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUpdateManyWithoutArticleNestedInput
     series?: SeriesUpdateOneWithoutArticlesNestedInput
   }
@@ -16845,7 +13829,6 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     stars?: StarsUncheckedUpdateManyWithoutArticleNestedInput
     reactions?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
-    topics?: ArticleToTopicsUncheckedUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutArticleNestedInput
   }
 
@@ -16892,13 +13875,6 @@ export namespace Prisma {
     id?: string
     userId: string
     reactionText: string
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-  }
-
-  export type ArticleToTopicsCreateManyArticleInput = {
-    id?: string
-    topicId: string
     createdAt: Date | string
     deletedAt?: Date | string | null
   }
@@ -16955,27 +13931,6 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type ArticleToTopicsUpdateWithoutArticleInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    topic?: TopicsUpdateOneRequiredWithoutArticlesNestedInput
-  }
-
-  export type ArticleToTopicsUncheckedUpdateWithoutArticleInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    topicId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type ArticleToTopicsUncheckedUpdateManyWithoutArticleInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    topicId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
   export type PageviewsUpdateWithoutArticleInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -17019,7 +13974,6 @@ export namespace Prisma {
     author?: AuthorsUpdateOneRequiredWithoutArticlesNestedInput
     stars?: StarsUpdateManyWithoutArticleNestedInput
     reactions?: ReactionsUpdateManyWithoutArticleNestedInput
-    topics?: ArticleToTopicsUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUpdateManyWithoutArticleNestedInput
   }
 
@@ -17034,7 +13988,6 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     stars?: StarsUncheckedUpdateManyWithoutArticleNestedInput
     reactions?: ReactionsUncheckedUpdateManyWithoutArticleNestedInput
-    topics?: ArticleToTopicsUncheckedUpdateManyWithoutArticleNestedInput
     pageviews?: PageviewsUncheckedUpdateManyWithoutArticleNestedInput
   }
 
@@ -17045,34 +13998,6 @@ export namespace Prisma {
     articleMarkdown?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     authorId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type ArticleToTopicsCreateManyTopicInput = {
-    id?: string
-    articleId: string
-    createdAt: Date | string
-    deletedAt?: Date | string | null
-  }
-
-  export type ArticleToTopicsUpdateWithoutTopicInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    article?: ArticlesUpdateOneRequiredWithoutTopicsNestedInput
-  }
-
-  export type ArticleToTopicsUncheckedUpdateWithoutTopicInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    articleId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type ArticleToTopicsUncheckedUpdateManyWithoutTopicInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    articleId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }

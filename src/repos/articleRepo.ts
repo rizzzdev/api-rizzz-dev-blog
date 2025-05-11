@@ -1,16 +1,10 @@
 import { datetime } from "../libs/datetime";
 import { prisma } from "../server";
-import { Articles } from "../server/prisma";
 import { RequestArticleType } from "../types/articleType";
 
 export const getArticlesRepo = async () => {
   return await prisma.articles.findMany({
     include: {
-      topics: {
-        include: {
-          topic: true,
-        },
-      },
       reactions: {
         include: {
           user: true,
@@ -37,11 +31,6 @@ export const getArticleByIdRepo = async (id: string) => {
       id,
     },
     include: {
-      topics: {
-        include: {
-          topic: true,
-        },
-      },
       reactions: {
         include: {
           user: true,
@@ -85,11 +74,6 @@ export const updateArticleByIdRepo = async (
       id,
     },
     include: {
-      topics: {
-        include: {
-          topic: true,
-        },
-      },
       reactions: {
         include: {
           user: true,

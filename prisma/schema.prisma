@@ -47,18 +47,17 @@ model Sessions {
 }
 
 model Articles {
-  id              String            @id @default(uuid())
+  id              String      @id @default(uuid())
   title           String
   description     String
   articleMarkdown String
   imageUrl        String?
-  author          Authors           @relation(references: [id], fields: [authorId])
+  author          Authors     @relation(references: [id], fields: [authorId])
   authorId        String
   stars           Stars[]
   reactions       Reactions[]
-  topics          ArticleToTopics[]
   pageviews       Pageviews[]
-  series          Series?           @relation(references: [id], fields: [seriesId])
+  series          Series?     @relation(references: [id], fields: [seriesId])
   seriesId        String?
   createdAt       DateTime
   deletedAt       DateTime?
@@ -89,24 +88,6 @@ model Stars {
   articleId String?
   user      Users     @relation(references: [id], fields: [userId])
   userId    String
-  createdAt DateTime
-  deletedAt DateTime?
-}
-
-model Topics {
-  id        String            @id @default(uuid())
-  articles  ArticleToTopics[]
-  topicName String
-  createdAt DateTime
-  deletedAt DateTime?
-}
-
-model ArticleToTopics {
-  id        String    @id @default(uuid())
-  article   Articles  @relation(references: [id], fields: [articleId])
-  articleId String
-  topic     Topics    @relation(references: [id], fields: [topicId])
-  topicId   String
   createdAt DateTime
   deletedAt DateTime?
 }

@@ -8,7 +8,6 @@ export const getAuthorsRepo = async () => {
       sessions: true,
       articles: {
         include: {
-          topics: true,
           reactions: true,
           stars: true,
           pageviews: true,

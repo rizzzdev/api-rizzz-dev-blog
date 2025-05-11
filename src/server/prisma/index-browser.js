@@ -177,21 +177,6 @@ exports.Prisma.StarsScalarFieldEnum = {
   deletedAt: 'deletedAt'
 };
 
-exports.Prisma.TopicsScalarFieldEnum = {
-  id: 'id',
-  topicName: 'topicName',
-  createdAt: 'createdAt',
-  deletedAt: 'deletedAt'
-};
-
-exports.Prisma.ArticleToTopicsScalarFieldEnum = {
-  id: 'id',
-  articleId: 'articleId',
-  topicId: 'topicId',
-  createdAt: 'createdAt',
-  deletedAt: 'deletedAt'
-};
-
 exports.Prisma.PageviewsScalarFieldEnum = {
   id: 'id',
   articleId: 'articleId',
@@ -224,8 +209,6 @@ exports.Prisma.ModelName = {
   Series: 'Series',
   Reactions: 'Reactions',
   Stars: 'Stars',
-  Topics: 'Topics',
-  ArticleToTopics: 'ArticleToTopics',
   Pageviews: 'Pageviews'
 };
 
