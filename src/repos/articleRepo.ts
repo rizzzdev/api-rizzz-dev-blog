@@ -21,6 +21,7 @@ export const getArticlesRepo = async () => {
           user: true,
         },
       },
+      series: true,
     },
   });
 };
@@ -47,6 +48,7 @@ export const getArticleByIdRepo = async (id: string) => {
           user: true,
         },
       },
+      series: true,
     },
   });
 };
@@ -90,6 +92,7 @@ export const updateArticleByIdRepo = async (
           user: true,
         },
       },
+      series: true,
     },
   });
 };
